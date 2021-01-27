@@ -1,0 +1,7 @@
+#bashrc and alias shortcuts
+
+#edit your ~/.profile to have these lines in it, pointing to the equivalent directory for this project
+
+export BASH_INCLUDES=~/git/crimesp/bash
+source $BASH_INCLUDES/.profile
+
