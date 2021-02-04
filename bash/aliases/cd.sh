@@ -8,3 +8,7 @@ alias .cd.em='cd ~/git/em'
 alias .cd.hrs='cd ~/git/em/em-hrs-api'
 
 alias .cd.workstation='cd ~/git/crimesp/workstation-config'
+
+alias .cd.idea.projects='cd /home/paul/idea/'
+
+alias .cd.multi='cd /home/paul/idea/multiproject'

@@ -9,3 +9,5 @@ cat << EOF >> ~/.gitconfig
   type = cat-file -t
   dump = cat-file -p
 EOF
+
+git config --global core.editor vim
