@@ -1,7 +1,7 @@
 #bashrc and alias shortcuts
 
-#edit your ~/.profile to have these lines in it, pointing to the equivalent directory for this project
+#edit your ~/.bash_aliases to have these lines in it, pointing to the equivalent directory for this project
 
-export BASH_INCLUDES=~/git/crimesp/bash
+export BASH_INCLUDES=~/git/crimesp/workstation-config/bash
 source $BASH_INCLUDES/.profile
 
