@@ -14,3 +14,7 @@ alias .cd.workstation='cd ~/git/crimesp/workstation-config'
 alias .cd.idea.projects='cd /home/paul/idea/'
 
 alias .cd.multi='cd /home/paul/idea/multiproject'
+
+
+alias ..cd.cloudservices='cd ~/git/cloudservices/'
+
