@@ -19,35 +19,35 @@ alias .liquibase-create-change-log='./gradlew liquibaseDiffChangelog'
 
 
 #applies the changeset (as performed during jenkins builds)
-alias .liquibase-apply-change-log='gradlew migratePostgresDatabase'
+alias .liquibase-apply-change-log='./gradlew migratePostgresDatabase'
+
+
+alias .build='./gradlew build'
+
+alias .app-run='./gradlew bootRun'
+
+alias .app-smoke-test='./gradlew smoke -i'
 
 
 
 
-alias .app-run='gradlew bootRun'
+alias .test-functional='./gradlew functional -i'
 
-alias .app-smoke-test='gradlew smoke -i'
+alias .test-integration='./gradlew integration -i'
 
-
-
-
-alias .test-functional='gradlew functional -i'
-
-alias .test-integration='gradlew integration -i'
-
-alias .test-code='gradlew test -i'
+alias .test-code='./gradlew test -i'
 
 
 
 
 
-alias .check-code='gradlew check -i'
+alias .check-code='./gradlew check -i'
 
-alias .check-dependencies='gradlew dependencyCheckAggregate -i'
+alias .check-dependencies='./gradlew dependencyCheckAggregate -i'
 
-alias .check-coverage='gradlew test integration  jacocoTestCoverageVerification jacocoTestReport && open build/reports/jacoco/test/html/index.html'
+alias .check-coverage='./gradlew test integration  jacocoTestCoverageVerification jacocoTestReport && open build/reports/jacoco/test/html/index.html'
 
-alias .check-all='gradlew test integration check dependencyCheckAggregate jacocoTestCoverageVerification jacocoTestReport && open	build/reports/jacoco/test/html/index.html'
+alias .check-all='./gradlew test integration check dependencyCheckAggregate jacocoTestCoverageVerification jacocoTestReport && open	build/reports/jacoco/test/html/index.html'
 
 
 
@@ -60,10 +60,10 @@ alias .sonarqube-run-local-sonarqube-server='docker start sonarqube'
 
 
 # First time run sonarqube containers have a default password of admin
-alias .sonarqube-run-tests-with-password-as-admin='gradlew sonarqube -Dsonar.login="admin" -Dsonar.password="admin" -i'
+alias .sonarqube-run-tests-with-password-as-admin='./gradlew sonarqube -Dsonar.login="admin" -Dsonar.password="admin" -i'
 
 
-alias .sonarqube-run-tests-with-password-as-adminnew='gradlew sonarqube -Dsonar.login="admin" -Dsonar.password="adminnew" -i && open http://localhost:9000/'
+alias .sonarqube-run-tests-with-password-as-adminnew='./gradlew sonarqube -Dsonar.login="admin" -Dsonar.password="adminnew" -i && open http://localhost:9000/'
 
 
 
