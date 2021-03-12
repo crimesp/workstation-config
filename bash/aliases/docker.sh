@@ -3,8 +3,8 @@ alias .docker.container.ps='docker container ps'
 
 
 
-#usage docker-tags "microsoft/nanoserver" "microsoft/dotnet" "library/mongo" "library/redis"
-docker-tags() {
+#usage .docker.tags.show-available "microsoft/nanoserver" "microsoft/dotnet" "library/mongo" "library/redis"
+.docker.tags.show-available() {
     arr=("$@")
 
     for item in "${arr[@]}";
