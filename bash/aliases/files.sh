@@ -42,9 +42,9 @@ function .files.find_and_grep() {
     return 1
     fi
 
-   if [ -z "$1" ]
+   if [ -z "$2" ]
     then
-        echo "Supply a grep pattern"
+        echo "Supply grep pattern/arguments"
     return 1
     fi
 
