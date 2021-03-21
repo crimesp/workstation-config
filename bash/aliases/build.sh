@@ -5,11 +5,13 @@ alias .build.compose-up='docker-compose up'
 alias .build.compose-down='docker-compose down'
 
 #fires up dependencies for this project
-alias .build.dependencies-up='docker-compose -f docker-compose-dependencies.yml up'
+alias .build.docker-dependencies-up='docker-compose -f docker-compose-dependencies.yml up'
 
 #shuts down dependencies for this project - database content will be reset to a vanilla postgres instance
-alias .build.dependencies-down='docker-compose -f docker-compose-dependencies.yml down'
+alias .build.docker-dependencies-down='docker-compose -f docker-compose-dependencies.yml down'
 
+
+alias .build.dependencies='./gradlew dependencies'
 
 
 

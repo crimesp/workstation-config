@@ -3,6 +3,9 @@
 ########################################################
 
 
+
+
+
 function .aws_asg_describe_instances_tags () {
     pattern=$1
 
