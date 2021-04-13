@@ -6,7 +6,7 @@
 
 
 
-function .aws_asg_describe_instances_tags () {
+function aws_asg_describe_instances_tags () {
     pattern=$1
 
     aws ec2 describe-instances --output ${3:-table} --region eu-west-2 \

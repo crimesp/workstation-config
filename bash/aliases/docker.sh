@@ -1,6 +1,7 @@
 ### DOCKER ###
 alias .docker.container.ps='docker container ps'
 
+alias .docker.prune.all='docker system prune -a'
 
 
 #usage .docker.tags.show-available "microsoft/nanoserver" "microsoft/dotnet" "library/mongo" "library/redis"

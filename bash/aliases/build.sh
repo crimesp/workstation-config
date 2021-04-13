@@ -11,8 +11,8 @@ alias .build.docker-dependencies-up='docker-compose -f docker-compose-dependenci
 alias .build.docker-dependencies-down='docker-compose -f docker-compose-dependencies.yml down'
 
 
-alias .build.dependencies='./gradlew dependencies'
-
+alias .build.dependencies.show-tree='./gradlew dependencies'
+alias .build.dependencies.='.build.dependencies.show-tree'
 
 
 
@@ -24,12 +24,12 @@ alias .build.liquibase-create-change-log='./gradlew liquibaseDiffChangelog'
 alias .build.liquibase-apply-change-log='./gradlew migratePostgresDatabase'
 
 
-alias .build.build='./gradlew build'
+alias .build.build='./gradlew build -i'
+alias .build.='.build.build'
 
 alias .build.app-run='./gradlew bootRun'
 
 alias .build.app-smoke-test='./gradlew smoke -i'
-
 
 
 
