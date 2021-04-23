@@ -12,7 +12,7 @@ alias .az.credentials.aat.01='az aks get-credentials --resource-group aat-01-rg 
 
 alias .kubernetes.deployments.get='kubectl get deployments'
 alias .kubernetes.deployment.describe='kubectl describe deployment'
-alias .kubernetes.namespace.set='kubectl config set-context --current --namespace='
+alias .kubernetes.namespace.em='kubectl config set-context --current --namespace=em'
 alias .kubernetes.cluster-info='kubectl cluster-info'
 
 #kubectl scale deployment em-hrs-ingestor-java --replicas 0
