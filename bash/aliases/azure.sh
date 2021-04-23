@@ -10,7 +10,16 @@ alias .az.credentials.aat.00='az aks get-credentials --resource-group aat-00-rg 
 alias .az.credentials.aat.01='az aks get-credentials --resource-group aat-01-rg --name aat-01-aks --subscription DCD-CFTAPPS-STG --overwrite'
 
 
+alias .kubernetes.deployments.get='kubectl get deployments'
+alias .kubernetes.deployment.describe='kubectl describe deployment'
+alias .kubernetes.namespace.set='kubectl config set-context --current --namespace='
+alias .kubernetes.cluster-info='kubectl cluster-info'
+
+#kubectl scale deployment em-hrs-ingestor-java --replicas 0
+
+
 alias .kubernetes.pods.list='kubectl get pods -n em'
+alias .kubernetes.list='kubectl get pods'
 
 alias .kubernetes.desribe='kubectl describe pod -n em'
 
