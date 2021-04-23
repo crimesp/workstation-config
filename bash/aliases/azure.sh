@@ -23,7 +23,7 @@ alias .kubernetes.list='kubectl get pods'
 
 alias .kubernetes.desribe='kubectl describe pod -n em'
 
-alias .kubernetes.log='kubectl logs -n em '
+alias .kubernetes.log='kubectl logs -f '
 
 alias .kubernetes.traefic.admin='kubectl get service traefik -n admin -o json'
 
