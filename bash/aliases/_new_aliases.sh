@@ -19,6 +19,7 @@ alias .az.credentials.preview.00='az aks get-credentials --resource-group previe
 
 
 alias .az.credentials.perf.00='az aks get-credentials --resource-group perftest-00-rg --name perftest-00-aks --subscription DCD-CFTAPPS-TEST --overwrite'
+alias .az.credentials.perf.01='az aks get-credentials --resource-group perftest-01-rg --name perftest-01-aks --subscription DCD-CFTAPPS-TEST --overwrite'
 
 
 alias .kubernetes.namespace.em='kubectl config set-context --current --namespace=em'
