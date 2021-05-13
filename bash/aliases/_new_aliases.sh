@@ -12,7 +12,7 @@ alias .kubernetes.context.perftest.01='kubectl config use-context perftest-01-ak
 alias .kubernetes.context.preview.00='kubectl config use-context preview-00-aks'
 alias .kubernetes.context.preview.01='kubectl config use-context preview-01-aks'
 
-preview-01-aks
+alias .kubernetes.events.get='kubectl get events'
 
 
 alias .az.credentials.preview.00='az aks get-credentials --resource-group preview-00-rg --name preview-00-aks --subscription DCD-CFTAPPS-DEV --overwrite'
