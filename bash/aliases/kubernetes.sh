@@ -1,5 +1,7 @@
 #kubectl scale deployment em-hrs-ingestor-java --replicas 0
 
+alias .helm.list='helm list -a'
+
 alias .kubernetes.cluster-info='kubectl cluster-info'
 
 alias .kubernetes.context.aat.00='kubectl config use-context aat-00-aks'
