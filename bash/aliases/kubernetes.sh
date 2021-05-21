@@ -34,6 +34,7 @@ alias .kubernetes.log.ingestor='kubectl logs -f -l app.kubernetes.io/name=em-hrs
 alias .kubernetes.log.all="kubectl logs -f -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-java)'"
 
 alias .kubernetes.log.all.contexts.aat='...kubernetes.log.all.contexts.aat'
+alias .kubernetes.log.all.contexts.perftest='...kubernetes.log.all.contexts.perftest'
 
 function ...kubernetes.log.all.contexts.aat() {
   .kubernetes.context.aat.00
@@ -42,6 +43,16 @@ function ...kubernetes.log.all.contexts.aat() {
   .kubernetes.log.all &
   echo "logging all"
 }
+
+
+function ...kubernetes.log.all.contexts.perftest() {
+  .kubernetes.context.perftest.00
+  .kubernetes.log.all &
+  .kubernetes.context.perftest.01
+  .kubernetes.log.all &
+  echo "logging all"
+}
+
 
 
 #job logs, to be refined once we see a job running, hopefully a different
