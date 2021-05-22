@@ -20,6 +20,14 @@ alias .kubernetes.jobs.list.watch='kubectl get cronjob --watch'
 alias .kubernetes.delete='kubectl delete pods'
 
 alias .kubernetes.deployment.describe='kubectl describe deployment'
+
+alias .kubernetes.deployments.get.all='kubectl get all'
+
+alias .kubernetes.flux.logs.em='kubectl logs -n admin -f deployment.apps/flux-helm-operator | grep targetNamespace=em'
+alias .kubernetes.flux.logs.hrs='kubectl logs -n admin -f deployment.apps/flux-helm-operator | grep release=em-hrs'
+
+alias .kubernetes.hostnames='kubectl get ingress'
+
 alias .kubernetes.deployments.get='kubectl get deployments'
 alias .kubernetes.describe='kubectl describe pod'
 
