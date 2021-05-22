@@ -11,6 +11,11 @@ alias .kubernetes.context.perftest.00='kubectl config use-context perftest-00-ak
 alias .kubernetes.context.perftest.01='kubectl config use-context perftest-01-aks'
 alias .kubernetes.context.preview.00='kubectl config use-context preview-00-aks'
 alias .kubernetes.context.preview.01='kubectl config use-context preview-01-aks'
+
+alias .kubernetes.context.prod.00='kubectl config use-context prod-00-aks'
+alias .kubernetes.context.prod.01='kubectl config use-context prod-01-aks'
+
+
 alias .kubernetes.context.show='kubectl config get-contexts'
 
 alias .kubernetes.jobs.list='kubectl get cronjob'
@@ -40,7 +45,6 @@ alias .kubernetes.log.ingestor='kubectl logs -f -l app.kubernetes.io/name=em-hrs
 alias .kubernetes.log.all="kubectl logs -f -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-java)'"
 
 alias .kubernetes.log.all.contexts.aat='...kubernetes.log.all.contexts.aat'
-alias .kubernetes.log.all.contexts.perftest='...kubernetes.log.all.contexts.perftest'
 
 function ...kubernetes.log.all.contexts.aat() {
   .kubernetes.context.aat.00
@@ -50,11 +54,20 @@ function ...kubernetes.log.all.contexts.aat() {
   echo "logging all"
 }
 
-
+alias .kubernetes.log.all.contexts.perftest='...kubernetes.log.all.contexts.perftest'
 function ...kubernetes.log.all.contexts.perftest() {
   .kubernetes.context.perftest.00
   .kubernetes.log.all &
   .kubernetes.context.perftest.01
+  .kubernetes.log.all &
+  echo "logging all"
+}
+
+alias .kubernetes.log.all.contexts.prod='...kubernetes.log.all.contexts.prod'
+function ...kubernetes.log.all.contexts.prod() {
+  .kubernetes.context.prod.00
+  .kubernetes.log.all &
+  .kubernetes.context.prod.01
   .kubernetes.log.all &
   echo "logging all"
 }
