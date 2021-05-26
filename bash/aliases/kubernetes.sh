@@ -23,6 +23,12 @@ alias .kubernetes.jobs.list.watch='kubectl get cronjob --watch'
 
 
 alias .kubernetes.delete='kubectl delete pods'
+alias .kubernetes.delete.api='kubectl delete pods -l app.kubernetes.io/name=em-hrs-api-java'
+alias .kubernetes.delete.ingestor='kubectl delete pods -l app.kubernetes.io/name=em-hrs-api-java'
+alias .kubernetes.delete.hrs-all='kubectl delete pods -l in (em-hrs-api-java,em-hrs-ingestor-java)'
+
+
+
 
 alias .kubernetes.deployment.describe='kubectl describe deployment'
 
@@ -35,6 +41,11 @@ alias .kubernetes.hostnames='kubectl get ingress'
 
 alias .kubernetes.deployments.get='kubectl get deployments'
 alias .kubernetes.describe='kubectl describe pod'
+
+alias .kubernetes.describe.image='kubectl describe pod | grep mage'
+
+
+
 
 alias .kubernetes.events.get.by.name='kubectl get events --sort-by involvedObject.name'
 alias .kubernetes.events.get.by.time='kubectl get events --sort-by lastTimestamp'
