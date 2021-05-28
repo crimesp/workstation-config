@@ -24,6 +24,10 @@ alias .kubernetes.jobs.list.watch='kubectl get cronjob --watch'
 
 alias .kubernetes.delete='kubectl delete pods'
 alias .kubernetes.delete.api='kubectl delete pods -l app.kubernetes.io/name=em-hrs-api-java'
+
+alias .kubernetes.delete.api.perf='.kubernetes.context.perftest.00 && kubectl delete pods -l app.kubernetes.io/name=em-hrs-api-java && .kubernetes.context.perftest.01 && kubectl delete pods -l app.kubernetes.io/name=em-hrs-api-java '
+
+
 alias .kubernetes.delete.ingestor='kubectl delete pods -l app.kubernetes.io/name=em-hrs-api-java'
 alias .kubernetes.delete.hrs-all='kubectl delete pods -l in (em-hrs-api-java,em-hrs-ingestor-java)'
 
@@ -42,7 +46,16 @@ alias .kubernetes.hostnames='kubectl get ingress'
 alias .kubernetes.deployments.get='kubectl get deployments'
 alias .kubernetes.describe='kubectl describe pod'
 
-alias .kubernetes.describe.image='kubectl describe pod | grep mage'
+
+alias .kubernetes.describe.images.hrs.api.context.all.perftest='...kubernetes.describe.images.hrs.api.context.all.perftest'
+
+
+function ...kubernetes.describe.images.hrs.api.context.all.perftest() {
+  .kubernetes.context.perftest.00
+  kubectl describe pod -l app.kubernetes.io/name=em-hrs-api-java | egrep "mage|Start|State|^Name:"
+  .kubernetes.context.perftest.01
+  kubectl describe pod -l app.kubernetes.io/name=em-hrs-api-java | egrep "mage|Start|State|^Name:"
+}
 
 
 
@@ -51,6 +64,8 @@ alias .kubernetes.events.get.by.name='kubectl get events --sort-by involvedObjec
 alias .kubernetes.events.get.by.time='kubectl get events --sort-by lastTimestamp'
 
 alias .kubernetes.log='kubectl logs -f'
+alias .kubernetes.log.nofollow='kubectl logs'
+
 alias .kubernetes.log.hrs='kubectl logs -f -l app.kubernetes.io/name=em-hrs-api-java'
 alias .kubernetes.log.ingestor='kubectl logs -f -l app.kubernetes.io/name=em-hrs-ingestor-java'
 alias .kubernetes.log.all="kubectl logs -f -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-java)'"
@@ -73,6 +88,17 @@ function ...kubernetes.log.all.contexts.perftest() {
   .kubernetes.log.all &
   echo "logging all"
 }
+
+alias .kubernetes.log.all.contexts.perftest.tofiles='...kubernetes.log.all.contexts.perftest.tofiles'
+function ...kubernetes.log.all.contexts.perftest.tofiles() {
+  .kubernetes.context.perftest.00
+  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-java)' --tail=-1 > perf.00.log.txt 
+  .kubernetes.context.perftest.01
+  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-java)' --tail=-1 > perf.01.log.txt 
+  cat perf.00.log.txt perf.01.log.txt | sort > perf.txt
+  echo "logging all"
+}
+
 
 alias .kubernetes.log.all.contexts.prod='...kubernetes.log.all.contexts.prod'
 function ...kubernetes.log.all.contexts.prod() {
