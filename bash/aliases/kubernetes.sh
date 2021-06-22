@@ -47,6 +47,29 @@ alias .kubernetes.deployments.get='kubectl get deployments'
 alias .kubernetes.describe='kubectl describe pod'
 
 
+alias .kubernetes.describe.images.hrs.api.context.all.prod='...kubernetes.describe.images.hrs.api.context.all.prod'
+
+
+function ...kubernetes.describe.images.hrs.api.context.all.prod() {
+  .kubernetes.context.prod.00
+  kubectl describe pod -l app.kubernetes.io/name=em-hrs-api-java | egrep "mage|Start|State|^Name:"
+  .kubernetes.context.prod.01
+  kubectl describe pod -l app.kubernetes.io/name=em-hrs-api-java | egrep "mage|Start|State|^Name:"
+}
+
+
+alias .kubernetes.describe.images.hrs.ingestor.context.all.prod='...kubernetes.describe.images.hrs.ingestor.context.all.prod'
+
+function ...kubernetes.describe.images.hrs.ingestor.context.all.prod() {
+  .kubernetes.context.prod.00
+  kubectl describe pod -l app.kubernetes.io/name=em-hrs-ingestor-job | egrep "mage|Start|State|^Name:"
+  .kubernetes.context.prod.01
+  kubectl describe pod -l app.kubernetes.io/name=em-hrs-ingestor-job | egrep "mage|Start|State|^Name:"
+}
+
+
+
+
 alias .kubernetes.describe.images.hrs.api.context.all.perftest='...kubernetes.describe.images.hrs.api.context.all.perftest'
 
 
