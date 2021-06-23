@@ -2,76 +2,36 @@
 
 alias .helm.list='helm list -a'
 
-alias .kubernetes.cluster-info='kubectl cluster-info'
-
-alias .kubernetes.context.aat.00='kubectl config use-context aat-00-aks'
-alias .kubernetes.context.aat.01='kubectl config use-context aat-01-aks'
-alias .kubernetes.context.k3d='kubectl config use-context k3d-k3s-default'
-alias .kubernetes.context.perftest.00='kubectl config use-context perftest-00-aks'
-alias .kubernetes.context.perftest.01='kubectl config use-context perftest-01-aks'
-alias .kubernetes.context.preview.00='kubectl config use-context preview-00-aks'
-alias .kubernetes.context.preview.01='kubectl config use-context preview-01-aks'
-
-alias .kubernetes.context.prod.00='kubectl config use-context prod-00-aks'
-alias .kubernetes.context.prod.01='kubectl config use-context prod-01-aks'
-
-
-alias .kubernetes.context.show='kubectl config get-contexts'
-
-alias .kubernetes.jobs.list='kubectl get cronjob'
-alias .kubernetes.jobs.list.watch='kubectl get cronjob --watch'
-
-
-alias .kubernetes.delete='kubectl delete pods'
-alias .kubernetes.delete.api='kubectl delete pods -l app.kubernetes.io/name=em-hrs-api-java'
-
-alias .kubernetes.delete.api.perf='.kubernetes.context.perftest.00 && kubectl delete pods -l app.kubernetes.io/name=em-hrs-api-java && .kubernetes.context.perftest.01 && kubectl delete pods -l app.kubernetes.io/name=em-hrs-api-java '
-
-
-alias .kubernetes.delete.ingestor='kubectl delete pods -l app.kubernetes.io/name=em-hrs-api-java'
-alias .kubernetes.delete.hrs-all='kubectl delete pods -l in (em-hrs-api-java,em-hrs-ingestor-java)'
 
 
 
 
-alias .kubernetes.deployment.describe='kubectl describe deployment'
-
-alias .kubernetes.deployments.get.all='kubectl get all'
-
-alias .kubernetes.flux.logs.em='kubectl logs -n admin -f deployment.apps/flux-helm-operator | grep targetNamespace=em'
-alias .kubernetes.flux.logs.hrs='kubectl logs -n admin -f deployment.apps/flux-helm-operator | grep release=em-hrs'
-
-alias .kubernetes.hostnames='kubectl get ingress'
-
-alias .kubernetes.deployments.get='kubectl get deployments'
-alias .kubernetes.describe='kubectl describe pod'
 
 
-alias .kubernetes.describe.images.hrs.api.context.all.prod='...kubernetes.describe.images.hrs.api.context.all.prod'
 
 
-function ...kubernetes.describe.images.hrs.api.context.all.prod() {
-  .kubernetes.context.prod.00
-  kubectl describe pod -l app.kubernetes.io/name=em-hrs-api-java | egrep "mage|Start|State|^Name:"
-  .kubernetes.context.prod.01
-  kubectl describe pod -l app.kubernetes.io/name=em-hrs-api-java | egrep "mage|Start|State|^Name:"
-}
 
 
-alias .kubernetes.describe.images.hrs.ingestor.context.all.prod='...kubernetes.describe.images.hrs.ingestor.context.all.prod'
 
-function ...kubernetes.describe.images.hrs.ingestor.context.all.prod() {
-  .kubernetes.context.prod.00
-  kubectl describe pod -l app.kubernetes.io/name=em-hrs-ingestor-job | egrep "mage|Start|State|^Name:"
-  .kubernetes.context.prod.01
-  kubectl describe pod -l app.kubernetes.io/name=em-hrs-ingestor-job | egrep "mage|Start|State|^Name:"
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 alias .kubernetes.describe.images.hrs.api.context.all.perftest='...kubernetes.describe.images.hrs.api.context.all.perftest'
-
 
 function ...kubernetes.describe.images.hrs.api.context.all.perftest() {
   .kubernetes.context.perftest.00
@@ -82,67 +42,117 @@ function ...kubernetes.describe.images.hrs.api.context.all.perftest() {
 
 
 
+alias .kubectl.cluster-info='kubectl cluster-info'
 
-alias .kubernetes.events.get.by.name='kubectl get events --sort-by involvedObject.name'
-alias .kubernetes.events.get.by.time='kubectl get events --sort-by lastTimestamp'
+alias .kubectl.context.aat.00='kubectl config use-context aat-00-aks'
+alias .kubectl.context.aat.01='kubectl config use-context aat-01-aks'
+alias .kubectl.context.demo.01='kubectl config use-context demo-01-aks'
+alias .kubectl.context.k3d='kubectl config use-context k3d-k3s-default'
+alias .kubectl.context.perftest.00='kubectl config use-context perftest-00-aks'
+alias .kubectl.context.perftest.01='kubectl config use-context perftest-01-aks'
+alias .kubectl.context.preview.00='kubectl config use-context preview-00-aks'
+alias .kubectl.context.preview.01='kubectl config use-context preview-01-aks'
+alias .kubectl.context.prod.00='kubectl config use-context prod-00-aks'
+alias .kubectl.context.prod.01='kubectl config use-context prod-01-aks'
+alias .kubectl.context.show='kubectl config get-contexts'
+alias .kubectl.context.namespace.em='kubectl config set-context --current --namespace=em'
 
-alias .kubernetes.log='kubectl logs -f'
-alias .kubernetes.log.nofollow='kubectl logs'
 
-alias .kubernetes.log.hrs='kubectl logs -f -l app.kubernetes.io/name=em-hrs-api-java'
-alias .kubernetes.log.ingestor='kubectl logs -f -l app.kubernetes.io/name=em-hrs-ingestor-java'
-alias .kubernetes.log.all="kubectl logs -f -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-java)'"
+alias .kubectl.delete.api.perf='.kubectl.context.perftest.00 && kubectl delete pods -l app.kubectl.io/name=em-hrs-api-java && .kubectl.context.perftest.01 && kubectl delete pods -l app.kubectl.io/name=em-hrs-api-java '
+alias .kubectl.delete.api='kubectl delete pods -l app.kubectl.io/name=em-hrs-api-java'
+alias .kubectl.delete.hrs-all='kubectl delete pods -l in (em-hrs-api-java,em-hrs-ingestor-java)'
+alias .kubectl.delete.ingestor='kubectl delete pods -l app.kubectl.io/name=em-hrs-api-java'
+alias .kubectl.delete='kubectl delete pods'
 
-alias .kubernetes.log.all.contexts.aat='...kubernetes.log.all.contexts.aat'
+alias .kubectl.deployment.describe='kubectl describe deployment'
+alias .kubectl.deployments.get.all='kubectl get all'
+alias .kubectl.deployments.get='kubectl get deployments'
 
-function ...kubernetes.log.all.contexts.aat() {
-  .kubernetes.context.aat.00
-  .kubernetes.log.all &
-  .kubernetes.context.aat.01
-  .kubernetes.log.all &
+alias .kubectl.describe.images.hrs.api.context.all.perftest='...kubectl.describe.images.hrs.api.context.all.perftest'
+alias .kubectl.describe.job='kubectl describe job'
+alias .kubectl.describe.pod='kubectl describe pod'
+
+alias .kubectl.events.get.by.name='kubectl get events --sort-by involvedObject.name'
+alias .kubectl.events.get.by.time='kubectl get events --sort-by lastTimestamp'
+
+alias .kubectl.flux.logs.em='kubectl logs -n admin -f deployment.apps/flux-helm-operator | grep targetNamespace=em'
+alias .kubectl.flux.logs.hrs='kubectl logs -n admin -f deployment.apps/flux-helm-operator | grep release=em-hrs'
+
+alias .kubectl.hostnames='kubectl get ingress'
+
+alias .kubectl.jobs.list.watch='kubectl get cronjob --watch'
+alias .kubectl.jobs.list='kubectl get cronjob'
+
+alias .kubectl.log.all="kubectl logs -f -l 'app.kubectl.io/name in (em-hrs-api-java,em-hrs-ingestor-java)'"
+alias .kubectl.log.hrs='kubectl logs -f -l app.kubectl.io/name=em-hrs-api-java'
+alias .kubectl.log.ingestor='kubectl logs -f -l app.kubectl.io/name=em-hrs-ingestor-java'
+alias .kubectl.log.nofollow='kubectl logs'
+alias .kubectl.log='kubectl logs -f'
+
+alias .kubectl.pods.list='kubectl get pods'
+alias .kubectl.traefic.admin='kubectl get service traefik -n admin -o json'
+
+
+
+
+
+function ...kubectl.describe.images.hrs.api.context.all.perftest() {
+  .kubectl.context.perftest.00
+  kubectl describe pod -l app.kubectl.io/name=em-hrs-api-java | egrep "mage|Start|State|^Name:"
+  .kubectl.context.perftest.01
+  kubectl describe pod -l app.kubectl.io/name=em-hrs-api-java | egrep "mage|Start|State|^Name:"
+}
+
+
+
+alias .kubectl.describe.images.hrs.api.context.all.prod='...kubectl.describe.images.hrs.api.context.all.prod'
+function ...kubectl.describe.images.hrs.api.context.all.prod() {
+  .kubectl.context.prod.00
+  kubectl describe pod -l app.kubectl.io/name=em-hrs-api-java | egrep "mage|Start|State|^Name:"
+  .kubectl.context.prod.01
+  kubectl describe pod -l app.kubectl.io/name=em-hrs-api-java | egrep "mage|Start|State|^Name:"
+}
+
+
+
+
+alias .kubectl.log.all.contexts.aat='...kubectl.log.all.contexts.aat'
+
+function ...kubectl.log.all.contexts.aat() {
+  .kubectl.context.aat.00
+  .kubectl.log.all &
+  .kubectl.context.aat.01
+  .kubectl.log.all &
   echo "logging all"
 }
 
-alias .kubernetes.log.all.contexts.perftest='...kubernetes.log.all.contexts.perftest'
-function ...kubernetes.log.all.contexts.perftest() {
-  .kubernetes.context.perftest.00
-  .kubernetes.log.all &
-  .kubernetes.context.perftest.01
-  .kubernetes.log.all &
+alias .kubectl.log.all.contexts.perftest='...kubectl.log.all.contexts.perftest'
+function ...kubectl.log.all.contexts.perftest() {
+  .kubectl.context.perftest.00
+  .kubectl.log.all &
+  .kubectl.context.perftest.01
+  .kubectl.log.all &
   echo "logging all"
 }
 
-alias .kubernetes.log.all.contexts.perftest.tofiles='...kubernetes.log.all.contexts.perftest.tofiles'
-function ...kubernetes.log.all.contexts.perftest.tofiles() {
-  .kubernetes.context.perftest.00
-  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-java)' --tail=-1 > perf.00.log.txt 
-  .kubernetes.context.perftest.01
-  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-java)' --tail=-1 > perf.01.log.txt 
+alias .kubectl.log.all.contexts.perftest.tofiles='...kubectl.log.all.contexts.perftest.tofiles'
+function ...kubectl.log.all.contexts.perftest.tofiles() {
+  .kubectl.context.perftest.00
+  kubectl logs -l 'app.kubectl.io/name in (em-hrs-api-java,em-hrs-ingestor-java)' --tail=-1 > perf.00.log.txt
+  .kubectl.context.perftest.01
+  kubectl logs -l 'app.kubectl.io/name in (em-hrs-api-java,em-hrs-ingestor-java)' --tail=-1 > perf.01.log.txt
   cat perf.00.log.txt perf.01.log.txt | sort > perf.txt
   echo "logging all"
 }
 
 
-alias .kubernetes.log.all.contexts.prod='...kubernetes.log.all.contexts.prod'
-function ...kubernetes.log.all.contexts.prod() {
-  .kubernetes.context.prod.00
-  .kubernetes.log.all &
-  .kubernetes.context.prod.01
-  .kubernetes.log.all &
+alias .kubectl.log.all.contexts.prod='...kubectl.log.all.contexts.prod'
+function ...kubectl.log.all.contexts.prod() {
+  .kubectl.context.prod.00
+  .kubectl.log.all &
+  .kubectl.context.prod.01
+  .kubectl.log.all &
   echo "logging all"
 }
 
 
-
-#job logs, to be refined once we see a job running, hopefully a different
-# Replace "hello-4111706356" with the job name in your system
-#jobpods=$(kubectl get pods --selector=job-name=hello-4111706356 --output=jsonpath={.items[*].metadata.name})
-#Show jobpods log:
-#kubectl logs $jobpods
-
-
-alias .kubernetes.namespace.em='kubectl config set-context --current --namespace=em'
-
-alias .kubernetes.pods.list='kubectl get pods'
-
-alias .kubernetes.traefic.admin='kubectl get service traefik -n admin -o json'
