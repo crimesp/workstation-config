@@ -31,13 +31,13 @@ alias .helm.list='helm list -a'
 
 
 
-alias .kubernetes.describe.images.hrs.api.context.all.perftest='...kubernetes.describe.images.hrs.api.context.all.perftest'
+alias .kubectl.describe.images.hrs.api.context.all.perftest='...kubectl.describe.images.hrs.api.context.all.perftest'
 
-function ...kubernetes.describe.images.hrs.api.context.all.perftest() {
-  .kubernetes.context.perftest.00
-  kubectl describe pod -l app.kubernetes.io/name=em-hrs-api-java | egrep "mage|Start|State|^Name:"
-  .kubernetes.context.perftest.01
-  kubectl describe pod -l app.kubernetes.io/name=em-hrs-api-java | egrep "mage|Start|State|^Name:"
+function ...kubectl.describe.images.hrs.api.context.all.perftest() {
+  .kubectl.context.perftest.00
+  kubectl describe pod -l app.kubectl.io/name=em-hrs-api-java | egrep "mage|Start|State|^Name:"
+  .kubectl.context.perftest.01
+  kubectl describe pod -l app.kubectl.io/name=em-hrs-api-java | egrep "mage|Start|State|^Name:"
 }
 
 
@@ -80,14 +80,17 @@ alias .kubectl.flux.logs.hrs='kubectl logs -n admin -f deployment.apps/flux-helm
 
 alias .kubectl.hostnames='kubectl get ingress'
 
-alias .kubectl.jobs.list.watch='kubectl get cronjob --watch'
-alias .kubectl.jobs.list='kubectl get cronjob'
+alias .kubectl.cronjob.watch='kubectl get cronjobs --watch'
+alias .kubectl.cronjob='kubectl get cronjobs'
 
-alias .kubectl.log.all="kubectl logs -f -l 'app.kubectl.io/name in (em-hrs-api-java,em-hrs-ingestor-java)'"
-alias .kubectl.log.hrs='kubectl logs -f -l app.kubectl.io/name=em-hrs-api-java'
-alias .kubectl.log.ingestor='kubectl logs -f -l app.kubectl.io/name=em-hrs-ingestor-java'
+alias .kubectl.jobs.list='kubectl get jobs'
+
+
+alias .kubectl.log.all="kubectl logs -f --tail 500 -l 'app.kubectl.io/name in (em-hrs-api-java,em-hrs-ingestor-java,em-hrs-api-java-78dcfd6f49-9d48r,em-hrs-api-java-78dcfd6f49-cpq8t,em-hrs-api-java-78dcfd6f49-7c7tp,em-hrs-api-java-78dcfd6f49-rh7jq)'"
+alias .kubectl.log.api='kubectl logs -f --tail 500 -l app.kubectl.io/name=em-hrs-api-java'
+alias .kubectl.log.ingestor='kubectl logs -f --tail 500 -l app.kubectl.io/name=em-hrs-ingestor-java'
 alias .kubectl.log.nofollow='kubectl logs'
-alias .kubectl.log='kubectl logs -f'
+alias .kubectl.log='kubectl logs -f --tail 500'
 
 alias .kubectl.pods.list='kubectl get pods'
 alias .kubectl.traefic.admin='kubectl get service traefik -n admin -o json'
