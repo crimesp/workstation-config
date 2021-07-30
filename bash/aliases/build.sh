@@ -40,7 +40,11 @@ alias .build.test-integration='./gradlew integration -i'
 alias .build.test-code='./gradlew test -i'
 
 
+alias .build.test.retest-code='./gradlew cleanTest test -i'
+alias .build.test.retest-functional='./gradlew cleanTest functional -i'
 
+
+alias .build.test.retest-code.8.threads='./gradlew cleanTest test -i maxParallelForks=8'
 
 
 alias .build.check-code='./gradlew check -i'

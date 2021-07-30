@@ -14,7 +14,7 @@ alias .helm.list='helm list -a'
 
 
 
-
+alias .kubectl.xcontext.prod.pods='rc;date;.kubectl.context.prod.00;.kubectl.pods.list;echo;.kubectl.context.prod.01;.kubectl.pods.list;echo;echo '
 
 
 alias .kubectl.describe.hr.ingestor='kubectl describe hr -n em em-hrs-ingestor'
