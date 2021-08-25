@@ -55,17 +55,9 @@ function ...kubectl.describe.images.hrs.api.context.all.perftest() {
 
 alias .kubectl.cluster-info='kubectl cluster-info'
 
-<<<<<<< HEAD
 alias .kubectl.context.aat.00='kubectl config use-context cft-aat-00-aks'
 alias .kubectl.context.aat.01='kubectl config use-context cft-aat-01-aks'
-=======
-alias .kubectl.context.aat.00='kubectl config use-context aat-00-aks'
-alias .kubectl.context.aat.01='kubectl config use-context aat-01-aks'
 
-alias .kubectl.context.cft.aat.00='kubectl config use-context cft-aat-00-aks'
-alias .kubectl.context.cft.aat.01='kubectl config use-context cft-aat-01-aks'
-
->>>>>>> de34282d1b0b848065c27213e8030b777d6de373
 alias .kubectl.context.demo.01='kubectl config use-context demo-01-aks'
 alias .kubectl.context.k3d='kubectl config use-context k3d-k3s-default'
 alias .kubectl.context.perftest.00='kubectl config use-context cft-perftest-00-aks'
