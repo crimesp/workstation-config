@@ -82,6 +82,29 @@ alias .git.grep.yourbranch=$'sed "s/Your branch is based on \'origin\//.git.bran
 alias .git.grep.theupstreamgone=$'sed "s/\', but the upstream is gone.//g"'
 
 alias .git.execute.branch_delete='.git.report.grep.no_origins | .git.grep.yourbranch | .git.grep.theupstreamgone'
+
+
+
+
+function .git.push.revert.origin.to.commit.hard() {
+
+    if [ -z "$1" ]
+    then
+        echo "Supply a commit hash to revert to"
+    return 1
+    fi
+
+
+git reset --hard $1
+git clean -f -d
+git push -f
+
+
+
+}
+
+
+
 #sed "s/Your branch is based on '/origin\//"
 
 .extract_JIRA_Ticket_Number() {
