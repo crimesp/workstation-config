@@ -141,6 +141,19 @@ function ...kubectl.log.all.contexts.aat() {
   echo "logging all"
 }
 
+
+alias .kubectl.log.all.contexts.aat.tofiles='...kubectl.log.all.contexts.aat.tofiles'
+function ...kubectl.log.all.contexts.aat.tofiles() {
+  .kubectl.context.aat.00
+  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-job)' --tail=-1 > perf.00.log.txt
+  .kubectl.context.aat.01
+  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-job)' --tail=-1 > perf.01.log.txt
+  cat perf.00.log.txt perf.01.log.txt | sort > perf.txt
+  echo "logging all"
+}
+
+
+
 alias .kubectl.log.all.contexts.perftest='...kubectl.log.all.contexts.perftest'
 function ...kubectl.log.all.contexts.perftest() {
   .kubectl.context.perftest.00
