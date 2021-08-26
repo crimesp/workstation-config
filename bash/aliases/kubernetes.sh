@@ -14,7 +14,7 @@ alias .helm.list='helm list -a'
 
 
 
-alias .kubectl.xcontext.prod.pods='rc;date;.kubectl.context.prod.00;.kubectl.pods.list;echo;.kubectl.context.prod.01;.kubectl.pods.list;echo;echo '
+alias .kubectl.context.prod.pods='rc;date;.kubectl.context.prod.00;.kubectl.pods.list;echo;.kubectl.context.prod.01;.kubectl.pods.list;echo;echo '
 
 
 alias .kubectl.describe.hr.ingestor='kubectl describe hr -n em em-hrs-ingestor'
@@ -145,10 +145,10 @@ function ...kubectl.log.all.contexts.aat() {
 alias .kubectl.log.all.contexts.aat.tofiles='...kubectl.log.all.contexts.aat.tofiles'
 function ...kubectl.log.all.contexts.aat.tofiles() {
   .kubectl.context.aat.00
-  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-job)' --tail=-1 > perf.00.log.txt
+  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-job)' --tail=-1 > aat.00.log.txt
   .kubectl.context.aat.01
-  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-job)' --tail=-1 > perf.01.log.txt
-  cat perf.00.log.txt perf.01.log.txt | sort > perf.txt
+  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-job)' --tail=-1 > aat.01.log.txt
+  cat aat.00.log.txt aat.01.log.txt | sort > aat.txt
   echo "logging all"
 }
 
@@ -166,10 +166,10 @@ function ...kubectl.log.all.contexts.perftest() {
 alias .kubectl.log.all.contexts.perftest.tofiles='...kubectl.log.all.contexts.perftest.tofiles'
 function ...kubectl.log.all.contexts.perftest.tofiles() {
   .kubectl.context.perftest.00
-  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-job)' --tail=-1 > perf.00.log.txt
+  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-job)' --tail=-1 > perftest.00.log.txt
   .kubectl.context.perftest.01
-  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-job)' --tail=-1 > perf.01.log.txt
-  cat perf.00.log.txt perf.01.log.txt | sort > perf.txt
+  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-job)' --tail=-1 > perftest.01.log.txt
+  cat perftest.00.log.txt perftest.01.log.txt | sort > perftest.txt
   echo "logging all"
 }
 
