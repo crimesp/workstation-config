@@ -145,10 +145,10 @@ function ...kubectl.log.all.contexts.aat() {
 alias .kubectl.log.all.contexts.aat.tofiles='...kubectl.log.all.contexts.aat.tofiles'
 function ...kubectl.log.all.contexts.aat.tofiles() {
   .kubectl.context.aat.00
-  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-job)' --tail=-1 > aat.00.log.txt
+  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-job)' --tail=-1 > ~/tmp/aat.00.log.txt
   .kubectl.context.aat.01
-  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-job)' --tail=-1 > aat.01.log.txt
-  cat aat.00.log.txt aat.01.log.txt | sort > aat.txt
+  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-job)' --tail=-1 > ~/tmp/aat.01.log.txt
+  cat ~/tmp/aat.00.log.txt ~/tmp/aat.01.log.txt | sort > ~/tmp/aat.log.txt
   echo "logging all"
 }
 
@@ -166,10 +166,10 @@ function ...kubectl.log.all.contexts.perftest() {
 alias .kubectl.log.all.contexts.perftest.tofiles='...kubectl.log.all.contexts.perftest.tofiles'
 function ...kubectl.log.all.contexts.perftest.tofiles() {
   .kubectl.context.perftest.00
-  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-job)' --tail=-1 > perftest.00.log.txt
+  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-job)' --tail=-1 > ~/tmp/perftest.00.log.txt
   .kubectl.context.perftest.01
-  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-job)' --tail=-1 > perftest.01.log.txt
-  cat perftest.00.log.txt perftest.01.log.txt | sort > perftest.txt
+  kubectl logs -l 'app.kubernetes.io/name in (em-hrs-api-java,em-hrs-ingestor-job)' --tail=-1 > ~/tmp/perftest.01.log.txt
+  cat ~/tmp/perftest.00.log.txt ~/tmp/perftest.01.log.txt | sort > ~/tmp/perftest.log.txt
   echo "logging all"
 }
 
