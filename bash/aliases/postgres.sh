@@ -6,7 +6,7 @@ POSTRGRES_DB_ENV=aat
 
 POSTGRES_HOST="${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}.postgres.database.azure.com"
 echo "TUNNELLING TO ${POSTGRES_HOST} - open a new terminal to connect"
-ssh -N bastion-dev-nonprod.platform.hmcts.net -L 5440:${POSTGRES_HOST}:5432
+ssh -N bastion-nonprod.platform.hmcts.net -L 5440:${POSTGRES_HOST}:5432
 # expect no more output in this terminal you won't get an interactive prompt
 }
 
