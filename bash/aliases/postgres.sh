@@ -57,7 +57,7 @@ function .postgres.connect.stitching.aat() {
 # in a separate terminal run:
 export PGPASSWORD=$(az account get-access-token --resource-type oss-rdbms --query accessToken -o tsv)
 # this matches the `database_name` parameter you pass in the module
-DB_NAME=emstitching
+DB_NAME=emstitch
 
 POSTGRES_DB_SUBDOMAIN=em-stitching-postgres-db
 POSTRGRES_DB_ENV=aat
