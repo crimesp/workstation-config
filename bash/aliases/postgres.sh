@@ -3,6 +3,11 @@
 # the fix is to clear the cache and login again: rm -rf ~/.azure && az login
 
 
+.postgres.azlogin() {
+  rm -rf ~/.azure
+  az login
+  az ssh config --ip \*.platform.hmcts.net --file ~/.ssh/config
+}
 
 ################################################################
 #HRS
@@ -11,33 +16,33 @@
 #aat
 
 function .postgres.tunnel.create.hrs.aat() {
-# you can get this from the portal, or determine it via the inputs your pass to this module in your code
+  # you can get this from the portal, or determine it via the inputs your pass to this module in your code
 
-POSTGRES_DB_SUBDOMAIN=em-hrs-api-postgres-v11-db
-POSTRGRES_DB_ENV=aat
+  POSTGRES_DB_SUBDOMAIN=em-hrs-api-postgres-v11-db
+  POSTRGRES_DB_ENV=aat
 
-POSTGRES_HOST="${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}.postgres.database.azure.com"
-echo "TUNNELLING TO ${POSTGRES_HOST} - PLEASE LEAVE THIS TERMINAL OPEN, and open a new terminal to connect using .postgres.connect.hrs.aat"
-ssh -N bastion-prod.platform.hmcts.net -L 5440:${POSTGRES_HOST}:5432
-# expect no more output in this terminal you won't get an interactive prompt
+  POSTGRES_HOST="${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}.postgres.database.azure.com"
+  echo "TUNNELLING TO ${POSTGRES_HOST} - PLEASE LEAVE THIS TERMINAL OPEN, and open a new terminal to connect using .postgres.connect.hrs.aat"
+  ssh -N bastion-prod.platform.hmcts.net -L 5440:${POSTGRES_HOST}:5432
+  # expect no more output in this terminal you won't get an interactive prompt
 }
 
 
 function .postgres.connect.hrs.aat() {
 
-# in a separate terminal run:
-export PGPASSWORD=$(az account get-access-token --resource-type oss-rdbms --query accessToken -o tsv)
+  # in a separate terminal run:
+  export PGPASSWORD=$(az account get-access-token --resource-type oss-rdbms --query accessToken -o tsv)
 
-DB_NAME=emhrs
+  DB_NAME=emhrs
 
-POSTGRES_DB_SUBDOMAIN=em-hrs-api-postgres-v11-db
-POSTRGRES_DB_ENV=aat
+  POSTGRES_DB_SUBDOMAIN=em-hrs-api-postgres-v11-db
+  POSTRGRES_DB_ENV=aat
 
 
-DB_USER="DTS\ CFT\ DB\ Access\ Reader@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # read access
-#DB_USER="DTS\ Platform\ Operations@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # operations team administrative access
+  DB_USER="DTS\ CFT\ DB\ Access\ Reader@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # read access
+  #DB_USER="DTS\ Platform\ Operations@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # operations team administrative access
 
-psql "sslmode=require host=localhost port=5440 dbname=${DB_NAME} user=${DB_USER}"
+  psql "sslmode=require host=localhost port=5440 dbname=${DB_NAME} user=${DB_USER}"
 }
 
 
@@ -46,32 +51,32 @@ psql "sslmode=require host=localhost port=5440 dbname=${DB_NAME} user=${DB_USER}
 #prod
 
 function .postgres.tunnel.create.hrs.prod() {
-# you can get this from the portal, or determine it via the inputs your pass to this module in your code
+  # you can get this from the portal, or determine it via the inputs your pass to this module in your code
 
-POSTGRES_DB_SUBDOMAIN=em-hrs-api-postgres-v11-db
-POSTRGRES_DB_ENV=prod
+  POSTGRES_DB_SUBDOMAIN=em-hrs-api-postgres-v11-db
+  POSTRGRES_DB_ENV=prod
 
-POSTGRES_HOST="${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}.postgres.database.azure.com"
-echo "TUNNELLING TO ${POSTGRES_HOST} - PLEASE LEAVE THIS TERMINAL OPEN, and open a new terminal to connect using .postgres.connect.hrs.prod"
-ssh -N bastion-prod.platform.hmcts.net -L 5440:${POSTGRES_HOST}:5432
-# expect no more output in this terminal you won't get an interactive prompt
+  POSTGRES_HOST="${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}.postgres.database.azure.com"
+  echo "TUNNELLING TO ${POSTGRES_HOST} - PLEASE LEAVE THIS TERMINAL OPEN, and open a new terminal to connect using .postgres.connect.hrs.prod"
+  ssh -N bastion-prod.platform.hmcts.net -L 5440:${POSTGRES_HOST}:5432
+  # expect no more output in this terminal you won't get an interactive prompt
 }
 
 
 
 function .postgres.connect.hrs.prod() {
 
-export PGPASSWORD=$(az account get-access-token --resource-type oss-rdbms --query accessToken -o tsv)
-DB_NAME=emhrs
-#productname=  app_full_name = "${var.product}-${var.component}" = em-hrs-api
-PRODUCT_NAME=em-hrs-api
-POSTGRES_DB_SUBDOMAIN=em-hrs-api-postgres-v11-db
-POSTRGRES_DB_ENV=prod
+  export PGPASSWORD=$(az account get-access-token --resource-type oss-rdbms --query accessToken -o tsv)
+  DB_NAME=emhrs
+  #productname=  app_full_name = "${var.product}-${var.component}" = em-hrs-api
+  PRODUCT_NAME=em-hrs-api
+  POSTGRES_DB_SUBDOMAIN=em-hrs-api-postgres-v11-db
+  POSTRGRES_DB_ENV=prod
 
-DB_USER="DTS\ JIT\ Access\ ${PRODUCT_NAME}\ DB\ Reader\ SC@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # read access
-#DB_USER="DTS\ Platform\ Operations\ SC@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # operations team administrative access
+  DB_USER="DTS\ JIT\ Access\ ${PRODUCT_NAME}\ DB\ Reader\ SC@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # read access
+  #DB_USER="DTS\ Platform\ Operations\ SC@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # operations team administrative access
 
-psql "sslmode=require host=localhost port=5440 dbname=${DB_NAME} user=${DB_USER}"
+  psql "sslmode=require host=localhost port=5440 dbname=${DB_NAME} user=${DB_USER}"
 }
 
 
