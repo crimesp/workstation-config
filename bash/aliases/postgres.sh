@@ -67,7 +67,7 @@ DB_NAME=emhrs
 POSTGRES_DB_SUBDOMAIN=em-hrs-api-postgres-v11-db
 POSTRGRES_DB_ENV=prod
 
-DB_USER="DTS\ JIT\ Access\ draft-store\ DB\ Reader\ SC@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # read access
+DB_USER="DTS\ JIT\ Access\ ${DB_NAME}\ DB\ Reader\ SC@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # read access
 #DB_USER="DTS\ Platform\ Operations\ SC@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # operations team administrative access
 
 psql "sslmode=require host=localhost port=5440 dbname=${DB_NAME} user=${DB_USER}"
@@ -149,7 +149,7 @@ POSTGRES_DB_SUBDOMAIN=em-stitching-postgres-db
 POSTRGRES_DB_ENV=prod
 
 
-DB_USER="DTS\ JIT\ Access\ draft-store\ DB\ Reader\ SC@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # read access
+DB_USER="DTS\ JIT\ Access\ ${DB_NAME}\ DB\ Reader\ SC@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # read access
 #DB_USER="DTS\ Platform\ Operations\ SC@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # operations team administrative access
 
 psql "sslmode=require host=localhost port=5440 dbname=${DB_NAME} user=${DB_USER}"
