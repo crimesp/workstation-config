@@ -63,11 +63,11 @@ function .postgres.connect.hrs.prod() {
 
 export PGPASSWORD=$(az account get-access-token --resource-type oss-rdbms --query accessToken -o tsv)
 DB_NAME=emhrs
-
+PRODUCT_NAME=hrs-api
 POSTGRES_DB_SUBDOMAIN=em-hrs-api-postgres-v11-db
 POSTRGRES_DB_ENV=prod
 
-DB_USER="DTS\ JIT\ Access\ ${DB_NAME}\ DB\ Reader\ SC@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # read access
+DB_USER="DTS\ JIT\ Access\ ${PRODUCT_NAME}\ DB\ Reader\ SC@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # read access
 #DB_USER="DTS\ Platform\ Operations\ SC@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # operations team administrative access
 
 psql "sslmode=require host=localhost port=5440 dbname=${DB_NAME} user=${DB_USER}"
