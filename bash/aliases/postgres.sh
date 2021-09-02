@@ -1,3 +1,9 @@
+# note: some users have experienced caching issues with their AAD token:
+# psql: error: FATAL:  Azure AD access token not valid for role DTS JIT Access send-letter DB Reader SC (does not contain group ID c9e865ee-bc88-40d9-a5c1-23831f0ce255)
+# the fix is to clear the cache and login again: rm -rf ~/.azure && az login
+
+
+
 ################################################################
 #HRS
 ################################################################
@@ -16,22 +22,20 @@ ssh -N bastion-prod.platform.hmcts.net -L 5440:${POSTGRES_HOST}:5432
 # expect no more output in this terminal you won't get an interactive prompt
 }
 
-#you will need postgres client
-#psql "sslmode=require host=localhost port=5440 dbname=${DB_NAME} user=${DB_USER}"
+
 function .postgres.connect.hrs.aat() {
 
 # in a separate terminal run:
 export PGPASSWORD=$(az account get-access-token --resource-type oss-rdbms --query accessToken -o tsv)
-# this matches the `database_name` parameter you pass in the module
+
 DB_NAME=emhrs
 
 POSTGRES_DB_SUBDOMAIN=em-hrs-api-postgres-v11-db
 POSTRGRES_DB_ENV=aat
 
 
-# Update the suffix after the @ to the server name
 DB_USER="DTS\ CFT\ DB\ Access\ Reader@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # read access
-#DB_USER="DTS\ Platform\ Operations@rpe-draft-store-aat" # operations team administrative access
+#DB_USER="DTS\ Platform\ Operations@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # operations team administrative access
 
 psql "sslmode=require host=localhost port=5440 dbname=${DB_NAME} user=${DB_USER}"
 }
@@ -53,22 +57,18 @@ ssh -N bastion-prod.platform.hmcts.net -L 5440:${POSTGRES_HOST}:5432
 # expect no more output in this terminal you won't get an interactive prompt
 }
 
-#you will need postgres client
-#psql "sslmode=require host=localhost port=5440 dbname=${DB_NAME} user=${DB_USER}"
+
+
 function .postgres.connect.hrs.prod() {
 
-# in a separate terminal run:
 export PGPASSWORD=$(az account get-access-token --resource-type oss-rdbms --query accessToken -o tsv)
-# this matches the `database_name` parameter you pass in the module
 DB_NAME=emhrs
 
 POSTGRES_DB_SUBDOMAIN=em-hrs-api-postgres-v11-db
 POSTRGRES_DB_ENV=prod
 
-
-# Update the suffix after the @ to the server name
-DB_USER="DTS\ CFT\ DB\ Access\ Reader@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # read access
-#DB_USER="DTS\ Platform\ Operations@rpe-draft-store-prod" # operations team administrative access
+DB_USER="DTS\ JIT\ Access\ draft-store\ DB\ Reader\ SC@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # read access
+#DB_USER="DTS\ Platform\ Operations\ SC@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # operations team administrative access
 
 psql "sslmode=require host=localhost port=5440 dbname=${DB_NAME} user=${DB_USER}"
 }
@@ -129,7 +129,6 @@ psql "sslmode=require host=localhost port=5440 dbname=${DB_NAME} user=${DB_USER}
 
 #prod
 function .postgres.tunnel.create.stitching.prod() {
-# you can get this from the portal, or determine it via the inputs your pass to this module in your code
 
 POSTGRES_DB_SUBDOMAIN=em-stitching-postgres-db
 POSTRGRES_DB_ENV=prod
@@ -140,22 +139,18 @@ ssh -N bastion-prod.platform.hmcts.net -L 5440:${POSTGRES_HOST}:5432
 # expect no more output in this terminal you won't get an interactive prompt
 }
 
-#you will need postgres client
-#psql "sslmode=require host=localhost port=5440 dbname=${DB_NAME} user=${DB_USER}"
 function .postgres.connect.stitching.prod() {
 
 # in a separate terminal run:
 export PGPASSWORD=$(az account get-access-token --resource-type oss-rdbms --query accessToken -o tsv)
-# this matches the `database_name` parameter you pass in the module
 DB_NAME=emstitch
 
 POSTGRES_DB_SUBDOMAIN=em-stitching-postgres-db
 POSTRGRES_DB_ENV=prod
 
 
-# Update the suffix after the @ to the server name
-DB_USER="DTS\ CFT\ DB\ Access\ Reader@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # read access
-#DB_USER="DTS\ Platform\ Operations@rpe-draft-store-prod" # operations team administrative access
+DB_USER="DTS\ JIT\ Access\ draft-store\ DB\ Reader\ SC@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # read access
+#DB_USER="DTS\ Platform\ Operations\ SC@${POSTGRES_DB_SUBDOMAIN}-${POSTRGRES_DB_ENV}" # operations team administrative access
 
 psql "sslmode=require host=localhost port=5440 dbname=${DB_NAME} user=${DB_USER}"
 }
