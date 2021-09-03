@@ -69,7 +69,8 @@ function .postgres.connect.hrs.prod() {
   export PGPASSWORD=$(az account get-access-token --resource-type oss-rdbms --query accessToken -o tsv)
   DB_NAME=emhrs
   #productname=  app_full_name = "${var.product}-${var.component}" = em-hrs-api
-  PRODUCT_NAME=em-hrs-api
+  #PRODUCT_NAME=em-hrs-api
+  PRODUCT_NAME=em
   POSTGRES_DB_SUBDOMAIN=em-hrs-api-postgres-v11-db
   POSTRGRES_DB_ENV=prod
 
