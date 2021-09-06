@@ -184,3 +184,38 @@ function ...kubectl.log.all.contexts.prod() {
 }
 
 
+alias .kustomize.em.prod.common='kustomize build --load-restrictor LoadRestrictionsNone k8s/prod/common-overlay/em'
+alias .kustomize.em.prod.cluster-00='kustomize build --load-restrictor LoadRestrictionsNone k8s/prod/cluster-00-overlay/em'
+alias .kustomize.em.prod.cluster-01='kustomize build --load-restrictor LoadRestrictionsNone k8s/prod/cluster-01-overlay/em'
+
+
+
+
+alias .kustomize.em.aat.common='kustomize build --load-restrictor LoadRestrictionsNone k8s/aat/common-overlay/em'
+alias .kustomize.em.aat.cluster-00='kustomize build --load-restrictor LoadRestrictionsNone k8s/aat/cluster-00-overlay/em'
+alias .kustomize.em.aat.cluster-01='kustomize build --load-restrictor LoadRestrictionsNone k8s/aat/cluster-01-overlay/em'
+
+function .kustomize.em.app.for.env() {
+  #usage: .kustomize.em.app.for.env em-hrs-api aat
+  appname=$1
+  env=$2
+  echo "Showing Kustomize Rendering for application: $appname in environment: $env"
+  kustomize build --load-restrictor LoadRestrictionsNone k8s/$env/common-overlay/em  | yq eval "select(.kind == \"HelmRelease\" and .metadata.name == \"${appname}\")" -
+  kustomize build --load-restrictor LoadRestrictionsNone k8s/$env/cluster-00-overlay/em  | yq eval "select(.kind == \"HelmRelease\" and .metadata.name == \"${appname}\")" -
+  kustomize build --load-restrictor LoadRestrictionsNone k8s/$env/cluster-01-overlay/em  | yq eval "select(.kind == \"HelmRelease\" and .metadata.name == \"${appname}\")" -
+}
+
+alias .kustomize.em.app.for.env..em-showcase.aat='.kustomize.em.app.for.env em-showcase aat'
+
+alias .kustomize.em.app.for.env..em-hrs-api.aat='.kustomize.em.app.for.env em-hrs-api aat'
+alias .kustomize.em.app.for.env..em-hrs-api.demo='.kustomize.em.app.for.env em-hrs-api demo'
+alias .kustomize.em.app.for.env..em-hrs-api.perftest='.kustomize.em.app.for.env em-hrs-api perftest'
+alias .kustomize.em.app.for.env..em-hrs-api.prod='.kustomize.em.app.for.env em-hrs-api prod'
+alias .kustomize.em.app.for.env..em-hrs-api.all='rc;.kustomize.em.app.for.env..em-hrs-api.aat && .kustomize.em.app.for.env..em-hrs-api.demo && .kustomize.em.app.for.env..em-hrs-api.perftest && .kustomize.em.app.for.env..em-hrs-api.prod'
+
+
+alias .kustomize.em.app.for.env..em-hrs-ingestor.aat='.kustomize.em.app.for.env em-hrs-ingestor aat'
+alias .kustomize.em.app.for.env..em-hrs-ingestor.demo='.kustomize.em.app.for.env em-hrs-ingestor demo'
+alias .kustomize.em.app.for.env..em-hrs-ingestor.perftest='.kustomize.em.app.for.env em-hrs-ingestor perftest'
+alias .kustomize.em.app.for.env..em-hrs-ingestor.prod='.kustomize.em.app.for.env em-hrs-ingestor prod'
+alias .kustomize.em.app.for.env..em-hrs-ingestor.all='rc;.kustomize.em.app.for.env..em-hrs-ingestor.aat && .kustomize.em.app.for.env..em-hrs-ingestor.demo && .kustomize.em.app.for.env..em-hrs-ingestor.perftest && .kustomize.em.app.for.env..em-hrs-ingestor.prod'
