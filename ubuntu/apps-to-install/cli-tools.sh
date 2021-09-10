@@ -11,8 +11,18 @@ sudo apt install certtool
 sudo apt install tree
 
 #shows cpu and memory etc in top bar -  configure as per https://askubuntu.com/questions/406204/how-can-i-add-the-current-cpu-usage-to-my-menu-bar-as-a-percentage
-sudo apt install indicator-multiload
+sudo apt install indicator-multiload#
+
+#temp monitor
+sudo apt install psensor
 
 
 #helper to alias xdg-open with open
 sudo ln -s /usr/bin/xdg-open /usr/bin/open
+
+
+#power / performance control
+sudo add-apt-repository ppa:slimbook/slimbook
+sudo apt update && sudo apt install slimbookbattery
+sudo apt update
+sudo apt install slimbookbattery
