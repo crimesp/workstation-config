@@ -4,4 +4,4 @@
 sudo npm install --global git-open
 
 
-browser to your git repo dir, and run "git open" to open git with the tree based on your branch
+#browse to your git repo dir in terminal, and run "git open" to open git with the tree based on your branch
