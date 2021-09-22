@@ -200,7 +200,7 @@ function .kustomize.em.app.for.env() {
   appname=$1
   env=$2
   echo "Showing Kustomize Rendering for application: $appname in environment: $env"
-  kustomize build --load-restrictor LoadRestrictionsNone k8s/$env/common-overlay/em  | yq eval "select(.kind == \"HelmRelease\" and .metadata.name == \"${appname}\")" -
+    kustomize build --load-restrictor LoadRestrictionsNone k8s/$env/common-overlay/em  | yq eval "select(.kind == \"HelmRelease\" and .metadata.name == \"${appname}\")" -
   kustomize build --load-restrictor LoadRestrictionsNone k8s/$env/cluster-00-overlay/em  | yq eval "select(.kind == \"HelmRelease\" and .metadata.name == \"${appname}\")" -
   kustomize build --load-restrictor LoadRestrictionsNone k8s/$env/cluster-01-overlay/em  | yq eval "select(.kind == \"HelmRelease\" and .metadata.name == \"${appname}\")" -
 }

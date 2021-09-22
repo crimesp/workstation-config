@@ -1,0 +1,17 @@
+{
+  "attributes": {
+    "created": "2021-02-26T18:33:44+00:00",
+    "enabled": true,
+    "expires": null,
+    "notBefore": null,
+    "recoveryLevel": "Recoverable+Purgeable",
+    "updated": "2021-02-26T18:33:44+00:00"
+  },
+  "contentType": "",
+  "id": "https://em-hrs-api-demo.vault.azure.net/secrets/hrs-api-POSTGRES-USER/2f863a22f3224bd79cf3c65f82735a10",
+  "kid": null,
+  "managed": null,
+  "name": "hrs-api-POSTGRES-USER",
+  "tags": {},
+  "value": "emhrs@em-hrs-api-postgres-v11-db-demo"
+}
