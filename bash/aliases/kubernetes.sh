@@ -2,13 +2,18 @@
 
 alias .helm.list='helm list -a'
 
+alias .kubectl.hr.delete.api='kubectl delete hr em-hrs-api -n em'
+alias .kubectl.hr.delete.ingestor='kubectl delete hr em-hrs-ingestor -n em'
 
+alias .kubectl.flux.imagerepositories.ingestor='kubectl get imagerepositories -n flux-system em-hrs-ingestor'
+alias .kubectl.flux.imagerepositories.api='kubectl get imagerepositories -n flux-system em-hrs-api'
 
+alias .kubectl.flux.reflector.logs='kubectl logs -n flux-system -l app=image-reflector-controller'
 
+alias .kubectl.flux.latestimage.api='kubectl get imagepolicies -n flux-system em-hrs-api'
+alias .kubectl.flux.latestimage.ingestor='kubectl get imagepolicies -n flux-system em-hrs-ingestor'
 
-
-
-
+alias .kubectl.flux.imageautomation='kubectl logs -n flux-system -l --tail=-1 app=image-automation-controller'
 
 
 
@@ -58,6 +63,9 @@ alias .kubectl.cluster-info='kubectl cluster-info'
 alias .kubectl.context.aat.00='kubectl config use-context cft-aat-00-aks'
 alias .kubectl.context.aat.01='kubectl config use-context cft-aat-01-aks'
 
+alias .kubectl.context.ithc.00='kubectl config use-context cft-ithc-00-aks'
+alias .kubectl.context.ithc.01='kubectl config use-context cft-ithc-01-aks'
+
 alias .kubectl.context.demo.01='kubectl config use-context demo-01-aks'
 alias .kubectl.context.k3d='kubectl config use-context k3d-k3s-default'
 alias .kubectl.context.perftest.00='kubectl config use-context cft-perftest-00-aks'
@@ -68,6 +76,10 @@ alias .kubectl.context.prod.00='kubectl config use-context prod-00-aks'
 alias .kubectl.context.prod.01='kubectl config use-context prod-01-aks'
 alias .kubectl.context.show='kubectl config get-contexts'
 alias .kubectl.context.namespace.em='kubectl config set-context --current --namespace=em'
+alias .kubectl.context.namespace.fluxsystem='kubectl config set-context --current --namespace=flux-system'
+
+alias .kubectl.context.intsvc='kubectl config use-context cftptl-intsvc-00-aks'
+
 
 
 alias .kubectl.delete.api.perf='.kubectl.context.perftest.00 && kubectl delete pods -l app.kubernetes.io/name=em-hrs-api-java && .kubectl.context.perftest.01 && kubectl delete pods -l app.kubernetes.io/name=em-hrs-api-java '
