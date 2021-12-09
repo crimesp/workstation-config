@@ -2,8 +2,9 @@
 
 alias .helm.list='helm list -a'
 
-alias .kubectl.hr.delete.api='kubectl delete hr em-hrs-api -n em'
-alias .kubectl.hr.delete.ingestor='kubectl delete hr em-hrs-ingestor -n em'
+alias .kubectl.hr.delete='kubectl delete hr'
+alias .kubectl.hr.delete.api='kubectl delete hr em-hrs-api'
+alias .kubectl.hr.delete.ingestor='kubectl delete hr em-hrs-ingestor'
 
 alias .kubectl.flux.imagerepositories.ingestor='kubectl get imagerepositories -n flux-system em-hrs-ingestor'
 alias .kubectl.flux.imagerepositories.api='kubectl get imagerepositories -n flux-system em-hrs-api'

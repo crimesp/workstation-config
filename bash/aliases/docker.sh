@@ -25,3 +25,37 @@ alias .docker.prune.all='docker system prune -a'
 
 done
 }
+
+.docker.run () {
+
+    if [ -z "$1" ]
+    then
+        echo "USAGE: .docker.run IMAGENAME CONTAINERNAME"
+    return 1
+    fi
+
+ IMAGE=$1
+ NAME=$2
+
+     if [ -z "$NAME" ]
+     then
+          docker run $IMAGE
+    else
+        docker run --name $NAME $IMAGE
+     fi
+
+
+
+}
+
+.docker.exec.bin_bash () {
+   docker exec -it $1 /bin/bash
+}
+
+.docker.exec.bash () {
+   docker exec -it $1 /bash
+}
+
+.docker.exec.bin_sh () {
+   docker exec -it $1 /bin_sh
+}
