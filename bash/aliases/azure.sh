@@ -6,6 +6,9 @@ alias .az.acr.login='az acr login --name hmctspublic && az acr login --name hmct
 alias .az.credentials.aat.00='az aks get-credentials --resource-group cft-aat-00-rg --name cft-aat-00-aks --subscription DCD-CFTAPPS-STG --overwrite'
 alias .az.credentials.aat.01='az aks get-credentials --resource-group cft-aat-01-rg --name cft-aat-01-aks --subscription DCD-CFTAPPS-STG --overwrite'
 
+alias .az.credentials.ithc.00='az aks get-credentials --resource-group cft-ithc-00-rg --name cft-ithc-00-aks --subscription DCD-CFTAPPS-ITHC --overwrite'
+alias .az.credentials.ithc.01='az aks get-credentials --resource-group cft-ithc-01-rg --name cft-ithc-01-aks --subscription DCD-CFTAPPS-ITHC --overwrite'
+
 
 alias .az.credentials.ithc.00='az aks get-credentials --resource-group cft-ithc-00-rg --name cft-ithc-00-aks --subscription DCD-CFTAPPS-ITHC --overwrite'
 alias .az.credentials.ithc.01='az aks get-credentials --resource-group cft-ithc-01-rg --name cft-ithc-01-aks --subscription DCD-CFTAPPS-ITHC --overwrite'
@@ -21,12 +24,14 @@ alias .az.credentials.perftest.00='az aks get-credentials --resource-group cft-p
 alias .az.credentials.perftest.01='az aks get-credentials --resource-group cft-perftest-01-rg --name cft-perftest-01-aks --subscription DCD-CFTAPPS-TEST --overwrite'
 
 
-alias .az.credentials.preview.00='az aks get-credentials --resource-group preview-00-rg --name preview-00-aks --subscription DCD-CFTAPPS-DEV --overwrite'
-alias .az.credentials.preview.01='az aks get-credentials --resource-group preview-01-rg --name preview-01-aks --subscription DCD-CFTAPPS-DEV --overwrite'
+alias .az.credentials.preview.00='az aks get-credentials --resource-group cft-preview-00-rg --name cft-preview-00-aks --subscription DCD-CFTAPPS-DEV --overwrite'
+alias .az.credentials.preview.01='az aks get-credentials --resource-group cft-preview-01-rg --name cft-preview-01-aks --subscription DCD-CFTAPPS-DEV --overwrite'
 
 alias .az.credentials.prod.00='az aks get-credentials --resource-group prod-00-rg --name prod-00-aks --subscription DCD-CFTAPPS-PROD --overwrite'
 alias .az.credentials.prod.01='az aks get-credentials --resource-group prod-01-rg --name prod-01-aks --subscription DCD-CFTAPPS-PROD --overwrite'
 
+
+alias .az.credentials.intsrv-00='az aks get-credentials --resource-group cftptl-intsvc-00-rg --name cftptl-intsvc-00-aks --subscription DTS-CFTPTL-INTSVC'
 
 alias .az.login.acr='.az.acr.login'
 alias .az.login='az login'

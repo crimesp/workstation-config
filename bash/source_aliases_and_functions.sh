@@ -1,5 +1,5 @@
 #shopy allows bash to call aliases as functions
-shopt -s expand_aliases
+#shopt -s expand_aliases
 
 #import (source) aliases
 for f in $BASH_INCLUDES/aliases/*.sh; do
