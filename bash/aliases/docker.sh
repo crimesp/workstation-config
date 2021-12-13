@@ -39,14 +39,17 @@ done
 
      if [ -z "$NAME" ]
      then
-          docker run $IMAGE
-    else
-        docker run --name $NAME $IMAGE
+           NAME=$(echo $1 | sed 's/[^a-zA-Z0-9]//g')
      fi
 
 
-
+  docker run --name $NAME $IMAGE
 }
+.docker.run.ant.build () {
+  docker run  --mount type=bind,source="$(pwd)",target=/build/  paulushc/apacheant ant -buildfile /build/
+}
+
+
 
 .docker.exec.bin_bash () {
    docker exec -it $1 /bin/bash
