@@ -251,10 +251,10 @@ function .git.index.remove() {
    if [ -z "$1" ]
     then
         echo "Supply a path to the file or folder you wish to remove from git index."
-	echo "Typically this would be when you have ignored a file that has been committed in the past"
+	echo "Typically this would be when you have ignored a file or folder that has been committed in the past"
     return 1
    fi
-    git rm -r --cached package $1
+    git rm -r --cached $1
 }
 
 function .git.checkout.new_branch() {
