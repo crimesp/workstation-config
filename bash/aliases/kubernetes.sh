@@ -1,6 +1,7 @@
 #kubectl scale deployment em-hrs-ingestor-job --replicas 0
 
 alias .helm.list='helm list -a'
+alias .helm.uninstall.ingestor='helm uninstall hrs-ingestor-job'
 
 alias .kubectl.hr.delete='kubectl delete hr'
 alias .kubectl.hr.delete.api='kubectl delete hr em-hrs-api'
@@ -64,8 +65,10 @@ alias .kubectl.cluster-info='kubectl cluster-info'
 alias .kubectl.context.aat.00='kubectl config use-context cft-aat-00-aks'
 alias .kubectl.context.aat.01='kubectl config use-context cft-aat-01-aks'
 
+
 alias .kubectl.context.ithc.00='kubectl config use-context cft-ithc-00-aks'
 alias .kubectl.context.ithc.01='kubectl config use-context cft-ithc-01-aks'
+
 
 alias .kubectl.context.demo.01='kubectl config use-context demo-01-aks'
 alias .kubectl.context.k3d='kubectl config use-context k3d-k3s-default'
@@ -202,6 +205,10 @@ alias .kustomize.em.prod.cluster-00='kustomize build --load-restrictor LoadRestr
 alias .kustomize.em.prod.cluster-01='kustomize build --load-restrictor LoadRestrictionsNone k8s/prod/cluster-01-overlay/em'
 
 
+alias .kustomize.em.demo.common='kustomize build --load-restrictor LoadRestrictionsNone k8s/demo/common-overlay/em'
+alias .kustomize.em.demo.cluster-00='kustomize build --load-restrictor LoadRestrictionsNone k8s/demo/cluster-00-overlay/em'
+alias .kustomize.em.demo.cluster-01='kustomize build --load-restrictor LoadRestrictionsNone k8s/demo/cluster-01-overlay/em'
+
 
 
 alias .kustomize.em.aat.common='kustomize build --load-restrictor LoadRestrictionsNone k8s/aat/common-overlay/em'
@@ -213,7 +220,7 @@ function .kustomize.em.app.for.env() {
   appname=$1
   env=$2
   echo "Showing Kustomize Rendering for application: $appname in environment: $env"
-    kustomize build --load-restrictor LoadRestrictionsNone k8s/$env/common-overlay/em  | yq eval "select(.kind == \"HelmRelease\" and .metadata.name == \"${appname}\")" -
+  kustomize build --load-restrictor LoadRestrictionsNone k8s/$env/common-overlay/em  | yq eval "select(.kind == \"HelmRelease\" and .metadata.name == \"${appname}\")" -
   kustomize build --load-restrictor LoadRestrictionsNone k8s/$env/cluster-00-overlay/em  | yq eval "select(.kind == \"HelmRelease\" and .metadata.name == \"${appname}\")" -
   kustomize build --load-restrictor LoadRestrictionsNone k8s/$env/cluster-01-overlay/em  | yq eval "select(.kind == \"HelmRelease\" and .metadata.name == \"${appname}\")" -
 }

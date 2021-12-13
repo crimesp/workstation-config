@@ -10,6 +10,13 @@ alias .az.credentials.ithc.00='az aks get-credentials --resource-group cft-ithc-
 alias .az.credentials.ithc.01='az aks get-credentials --resource-group cft-ithc-01-rg --name cft-ithc-01-aks --subscription DCD-CFTAPPS-ITHC --overwrite'
 
 
+alias .az.credentials.ithc.00='az aks get-credentials --resource-group cft-ithc-00-rg --name cft-ithc-00-aks --subscription DCD-CFTAPPS-ITHC --overwrite'
+alias .az.credentials.ithc.01='az aks get-credentials --resource-group cft-ithc-01-rg --name cft-ithc-01-aks --subscription DCD-CFTAPPS-ITHC --overwrite'
+
+
+
+
+
 alias .az.credentials.demo.01='az aks get-credentials --resource-group demo-01-rg --name demo-01-aks --subscription DCD-CFTAPPS-DEMO --overwrite'	
 
 
