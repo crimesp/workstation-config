@@ -254,7 +254,7 @@ function .git.index.remove() {
 	echo "Typically this would be when you have ignored a file that has been committed in the past"
     return 1
    fi
-    git rm -r --cached package $1
+    git rm -r --cached $1
 }
 
 function .git.checkout.new_branch() {
