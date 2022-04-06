@@ -1,5 +1,5 @@
 alias la='ls -A'
-alias ll='ls -alFh'
+alias ll='ls -alFh  --group-directories-first'
 alias l='ll'
 
 alias rc="reset;clear"
