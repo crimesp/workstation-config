@@ -29,3 +29,16 @@ sudo apt install slimbookbattery
 
 #jquery and yaml query
 sudo apt jq yq
+
+#timers for work, breaks and mini breaks
+sudo apt-get install workrave
+
+#locate to find files
+sudo apt install mlocate
+
+#instal git open to open repos from cmd
+npm install --global git-open
+sudo npm install --global git-open
+
+#symlink to latest idea
+sudo ln -s /snap/intellij-idea-ultimate/current/bin/idea.sh /usr/local/bin/idea
