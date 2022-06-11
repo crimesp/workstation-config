@@ -1,3 +1,4 @@
+#java dev
 https://plugins.jetbrains.com/plugin/1065-checkstyle-idea
 https://plugins.jetbrains.com/plugin/7808-hashicorp-terraform--hcl-language-support
 https://plugins.jetbrains.com/plugin/10485-kubernetes

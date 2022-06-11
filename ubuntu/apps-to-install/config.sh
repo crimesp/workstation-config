@@ -1,3 +1,7 @@
+#ubuntu firewall
+sudo ufw enable
+
+
 #sets USB write buffer to 15MB (less time to wait until USB can be removed)
 echo vm.dirty_bytes=15000000 | sudo tee -a /etc/sysctl.conf
 

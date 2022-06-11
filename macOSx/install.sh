@@ -2,5 +2,5 @@
 
 #install homebrew from https://brew.sh/
 
-
+#multi panel shell like linux terminator
 brew install - - -cask iterm2
