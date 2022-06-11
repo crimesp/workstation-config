@@ -1,3 +1,7 @@
+#note profile only loads when logging in, so changes here
+#will not be reflected without a new session
+
+
 #share sshagent through the same pipe
 #rm ~/.ssh/ssh-agent.$HOSTNAME.sock
 export SSH_AUTH_SOCK=~/.ssh/ssh-agent.$HOSTNAME.sock
@@ -6,7 +10,10 @@ if [ $? -ge 2 ]; then
   ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
 fi
 
+
 # shows timestamp when running 'history'
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
+
+#include custom aliases and functions
 source $BASH_INCLUDES/source_aliases_and_functions.sh

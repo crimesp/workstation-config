@@ -1,11 +1,24 @@
-#ubuntu firewall
-sudo ufw enable
-
 #vi, only better!!
 sudo apt install vim
 
+#multi terminal panels!"
+sudo apt-get install terminator
+
+#for rare cases (such as Flutter version Manager)
+sudo apt-get install brew
+
+#dont use brew as sudo
+brew tap leoafarias/fvm
+brew install fvm
+
+
+sudo apt-get install gnome-panel
+
+ sudo apt-get install gnome-tweak-tool
+
 #inspect SSL and other certificates
 sudo apt install certtool
+
 
 #pretty print directory structure
 sudo apt install tree
@@ -21,24 +34,26 @@ sudo apt install psensor
 sudo ln -s /usr/bin/xdg-open /usr/bin/open
 
 
-#power / performance control
+#power / performance control (possible not needed in modern ubuntu)
 sudo add-apt-repository ppa:slimbook/slimbook
 sudo apt update && sudo apt install slimbookbattery
 sudo apt update
 sudo apt install slimbookbattery
 
-#jquery and yaml query
-sudo apt jq yq
-
-#timers for work, breaks and mini breaks
-sudo apt-get install workrave
+#jsonquery and yamlquery
+sudo apt install jq yq
 
 #locate to find files
 sudo apt install mlocate
 
 #instal git open to open repos from cmd
-npm install --global git-open
 sudo npm install --global git-open
 
 #symlink to latest idea
 sudo ln -s /snap/intellij-idea-ultimate/current/bin/idea.sh /usr/local/bin/idea
+
+#office 365 without distracting browsers
+sudo snap install office365webdesktop --beta
+
+#for xmind 8
+sudo apt-get install canberra-gtk-module

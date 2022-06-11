@@ -22,11 +22,13 @@ alias .f.create='.f.create.linux'
 alias .f.create.linux='fvm flutter create --platforms linux .'
 
 
+alias .f.clean='rm -rf .dart_tool && rm -rf build'
 
 
 alias .f.run='.f.run.linux'
-alias .f.run.linux='fvm flutter run -d linux'
-alias .f.run.chrome='fvm flutter run -d chrome'
+alias .f.run.nonull='.f.run.linux --no-sound-null-safety'
+alias .f.run.linux='fvm flutter --version && fvm flutter run -d linux'
+alias .f.run.chrome='fvm flutter --version && fvm flutter run -d chrome'
 
 alias .f.run.profile='.f.run.profile.linux'
 alias .f.run.profile.linux='fvm flutter run --profile -d linux'
@@ -57,6 +59,10 @@ alias .f.project.sdk="yq '.environment.sdk' < pubspec.yaml"
 alias .v.releases='fvm releases'
 
 alias .v.list='fvm list'
+
+alias .v.use.0.6.0='fvm use v0.6.0'
+
+alias .v.use.2.2.2='fvm use 2.2.2'
 
 alias .v.use.2.8.1='fvm use 2.8.1'
 
