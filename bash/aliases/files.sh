@@ -11,7 +11,7 @@ function .files.find() {
     return 1
     fi
 
-    find . -name "$1" 
+    find . -name "$1"
 }
 
 function .files.find_and_delete() {
@@ -51,3 +51,15 @@ function .files.find_and_grep() {
     grep -R $2 --include=$1
 
 }
+
+function .files.find_and_yq() {
+   if [ -z "$1" ]
+    then
+        echo "Supply a file pattern"
+    return 1
+    fi
+
+    find . -name "$1" -exec echo  {} \; -exec yq $2 {} \;
+}
+
+alias .f.yq.dependencies='.files.find_and_yq pubspec.yaml ".dependencies"'

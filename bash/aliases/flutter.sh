@@ -11,7 +11,7 @@ alias .d.analyze='fvm dart analyze'
 alias .d.migrate='fvm dart migrate'
 
 alias .d.fix.dryrun='fvm dart fix --dry-run'
-alias .d.fix.applycyclop-0.4.1/lib/src/widgets/color_button.dart:75:20: Warning: Operand of null-aware operation '!' has type 'WidgetsBinding' which excludes null.='fvm dart fix --apply'
+alias .d.fix.apply='fvm dart fix --apply'
 
 
 alias .f.emulators='fvm flutter emulators'
