@@ -14,6 +14,17 @@ function .files.find() {
     find . -name "$1"
 }
 
+function .files.find_and_exec() {
+   if [ -z "$1" ]
+    then
+        echo "Supply a file pattern"
+    return 1
+    fi
+
+    find . -name "$1" -exec $2 {} \;
+}
+
+
 function .files.find_and_delete() {
    if [ -z "$1" ]
     then
@@ -61,5 +72,3 @@ function .files.find_and_yq() {
 
     find . -name "$1" -exec echo  {} \; -exec yq $2 {} \;
 }
-
-alias .f.yq.dependencies='.files.find_and_yq pubspec.yaml ".dependencies"'

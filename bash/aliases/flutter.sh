@@ -36,7 +36,13 @@ alias .f.run.profile.linux='fvm flutter run --profile -d linux'
 alias .f.run.release='.f.run.profile.linux'
 alias .f.run.release.profile.linux='fvm flutter run --profile -d linux'
 
-alias .f.run.lib='.f.run.linux lib/'
+alias .f.run.main.dart='.f.run.linux lib/main.dart'
+
+alias .f.run.subdirs='find . -name pubspec.yaml -execdir bash -c "pwd && fvm flutter run -d linux &" \;'
+
+
+alias .f.run.build-runner='fvm flutter packages pub run build_runner build'
+
 
 
 
@@ -45,8 +51,14 @@ alias .f.pub.get='fvm flutter pub get'
 
 alias .f.pub.update='fvm flutter pub update'
 
+alias .f.pub.dependencies='yq pubspec.yaml .dependencies'
 
-alias .f.help='fvm flutter --help --verbose'
+alias .f.pub.dependencies.r='.files.find_and_yq pubspec.yaml ".dependencies"'
+
+
+
+
+  alias .f.help='fvm flutter --help --verbose'
 
 alias .f.doctor='fvm flutter doctor'
 
@@ -55,6 +67,9 @@ alias .f.build='fvm flutter build'
 alias .f.build.linux='fvm flutter build linux'
 
 alias .f.project.sdk="yq '.environment.sdk' < pubspec.yaml"
+
+alias .f.pub.update-packages='fvm flutter update-packages'
+
 
 alias .v.releases='fvm releases'
 

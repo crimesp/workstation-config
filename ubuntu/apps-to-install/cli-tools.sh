@@ -8,8 +8,13 @@ sudo apt-get install terminator
 sudo apt-get install brew
 
 #dont use brew as sudo
+#brew install fvm
 brew tap leoafarias/fvm
 brew install fvm
+
+#brew install mason
+brew tap felangel/mason
+brew install mason
 
 
 sudo apt-get install gnome-panel
@@ -54,6 +59,10 @@ sudo ln -s /snap/intellij-idea-ultimate/current/bin/idea.sh /usr/local/bin/idea
 
 #office 365 without distracting browsers
 sudo snap install office365webdesktop --beta
+
+#pulse audio volument control
+sudo apt install pavucontrol
+
 
 #for xmind 8
 sudo apt-get install canberra-gtk-module

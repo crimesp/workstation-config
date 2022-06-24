@@ -1,0 +1,7 @@
+install snippets from
+
+https://riverpod.dev/docs/getting_started/
+
+https://plugins.jetbrains.com/plugin/14641-flutter-riverpod-snippets
+
+
