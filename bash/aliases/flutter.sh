@@ -40,6 +40,7 @@ alias .f.run.main.dart='.f.run.linux lib/main.dart'
 
 alias .f.run.subdirs='find . -name pubspec.yaml -execdir bash -c "pwd && fvm flutter run -d linux &" \;'
 
+alias .f.create.subdirs='find . -name pubspec.yaml -execdir bash -c "pwd && fvm flutter create --platforms linux . &" \;'
 
 alias .f.run.build-runner='fvm flutter packages pub run build_runner build'
 
