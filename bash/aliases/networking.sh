@@ -1,6 +1,8 @@
 #inspect the tables of IPv4 and IPv6 packet filter rules in the Linux kernel
 alias .net.iptables_nat="sudo iptables -t nat -L -n"
 
+
+alias .net.stat.local='sudo netstat -plnt'
 alias .net.routing='netstat -rn'
 alias .net.iprule_show=' ip rule show'
 
@@ -8,3 +10,6 @@ alias .net.iprule_show=' ip rule show'
 alias .net.listen_on_port='rc;echo 'listening...';nc -l -p '
 
 alias .net.dns.dig='dig'
+
+alias .net.dns.stats='sudo systemd-resolve --statistics'
+alias .net.dns.flush='sudo systemd-resolve --flush-caches'

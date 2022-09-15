@@ -1,6 +1,10 @@
 #########
 #GIT
 #########
+
+alias .git.reset.head='git reset HEAD .'
+
+
 alias .git.commit.undo_last_commit='git reset --soft HEAD~1'
 
 #show files in staging
