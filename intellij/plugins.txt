@@ -4,3 +4,7 @@ https://plugins.jetbrains.com/plugin/7808-hashicorp-terraform--hcl-language-supp
 https://plugins.jetbrains.com/plugin/10485-kubernetes
 https://plugins.jetbrains.com/plugin/9333-makefile-language
 https://plugins.jetbrains.com/plugin/7973-sonarlint
+
+#general
+https://plugins.jetbrains.com/plugin/10080-rainbow-brackets/
+https://plugins.jetbrains.com/plugin/9792-key-promoter-x/
