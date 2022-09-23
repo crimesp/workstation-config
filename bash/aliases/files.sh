@@ -128,3 +128,34 @@ function .files.find.and.grep.and.exec() {
     grep -R "$2" --include="$1" -l | xargs $3 $4 $5
 
 }
+
+
+function .files.find.and.grep.and.copy.to.comparison.dir() {
+   if [ -z "$1" ]
+    then
+        echo "Supply a file pattern"
+    return 1
+    fi
+
+   if [ -z "$2" ]
+    then
+        echo "Supply grep pattern/arguments"
+    return 1
+    fi
+
+    rm -rf .comparison
+    mkdir .comparison
+    grep -R "$2" --include="$1" -l > .comparison/.filelist.txt
+
+    while read file_name; do
+      echo "PROCESSING $file_name"
+      CLEANED="${file_name// /-}"
+      CLEANED="${CLEANED//\//---}"
+      echo "CLEANED FILENAME: $CLEANED"
+      cp $file_name ".comparison/$CLEANED"
+    done < .comparison/.filelist.txt
+
+    rm .comparison/.filelist.txt
+
+}
+
