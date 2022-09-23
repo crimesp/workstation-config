@@ -1,11 +1,11 @@
 ### DART
 
 alias .d.pub.get='fvm dart pub get'
-alias .d.pub.outdated.mode_nullsafety='fvm dart pub outdated --mode=null-safety'
+alias .d.pub.outdated.mode.nullsafety='fvm dart pub outdated --mode=null-safety'
 
 alias .d.pub.upgrade='fvm dart pub upgrade'
-alias .d.pub.upgrade.major_versions='fvm dart pub upgrade --major-versions'
-alias .d.pub.upgrade.mode_nullsafety='fvm dart pub upgrade --null-safety'
+alias .d.pub.upgrade.major.versions='fvm dart pub upgrade --major-versions'
+alias .d.pub.upgrade.mode.nullsafety='fvm dart pub upgrade --null-safety'
 
 
 alias .d.analyze='fvm dart analyze'
@@ -37,7 +37,7 @@ alias .f.emulators='fvm flutter emulators'
 
 
 #hard clean of dart, useful when switching between flutter/dart versions
-alias .f.clean='rm -rf .dart_tool && rm -rf build'
+alias .f.clean='rm -rf .dart.tool && rm -rf build'
 
 
 
@@ -90,7 +90,7 @@ alias .f.pub.update='fvm flutter pub update'
 
 alias .f.pub.dependencies='yq pubspec.yaml .dependencies'
 
-alias .f.pub.dependencies.r='.files.find_and_yq pubspec.yaml ".dependencies"'
+alias .f.pub.dependencies.r='.files.find.and.yq pubspec.yaml ".dependencies"'
 
 
 

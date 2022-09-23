@@ -8,14 +8,14 @@ function ..terragrunt() {
 }
 
 alias .terragrunt.apply='..terragrunt terragrunt apply tf.plan'
-alias .terragrunt.force_unlock='..terragrunt terragrunt force-unlock'
+alias .terragrunt.force.unlock='..terragrunt terragrunt force-unlock'
 alias .terragrunt.format='..terragrunt terraform fmt'
 alias .terragrunt.init='..terragrunt terragrunt init'
 alias .terragrunt.plan='..terragrunt terragrunt plan -out tf.plan'
 alias .terragrunt.show='..terragrunt terragrunt show'
 
 alias .terraform.apply='..terragrunt terraform apply tf.plan'
-alias .terraform.force_unlock='..terragrunt terraform force-unlock'
+alias .terraform.force.unlock='..terragrunt terraform force-unlock'
 alias .terraform.format='..terragrunt terraform fmt'
 alias .terraform.init='..terragrunt terraform init'
 alias .terraform.plan='..terragrunt terraform plan -out tf.plan'
@@ -25,7 +25,7 @@ alias .terraform.show='..terragrunt terraform show'
 
 
 
-function .terragrunt.debug_template() {
+function .terragrunt.debug.template() {
   if [ -z "$1" ]; then
     echo "Supply a template name"
     return 1

@@ -6,7 +6,7 @@
 
 
 
-function aws_asg_describe_instances_tags () {
+function aws.asg.describe.instances.tags () {
     pattern=$1
 
     aws ec2 describe-instances --output ${3:-table} --region eu-west-2 \
@@ -16,7 +16,7 @@ function aws_asg_describe_instances_tags () {
 }
 
 
-function .aws_asg_describe_instances_ip () {
+function .aws.asg.describe.instances.ip () {
     pattern=$1
 
     aws ec2 describe-instances --output text --region eu-west-2 \
@@ -24,7 +24,7 @@ function .aws_asg_describe_instances_ip () {
     --filters "Name=tag:aws:autoscaling:groupName,Values=${NON_PROD_ENVIRONMENT_PREFIX}*${pattern}*"
 }
 
-function .aws_asg_describe_instances_summary () {
+function .aws.asg.describe.instances.summary () {
     pattern=$1
 
     cmd="aws ec2 describe-instances --output ${3:-table} --region eu-west-2 \
@@ -37,7 +37,7 @@ function .aws_asg_describe_instances_summary () {
 
 
 
-function .aws_asg_describe () {
+function .aws.asg.describe () {
     pattern=$1
 
     cmd="aws ec2 describe-instances --output ${3:-table} --region eu-west-2 \
@@ -48,7 +48,7 @@ function .aws_asg_describe () {
     eval $cmd
 }
 
-function .aws_sg_describe_summary () {
+function .aws.sg.describe.summary () {
     pattern=$1
     aws ec2 describe-security-groups --output json --region eu-west-2 \
     --query "SecurityGroups[*].[GroupName,GroupId,IpPermissions,IpPermissionsEgress]" \
@@ -57,5 +57,5 @@ function .aws_sg_describe_summary () {
 
 
 
-alias .aws.ec2_private_ip="aws ec2 describe-instances --output text --region eu-west-2 --query 'Reservations[*].Instances[*].[PrivateIpAddress]' --filters 'Name=tag:aws:autoscaling:groupName,Values=*$1*'"
+alias .aws.ec2.private.ip="aws ec2 describe-instances --output text --region eu-west-2 --query 'Reservations[*].Instances[*].[PrivateIpAddress]' --filters 'Name=tag:aws:autoscaling:groupName,Values=*$1*'"
 

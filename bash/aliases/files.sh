@@ -52,7 +52,7 @@ function .files.find() {
     find . -name "$1"
 }
 
-function .files.find_and_exec() {
+function .files.find.and.exec() {
    if [ -z "$1" ]
     then
         echo "Supply a file pattern"
@@ -63,7 +63,7 @@ function .files.find_and_exec() {
 }
 
 
-function .files.find_and_delete() {
+function .files.find.and.delete() {
    if [ -z "$1" ]
     then
         echo "Supply a file pattern"
@@ -73,7 +73,7 @@ function .files.find_and_delete() {
     find . -name "$1" -exec rm -rf {} \;
 }
 
-function .files.find_and_cat() {
+function .files.find.and.cat() {
    if [ -z "$1" ]
     then
         echo "Supply a file pattern"
@@ -84,7 +84,7 @@ function .files.find_and_cat() {
 }
 
 
-function .files.find_and_grep() {
+function .files.find.and.grep() {
    if [ -z "$1" ]
     then
         echo "Supply a file pattern"
@@ -101,7 +101,7 @@ function .files.find_and_grep() {
 
 }
 
-function .files.find_and_yq() {
+function .files.find.and.yq() {
    if [ -z "$1" ]
     then
         echo "Supply a file pattern"

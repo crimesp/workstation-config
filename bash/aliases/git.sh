@@ -5,26 +5,26 @@
 alias .git.reset.head='git reset HEAD .'
 
 
-alias .git.commit.undo_last_commit='git reset --soft HEAD~1'
+alias .git.commit.undo.last.commit='git reset --soft HEAD~1'
 
 #show files in staging
-alias .git.stage._show_staging_files_detail='git diff'
+alias .git.stage..show.staging.files.detail='git diff'
 
 #show files in staging (name only)
-alias .git.stage.show_staging_files_summary='git diff --name-status'
+alias .git.stage.show.staging.files.summary='git diff --name-status'
 
 #files added, but not committed
-alias .git.stage.show_uncommited_files='git diff --staged --name-only'
+alias .git.stage.show.uncommited.files='git diff --staged --name-only'
 
 #compare current branch to master
-alias .git.compare.compare_current_branch_to_master='git diff --stat --cached origin/master'
+alias .git.compare.compare.current.branch.to.master='git diff --stat --cached origin/master'
 
 
 #show summary of commits
-alias .git.commit.show_commits_summary='git cherry -v'
+alias .git.commit.show.commits.summary='git cherry -v'
 
 #shows branches not pushed
-alias .git.branches.show_unpushed='git log --branches --not --remotes=origin --no-walk --decorate --oneline'
+alias .git.branches.show.unpushed='git log --branches --not --remotes=origin --no-walk --decorate --oneline'
 
 alias .gitk='gitk --all'
 
@@ -43,20 +43,20 @@ alias .git.master.pull='git fetch origin master:master'
 # pull the latest master branch and merge onto the current branch
 # will fail with "fatal: Refusing to fetch into current branch refs/heads/master of non-bare repository" if you are on master branch
 
-alias .git.merge.from_master='.git.master.pull; git merge master'
+alias .git.merge.from.master='.git.master.pull; git merge master'
 #####
 
 #####
 # rebase the current branch against the latest master branch
 # will fail with "fatal: Refusing to fetch into current branch refs/heads/master of non-bare repository" if you are on master branch
 
-alias .git_rebase_from_master='.git.master.pull; git rebase master'
+alias .git.rebase.from.master='.git.master.pull; git rebase master'
 ######
 
 
 #useful for tidying up branches that are no longer required
-alias .git_prune_with_delete_helper=".git_prune;git branch -v | grep gone; echo git branch -d BRANCH NAME "
-alias .git_prune='git remote prune origin'
+alias .git.prune.with.delete.helper=".git.prune;git branch -v | grep gone; echo git branch -d BRANCH NAME "
+alias .git.prune='git remote prune origin'
 
 
 
@@ -71,21 +71,21 @@ alias .git.subdirs.branch='for d in ./*/ ; do (cd "$d" && echo '';pwd;git branch
 alias .git.subdirs.branchall='for d in ./*/ ; do (cd "$d" && echo '';pwd;git branch -a); done'
 alias .git.subdirs.pull='for d in ./*/ ; do (cd "$d" && echo '';pwd;git pull); done'
 alias .git.subdirs.fetch='for d in ./*/ ; do (cd "$d" && echo '';pwd;git fetch); done'
-alias .git.subdirs.master_checkoutandpull='for d in ./*/ ; do (cd "$d" && echo '';pwd;git checkout master; git pull); done'
+alias .git.subdirs.master.checkoutandpull='for d in ./*/ ; do (cd "$d" && echo '';pwd;git checkout master; git pull); done'
 
 alias .git.master.checkout='git checkout master'
 
 alias .git.branch.delete='git checkout master; git branch -d '
 alias .git.branch.deletehard='git branch -D '
 #but untracked files present
-alias .git.report.generate="rc;.git_foreachbranch_pull_and_show_status > .git_report.log; cat .git_report.log"
+alias .git.report.generate="rc;.git.foreachbranch.pull.and.show.status > .git_report.log; cat .git_report.log"
 alias .git.report.grep.but="grep 'but' .git_report.log | uniq"
-alias .git.report.grep.no_origins="grep 'but the upstream is gone' .git_report.log | uniq"
+alias .git.report.grep.no.origins="grep 'but the upstream is gone' .git_report.log | uniq"
 
 alias .git.grep.yourbranch=$'sed "s/Your branch is based on \'origin\//.git.branch.delete /g"'
 alias .git.grep.theupstreamgone=$'sed "s/\', but the upstream is gone.//g"'
 
-alias .git.execute.branch_delete='.git.report.grep.no_origins | .git.grep.yourbranch | .git.grep.theupstreamgone'
+alias .git.execute.branch.delete='.git.report.grep.no.origins | .git.grep.yourbranch | .git.grep.theupstreamgone'
 
 
 
@@ -111,7 +111,7 @@ git push -f
 
 #sed "s/Your branch is based on '/origin\//"
 
-.extract_JIRA_Ticket_Number() {
+.extract.JIRA.Ticket.Number() {
     regex='(.*-?[0-9]+)-.+'
     if [[ "${BRANCH_NAME}" =~ $regex ]]; then
          echo "matched jira ticket number ${BASH_REMATCH[1]}"
@@ -122,7 +122,7 @@ git push -f
     fi
 }
 
-function .git_foreachbranch_pull_and_show_status() {
+function .git.foreachbranch.pull.and.show.status() {
 
 for branchtocheck in $(git branch);
 do (
@@ -136,7 +136,7 @@ git checkout master
 
 }
 
-function .git.subdirs.create_new_branch() {
+function .git.subdirs.create.new.branch() {
     BRANCH_NAME=$1
     for d in ./*/ ;
     do (
@@ -147,7 +147,7 @@ function .git.subdirs.create_new_branch() {
 }
 
 
-function .git.subdirs.checkout_branch() {
+function .git.subdirs.checkout.branch() {
     BRANCH_NAME=$1
     for d in ./*/ ;
     do (
@@ -157,7 +157,7 @@ function .git.subdirs.checkout_branch() {
 
 }
 
-function .git.subdirs.diff_master_count() {
+function .git.subdirs.diff.master.count() {
 echo "Master Diffs for Branch / Feature Dirs"
 for d in ./*/ ;
     do (
@@ -183,7 +183,7 @@ printf "\n\n\nMaster Diffs for Reference dirs"
 }
 
 
-function .git.subdirs.diff_master_summary() {
+function .git.subdirs.diff.master.summary() {
     for d in ./*/ ;
     do (
         cd "$d" ;
@@ -193,7 +193,7 @@ function .git.subdirs.diff_master_summary() {
 
 }
 
-function .git.subdirs.diff_master_full() {
+function .git.subdirs.diff.master.full() {
     for d in ./*/ ;
     do (
         cd "$d" ;
@@ -207,7 +207,7 @@ function .git.subdirs.diff_master_full() {
 
 
 
-function .git.subdirs.master_pull() {
+function .git.subdirs.master.pull() {
     for d in ./*/ ;
     do (
         cd "$d" ;
@@ -216,19 +216,19 @@ function .git.subdirs.master_pull() {
 
 }
 
-function .git.subdirs.merge_from_master() {
+function .git.subdirs.merge.from.master() {
     for d in ./*/ ;
     do (
         cd "$d" ;
-        .git.merge.from_master
+        .git.merge.from.master
      ); done
 
 }
 
 
 
-alias .git.commit='_git.commit'
-function _git.commit() {
+alias .git.commit='.git.commit'
+function .git.commit() {
     if [ -z "$1" ]
     then
         echo "Supply a commit message!"
@@ -244,9 +244,9 @@ function _git.commit() {
 }
 
 
-alias .git.push='.git.push.with_commit_message'
-function .git.push.with_commit_message() {
-    _git.commit "$@"
+alias .git.push='.git.push.with.commit.message'
+function .git.push.with.commit.message() {
+    .git.commit "$@"
     git push
 }
 
@@ -261,7 +261,7 @@ function .git.index.remove() {
     git rm -r --cached $1
 }
 
-function .git.checkout.new_branch() {
+function .git.checkout.new.branch() {
     if [ -z "$1" ]
     then
         echo "Supply a branch name (spaces are ok)"
@@ -276,7 +276,7 @@ function .git.checkout.new_branch() {
 
 
 
-function .git.branch.rename_current() {
+function .git.branch.rename.current() {
    if [ -z "$1" ]
     then
         echo "Supply a new branch name (spaces are ok)"

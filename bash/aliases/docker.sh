@@ -51,7 +51,7 @@ done
 
 
 
-.docker.exec.bin_bash () {
+.docker.exec.bin.bash () {
    docker exec -it $1 /bin/bash
 }
 
@@ -59,6 +59,6 @@ done
    docker exec -it $1 /bash
 }
 
-.docker.exec.bin_sh () {
-   docker exec -it $1 /bin_sh
+.docker.exec.bin.sh () {
+   docker exec -it $1 /bin.sh
 }
