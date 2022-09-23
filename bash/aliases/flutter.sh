@@ -140,3 +140,59 @@ alias .v.use.1.11.0='fvm use v1.11.0'
 alias .v.use.2.13.0-0.4.pre='fvm use 2.13.0-0.4.pre'
 
 alias .v.use.2.12.0-4.2.pre='fvm use 2.12.0-4.2.pre'
+
+
+
+
+
+
+
+
+
+
+
+
+#mason
+# https://github.com/felangel/mason/tree/master/packages/mason_cli
+# https://brickhub.dev/search?q=riverpod
+#
+# note - if mason/fvm etc have been installed via brew instead of dart, run
+# brew upgrade (it may take a while!)
+
+
+# mason update
+#
+# mason search river*
+#
+# mason init
+# mason add riverpod_clean_architecture
+# mason make riverpod_clean_architecture
+#
+#
+
+alias .m.init='mason init'
+alias .m.add='mason add '
+alias .m.add.globally='mason add -g '
+alias .m.make='mason make '
+
+function .m.create() {
+
+
+
+  BRICKNAME=$1;
+
+
+     if [ -z "$BRICKNAME" ]
+      then
+          echo "Supply the brick name to build"
+      return 1
+      fi
+
+
+   mkdir $BRICKNAME;
+   cd $BRICKNAME;
+   .m.init
+   .m.add $BRICKNAME
+   .m.make $BRICKNAME
+
+}
