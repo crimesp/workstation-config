@@ -66,3 +66,7 @@ sudo apt install pavucontrol
 
 #for xmind 8
 sudo apt-get install canberra-gtk-module
+
+
+#from dart
+dart pub global activate very_good_cli

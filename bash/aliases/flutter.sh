@@ -57,6 +57,7 @@ alias .f.run.nonull='.f.run.linux --no-sound-null-safety'
 
 alias .f.run.linux='fvm flutter --version && fvm flutter run -d linux'
 alias .f.run.chrome='fvm flutter --version && fvm flutter run -d chrome'
+alias .f.run.chrome.app.widgetbook='fvm flutter --version && fvm flutter run -d chrome lib/app.widgetbook.dart'
 
 
 #Build a version of your app specialized for performance profiling.
@@ -71,15 +72,13 @@ alias .f.run.release.profile.linux='fvm flutter run --release -d linux'
 
 #run the (default/expected) main dart file
 alias .f.run.main.dart='.f.run.linux lib/main.dart'
+alias .f.run.app.widgetbook.dart='.f.run.linux lib/app.widgetbook.dart'
 
 #run all the apps in the specified directory
 alias .f.run.subdirs='find . -name pubspec.yaml -execdir bash -c "pwd && fvm flutter run -d linux &" \;'
 
 #create linux configs for all the apps in the specified directory
 alias .f.create.subdirs='find . -name pubspec.yaml -execdir bash -c "pwd && fvm flutter create --platforms linux . &" \;'
-
-alias .f.run.build-runner='fvm flutter packages pub run build_runner build'
-
 
 
 alias .f.upgrade='flutter upgrade'
@@ -99,9 +98,18 @@ alias .f.help='fvm flutter --help --verbose'
 
 alias .f.doctor='fvm flutter doctor'
 
-alias .f.build='fvm flutter build'
 
+#build package
+alias .f.build='fvm flutter build'
 alias .f.build.linux='fvm flutter build linux'
+
+#use build_runner (for autogen code)
+alias .f.build.runner.build='fvm flutter packages pub run build_runner build'
+alias .f.build.runner.watch='fvm flutter packages pub run build_runner watch'
+
+
+
+
 
 alias .f.project.sdk="yq '.environment.sdk' < pubspec.yaml"
 

@@ -17,3 +17,6 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 
 #include custom aliases and functions
 source $BASH_INCLUDES/source_aliases_and_functions.sh
+
+#append paths etc for installed software
+source $BASH_INCLUDES/paths.sh
