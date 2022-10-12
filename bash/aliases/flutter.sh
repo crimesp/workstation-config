@@ -43,9 +43,17 @@ alias .f.clean='rm -rf .dart.tool && rm -rf build'
 
 #create linux config for projects not yet configured for linux
 alias .f.create='.f.create.linux'
-alias .f.create.linux='fvm flutter create --platforms linux .'
-alias .f.create.web='fvm flutter create --platforms web .'
+alias .f.create.linux='.f.create.with.safe.name linux'
+alias .f.create.web='.f.create.with.safe.name web'
 
+function .f.create.with.safe.name() {
+  CURRENT=`pwd`
+  BASENAME=`basename "$CURRENT"`
+
+  SAFENAME="${BASENAME//-/_}"
+  echo "Creating $1 project $SAFENAME"
+  fvm flutter create --platforms $1 --project-name $SAFENAME .
+}
 
 
 #Build Modes - https://docs.flutter.dev/testing/build-modes
@@ -73,6 +81,7 @@ alias .f.run.release.profile.linux='fvm flutter run --release -d linux'
 #run the (default/expected) main dart file
 alias .f.run.main.dart='.f.run.linux lib/main.dart'
 alias .f.run.app.widgetbook.dart='.f.run.linux lib/app.widgetbook.dart'
+alias .f.run.main.widgetbook.dart='.f.run.linux lib/main.widgetbook.dart'
 
 #run all the apps in the specified directory
 alias .f.run.subdirs='find . -name pubspec.yaml -execdir bash -c "pwd && fvm flutter run -d linux &" \;'
