@@ -59,6 +59,21 @@ function .f.create.with.safe.name() {
 #Build Modes - https://docs.flutter.dev/testing/build-modes
 #Note - Hot reload works only in debug mode.
 
+#Launch with URL from base path
+#ie .f.launch home    or .f.launch.web home?p=1
+alias .f.launch='.f.run.linux -a '
+alias .f.launch.web='.f.run.chrome --web-launch-url '
+
+
+
+#VGV flavored runs:
+
+alias .f.run.development='.f.run --flavor development --target lib/main_development.dart'
+alias .f.run.staging='.f.run --flavor staging --target lib/main_staging.dart'
+alias .f.run.production='.f.run --flavor production --target lib/main_production.dart'
+
+
+
 #Build in debug mode
 alias .f.run='.f.run.linux'
 alias .f.run.nonull='.f.run.linux --no-sound-null-safety'
@@ -86,11 +101,25 @@ alias .f.run.main.widgetbook.dart='.f.run.linux lib/main.widgetbook.dart'
 #run all the apps in the specified directory
 alias .f.run.subdirs='find . -name pubspec.yaml -execdir bash -c "pwd && fvm flutter run -d linux &" \;'
 
+#run all widget and unit tests
+alias .f.test='fvm flutter test --coverage --test-randomize-ordering-seed random'
+
+#required lcov
+#sudo apt install lcov
+#requies aliasing of xdg-open to open on linux
+#sudo ln -s /usr/bin/xdg-open /usr/bin/open
+alias .f.coverage='genhtml coverage/lcov.info -o coverage/ && open coverage/index.html'
+
+
+
 #create linux configs for all the apps in the specified directory
 alias .f.create.subdirs='find . -name pubspec.yaml -execdir bash -c "pwd && fvm flutter create --platforms linux . &" \;'
 
 
 alias .f.upgrade='flutter upgrade'
+
+
+
 
 alias .f.pub.get='fvm flutter pub get'
 
@@ -100,7 +129,10 @@ alias .f.pub.dependencies='yq pubspec.yaml .dependencies'
 
 alias .f.pub.dependencies.r='.files.find.and.yq pubspec.yaml ".dependencies"'
 
+alias .f.pub.generate.licenses='fvm flutter pub run flutter_oss_licenses:generate.dart'
+alias .f.pub.generate.intl='fvm flutter pub run intl_utils:generate'
 
+alias .f.pub.add='fvm flutter pub add'
 
 
 alias .f.help='fvm flutter --help --verbose'
@@ -186,6 +218,10 @@ alias .v.use.2.12.0-4.2.pre='fvm use 2.12.0-4.2.pre'
 # mason make riverpod_clean_architecture
 #
 #
+
+alias .m.upgrade='echo "upgrading via brew" && brew upgrade'
+
+alias .m.verygood.init.and.create.core.in.root='mason init; mason add very_good_core; mason make very_good_core'
 
 alias .m.init='mason init'
 alias .m.add='mason add '

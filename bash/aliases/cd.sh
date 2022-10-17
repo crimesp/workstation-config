@@ -8,4 +8,3 @@ alias .cd.idea.projects='cd ~/idea/'
 alias .cd.multi='cd ~/idea/multiproject'
 
 alias .cd.git='cd git'
-alias .cd.ygt='cd /git/ygt'

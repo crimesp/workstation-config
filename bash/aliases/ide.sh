@@ -1,5 +1,5 @@
 alias .atom='idea . > /dev/null 2>&1 &'
 
 alias .studio='/opt/android-studio/bin/studio.sh . > /dev/null 2>&1 &'
-
+l
 alias .idea='idea . > /dev/null 2>&1 &'
