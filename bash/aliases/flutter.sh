@@ -80,6 +80,9 @@ alias .f.run.nonull='.f.run.linux --no-sound-null-safety'
 
 alias .f.run.linux='fvm flutter --version && fvm flutter run -d linux'
 alias .f.run.chrome='fvm flutter --version && fvm flutter run -d chrome'
+alias .f.run.chrome.5000='.f.run.chrome --web-port 5000'
+alias .f.run.chrome.5000.release='.f.run.chrome.5000 --release'
+alias .f.run.chrome.5000.profile='.f.run.chrome.5000 --profile'
 alias .f.run.chrome.app.widgetbook='fvm flutter --version && fvm flutter run -d chrome lib/app.widgetbook.dart'
 
 
@@ -89,7 +92,7 @@ alias .f.run.profile.linux='fvm flutter run --profile -d linux'
 
 #Build a release version of your app
 alias .f.run.release='.f.run.release.linux'
-alias .f.run.release.profile.linux='fvm flutter run --release -d linux'
+alias .f.run.release.linux='fvm flutter run --release -d linux'
 
 
 
@@ -99,7 +102,8 @@ alias .f.run.app.widgetbook.dart='.f.run.linux lib/app.widgetbook.dart'
 alias .f.run.main.widgetbook.dart='.f.run.linux lib/main.widgetbook.dart'
 
 #run all the apps in the specified directory
-alias .f.run.subdirs='find . -name pubspec.yaml -execdir bash -c "pwd && fvm flutter run -d linux &" \;'
+alias .f.run.subdirs.linux='find . -name pubspec.yaml -execdir bash -c "pwd && fvm flutter run -d linux &" \;'
+alias .f.run.subdirs.chrome='find . -name pubspec.yaml -execdir bash -c "pwd && fvm flutter run -d chrome &" \;'
 
 #run all widget and unit tests
 alias .f.test='fvm flutter test --coverage --test-randomize-ordering-seed random'

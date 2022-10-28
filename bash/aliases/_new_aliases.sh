@@ -2,6 +2,6 @@
 
 
 
-alias .cd.wbt='cd ~/git/wbt/wk3-vgv-with-countdown/wbt-vgv'
-
+alias .cd.wbt='cd ~/git/wbt/wk4-adaptive-settings/wbt-vgv'
+alias .cd.candidates='cd ~/git/candidates/timers/will-use'
 
