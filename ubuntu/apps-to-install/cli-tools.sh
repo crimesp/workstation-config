@@ -7,14 +7,6 @@ sudo apt-get install terminator
 #for rare cases (such as Flutter version Manager)
 sudo apt-get install brew
 
-#dont use brew as sudo
-#brew install fvm
-brew tap leoafarias/fvm
-brew install fvm
-
-#brew install mason
-brew tap felangel/mason
-brew install mason
 
 
 sudo apt-get install gnome-panel

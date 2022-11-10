@@ -32,6 +32,16 @@ alias .d.fix.apply='fvm dart fix --apply'
 
 
 
+#shows packages with later versions than current
+alias .f.pub.outdate='fvm flutter pub outdated'
+#upgrades to latest possible versions without breaking dependencies
+alias .f.pub.upgrade.major.versions='fvm flutter pub upgrade --major-versions'
+
+#upgraded to first avaialble null safe versions
+alias .f.pub.upgrade.mode.nullsafety='fvm flutter pub upgrade --null-safety'
+
+
+
 #list available emulators & device ids
 alias .f.emulators='fvm flutter emulators'
 
@@ -119,15 +129,13 @@ alias .f.coverage='genhtml coverage/lcov.info -o coverage/ && open coverage/inde
 #create linux configs for all the apps in the specified directory
 alias .f.create.subdirs='find . -name pubspec.yaml -execdir bash -c "pwd && fvm flutter create --platforms linux . &" \;'
 
-
-alias .f.upgrade='flutter upgrade'
+#doesnt make sense with fvm
+#alias .f.upgrade='flutter upgrade'
 
 
 
 
 alias .f.pub.get='fvm flutter pub get'
-
-alias .f.pub.update='fvm flutter pub update'
 
 alias .f.pub.dependencies='yq pubspec.yaml .dependencies'
 
@@ -161,7 +169,10 @@ alias .f.project.sdk="yq '.environment.sdk' < pubspec.yaml"
 alias .f.pub.update-packages='fvm flutter update-packages'
 
 
+alias .f.l18n.watch='watch fvm flutter gen-l10n'
 
+
+alias .f.format.and.fix.all='dart format * --fix --line-length 160'
 
 
 ### FLUTTER VERSION MANAGER
@@ -185,6 +196,12 @@ alias .v.use.2.8.1='fvm use 2.8.1'
 alias .v.use.2.10.5='fvm use 2.10.5'
 
 alias .v.use.3.3.2='fvm use 3.3.2'
+
+alias .v.use.3.3.7='fvm use 3.3.7'
+
+alias .v.use.3.3.8='fvm use 3.3.8'
+
+
 
 alias .v.use.stable='fvm use stable'
 
