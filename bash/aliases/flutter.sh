@@ -47,7 +47,7 @@ alias .f.emulators='fvm flutter emulators'
 
 
 #hard clean of dart, useful when switching between flutter/dart versions
-alias .f.clean='rm -rf .dart.tool && rm -rf build'
+alias .f.clean='fvm flutter clean && rm -rf .dart.tool && rm -rf build && rm -rf ~/.pub-cache && .f.pub.get'
 
 
 
@@ -74,6 +74,12 @@ function .f.create.with.safe.name() {
 alias .f.launch='.f.run.linux -a '
 alias .f.launch.web='.f.run.chrome --web-launch-url '
 
+
+
+
+#VGV flavored builds:
+alias .f.build.apk.dev.debug='fvm flutter build apk --target-platform android-arm --flavor development --debug  --target lib/main_development.dart'
+alias .f.build.apk.dev.release='fvm flutter build apk --target-platform android-arm --flavor development --release  --target lib/main_development.dart'
 
 
 #VGV flavored runs:
@@ -173,6 +179,16 @@ alias .f.l18n.watch='watch fvm flutter gen-l10n'
 
 
 alias .f.format.and.fix.all='dart format * --fix --line-length 160'
+
+
+
+
+
+
+
+
+
+
 
 
 ### FLUTTER VERSION MANAGER

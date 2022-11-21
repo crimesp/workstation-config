@@ -15,3 +15,8 @@ dart pub global activate riverpod_cli
 
 
 flutter bash-completion > "$BASH_INCLUDES/cli-etc/flutter-bash-completion.sh"
+
+
+
+#deps for audioplayers
+sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev

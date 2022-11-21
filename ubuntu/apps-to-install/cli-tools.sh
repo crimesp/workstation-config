@@ -8,11 +8,6 @@ sudo apt-get install terminator
 sudo apt-get install brew
 
 
-
-sudo apt-get install gnome-panel
-
- sudo apt-get install gnome-tweak-tool
-
 #inspect SSL and other certificates
 sudo apt install certtool
 
@@ -54,6 +49,3 @@ sudo apt-get install canberra-gtk-module
 
 #from dart
 dart pub global activate very_good_cli
-
-#to disable the dock bar
-sudo apt install gnome-shell-extensions
