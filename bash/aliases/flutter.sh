@@ -95,6 +95,7 @@ alias .f.run='.f.run.linux'
 alias .f.run.nonull='.f.run.linux --no-sound-null-safety'
 
 alias .f.run.linux='fvm flutter --version && fvm flutter run -d linux'
+alias .f.run.android.samsung.a21s='fvm flutter --version && fvm flutter run -d RF8N90L632Y'
 alias .f.run.chrome='fvm flutter --version && fvm flutter run -d chrome'
 alias .f.run.chrome.5000='.f.run.chrome --web-port 5000'
 alias .f.run.chrome.5000.release='.f.run.chrome.5000 --release'
@@ -164,6 +165,9 @@ alias .f.build.linux='fvm flutter build linux'
 
 #use build_runner (for autogen code)
 alias .f.build.runner.build='fvm flutter packages pub run build_runner build'
+alias .f.build.runner.build.delete-conflicting-outputs='fvm flutter packages pub run build_runner build --delete-conflicting-outputs'
+
+
 alias .f.build.runner.watch='fvm flutter packages pub run build_runner watch'
 
 

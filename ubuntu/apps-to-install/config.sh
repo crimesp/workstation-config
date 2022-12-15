@@ -7,3 +7,9 @@ echo vm.dirty_bytes=15000000 | sudo tee -a /etc/sysctl.conf
 
 #allows more file handles for idea to watch for changes to directories
 echo fs.inotify.max_user_watches = 524288 | sudo tee -a /etc/sysctl.conf
+
+
+
+#if you have single display (laptop screen disabled, and you want to lock it for log in)
+sudo cp ~/.config/monitors.xml ~gdm/.config/monitors.xml && sudo chown gdm:gdm ~gdm/.config/monitors.xml
+
