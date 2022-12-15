@@ -3,16 +3,15 @@
 brew tap leoafarias/fvm
 brew install fvm
 
-#brew install mason
-brew tap felangel/mason
-brew install mason
-
-
+dart pub global activate mason_cli
 
 dart pub global activate riverpod_cli
 
 #add flutter bash completiond
 
+
+fvm install stable
+fvm global stable
 
 flutter bash-completion > "$BASH_INCLUDES/cli-etc/flutter-bash-completion.sh"
 
