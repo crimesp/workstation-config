@@ -1,19 +1,19 @@
 #for coverage reports during tests
-sudo apt install lcov
+sudo apt install lcov -y
 
 
 #for cmake for flutter
-sudo apt install cmake
+sudo apt install cmake -y
 
 #c language for flutter
-sudo apt install clang
+sudo apt install clang  -y
 
 #ninjav build for cmake/flutter
-sudo apt install ninja-build
+sudo apt install ninja-build  -y
 
 #c libraries etc for flutter
-sudo apt-get install clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev
+sudo apt-get install clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev  -y
 
 
 #deps for audioplayers
-sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev  -y
