@@ -1,3 +1,4 @@
+
 #vi, only better!!
 sudo apt install vim -y
 
@@ -48,7 +49,14 @@ sudo apt-get install canberra-gtk-module -y
 #for cmake for flutter
 sudo apt install cmake
 
+#c language for flutter
+sudo apt install clang
 
+#ninjav build for cmake/flutter
+sudo apt install ninja-build
+
+#c libraries etc for flutter
+sudo  apt install libgtk-3-dev
 
 #from dart
 dart pub global activate very_good_cli
