@@ -3,3 +3,7 @@ sudo apt-get install gnome-panel -y
 
 #to disable the dock bar
 sudo apt install gnome-shell-extensions -y
+
+
+#temp monitor
+sudo apt install psensor -y

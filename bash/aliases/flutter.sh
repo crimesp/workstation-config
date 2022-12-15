@@ -221,6 +221,9 @@ alias .v.use.3.3.7='fvm use 3.3.7'
 
 alias .v.use.3.3.8='fvm use 3.3.8'
 
+alias .v.use.3.3.9='fvm use 3.3.9'
+
+alias .v.use='fvm use'
 
 
 alias .v.use.stable='fvm use stable'

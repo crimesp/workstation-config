@@ -2,12 +2,6 @@
 #vi, only better!!
 sudo apt install vim -y
 
-#multi terminal panels!"
-sudo apt-get install terminator -y
-
-
-
-
 #inspect SSL and other certificates
 sudo apt install certtool -y
 
@@ -15,13 +9,9 @@ sudo apt install certtool -y
 #pretty print directory structure
 sudo apt install tree -y
 
-#temp monitor
-sudo apt install psensor -y
-
 
 #helper to alias xdg-open with open
 sudo ln -s /usr/bin/xdg-open /usr/bin/open -y
-
 
 
 #jsonquery and yamlquery
@@ -46,17 +36,3 @@ sudo apt install pavucontrol -y
 #for xmind 8
 sudo apt-get install canberra-gtk-module -y
 
-#for cmake for flutter
-sudo apt install cmake
-
-#c language for flutter
-sudo apt install clang
-
-#ninjav build for cmake/flutter
-sudo apt install ninja-build
-
-#c libraries etc for flutter
-sudo  apt install libgtk-3-dev
-
-#from dart
-dart pub global activate very_good_cli

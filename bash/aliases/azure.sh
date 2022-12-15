@@ -1,37 +1,37 @@
-#kubectl scale deployment em-hrs-ingestor-java --replicas 0
+#kubectl scale deployment your-batchrunner-java --replicas 0
 #you need to login if your subscription access changes
-alias .az.acr.login='az acr login --name hmctspublic && az acr login --name hmctsprivate'
+alias .az.acr.login='az acr login --name clientpublic && az acr login --name clientprivate'
 
 
-alias .az.credentials.aat.00='az aks get-credentials --resource-group cft-aat-00-rg --name cft-aat-00-aks --subscription DCD-CFTAPPS-STG --overwrite'
-alias .az.credentials.aat.01='az aks get-credentials --resource-group cft-aat-01-rg --name cft-aat-01-aks --subscription DCD-CFTAPPS-STG --overwrite'
+alias .az.credentials.aat.00='az aks get-credentials --resource-group aat-00-rg --name aat-00-aks --subscription APPS-STG --overwrite'
+alias .az.credentials.aat.01='az aks get-credentials --resource-group aat-01-rg --name aat-01-aks --subscription APPS-STG --overwrite'
 
-alias .az.credentials.ithc.00='az aks get-credentials --resource-group cft-ithc-00-rg --name cft-ithc-00-aks --subscription DCD-CFTAPPS-ITHC --overwrite'
-alias .az.credentials.ithc.01='az aks get-credentials --resource-group cft-ithc-01-rg --name cft-ithc-01-aks --subscription DCD-CFTAPPS-ITHC --overwrite'
-
-
-alias .az.credentials.ithc.00='az aks get-credentials --resource-group cft-ithc-00-rg --name cft-ithc-00-aks --subscription DCD-CFTAPPS-ITHC --overwrite'
-alias .az.credentials.ithc.01='az aks get-credentials --resource-group cft-ithc-01-rg --name cft-ithc-01-aks --subscription DCD-CFTAPPS-ITHC --overwrite'
+alias .az.credentials.ithc.00='az aks get-credentials --resource-group ithc-00-rg --name ithc-00-aks --subscription APPS-ITHC --overwrite'
+alias .az.credentials.ithc.01='az aks get-credentials --resource-group ithc-01-rg --name ithc-01-aks --subscription APPS-ITHC --overwrite'
 
 
+alias .az.credentials.ithc.00='az aks get-credentials --resource-group ithc-00-rg --name ithc-00-aks --subscription APPS-ITHC --overwrite'
+alias .az.credentials.ithc.01='az aks get-credentials --resource-group ithc-01-rg --name ithc-01-aks --subscription APPS-ITHC --overwrite'
 
 
 
-alias .az.credentials.demo.01='az aks get-credentials --resource-group demo-01-rg --name demo-01-aks --subscription DCD-CFTAPPS-DEMO --overwrite'	
 
 
-alias .az.credentials.perftest.00='az aks get-credentials --resource-group cft-perftest-00-rg --name cft-perftest-00-aks --subscription DCD-CFTAPPS-TEST --overwrite'
-alias .az.credentials.perftest.01='az aks get-credentials --resource-group cft-perftest-01-rg --name cft-perftest-01-aks --subscription DCD-CFTAPPS-TEST --overwrite'
+alias .az.credentials.demo.01='az aks get-credentials --resource-group demo-01-rg --name demo-01-aks --subscription APPS-DEMO --overwrite'
 
 
-alias .az.credentials.preview.00='az aks get-credentials --resource-group cft-preview-00-rg --name cft-preview-00-aks --subscription DCD-CFTAPPS-DEV --overwrite'
-alias .az.credentials.preview.01='az aks get-credentials --resource-group cft-preview-01-rg --name cft-preview-01-aks --subscription DCD-CFTAPPS-DEV --overwrite'
-
-alias .az.credentials.prod.00='az aks get-credentials --resource-group prod-00-rg --name prod-00-aks --subscription DCD-CFTAPPS-PROD --overwrite'
-alias .az.credentials.prod.01='az aks get-credentials --resource-group prod-01-rg --name prod-01-aks --subscription DCD-CFTAPPS-PROD --overwrite'
+alias .az.credentials.perftest.00='az aks get-credentials --resource-group perftest-00-rg --name perftest-00-aks --subscription APPS-TEST --overwrite'
+alias .az.credentials.perftest.01='az aks get-credentials --resource-group perftest-01-rg --name perftest-01-aks --subscription APPS-TEST --overwrite'
 
 
-alias .az.credentials.intsrv-00='az aks get-credentials --resource-group cftptl-intsvc-00-rg --name cftptl-intsvc-00-aks --subscription DTS-CFTPTL-INTSVC'
+alias .az.credentials.preview.00='az aks get-credentials --resource-group preview-00-rg --name preview-00-aks --subscription APPS-DEV --overwrite'
+alias .az.credentials.preview.01='az aks get-credentials --resource-group preview-01-rg --name preview-01-aks --subscription APPS-DEV --overwrite'
+
+alias .az.credentials.prod.00='az aks get-credentials --resource-group prod-00-rg --name prod-00-aks --subscription APPS-PROD --overwrite'
+alias .az.credentials.prod.01='az aks get-credentials --resource-group prod-01-rg --name prod-01-aks --subscription APPS-PROD --overwrite'
+
+
+alias .az.credentials.intsrv-00='az aks get-credentials --resource-group ptl-intsvc-00-rg --name ptl-intsvc-00-aks --subscription DTSPTL-INTSVC'
 
 alias .az.login.acr='.az.acr.login'
 alias .az.login='az login'
