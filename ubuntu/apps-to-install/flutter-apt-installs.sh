@@ -11,7 +11,7 @@ sudo apt install clang  -y
 #ninjav build for cmake/flutter
 sudo apt install ninja-build  -y
 
-#c libraries etc for flutter
+#c libraries etc for flutter - note that you may require later versions of libstdc
 sudo apt-get install clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev  -y
 
 
