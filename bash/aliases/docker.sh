@@ -26,6 +26,8 @@ alias .docker.prune.all='docker system prune -a'
 done
 }
 
+alias .docker.logs='docker logs'
+
 .docker.run () {
 
     if [ -z "$1" ]

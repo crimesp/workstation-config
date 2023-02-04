@@ -55,6 +55,7 @@ alias .f.clean='fvm flutter clean && rm -rf .dart.tool && rm -rf build && rm -rf
 alias .f.create='.f.create.linux'
 alias .f.create.linux='.f.create.with.safe.name linux'
 alias .f.create.web='.f.create.with.safe.name web'
+alias .f.create.macos='.f.create.with.safe.name macos'
 
 function .f.create.with.safe.name() {
   CURRENT=`pwd`
@@ -64,6 +65,8 @@ function .f.create.with.safe.name() {
   echo "Creating $1 project $SAFENAME"
   fvm flutter create --platforms $1 --project-name $SAFENAME .
 }
+
+
 
 
 #Build Modes - https://docs.flutter.dev/testing/build-modes
@@ -91,10 +94,11 @@ alias .f.run.production='.f.run --flavor production --target lib/main_production
 
 
 #Build in debug mode
-alias .f.run='.f.run.linux'
-alias .f.run.nonull='.f.run.linux --no-sound-null-safety'
+alias .f.run='.f.run.macos'
+alias .f.run.nonull='.f.run --no-sound-null-safety'
 
 alias .f.run.linux='fvm flutter --version && fvm flutter run -d linux'
+alias .f.run.macos='fvm flutter --version && fvm flutter run -d macos'
 alias .f.run.android.samsung.a21s='fvm flutter --version && fvm flutter run -d RF8N90L632Y'
 alias .f.run.chrome='fvm flutter --version && fvm flutter run -d chrome'
 alias .f.run.chrome.5000='.f.run.chrome --web-port 5000'

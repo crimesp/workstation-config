@@ -1,5 +1,7 @@
 alias la='ls -A'
-alias ll='ls -alFh  --group-directories-first'
+#alias ll='ls -alFh  --group-directories-first' #linux
+alias ll='ls -alFh' #mac
+
 alias l='ll'
 
 alias rc="reset;clear"
