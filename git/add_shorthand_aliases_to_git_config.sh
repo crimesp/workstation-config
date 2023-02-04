@@ -11,3 +11,8 @@ cat << EOF >> ~/.gitconfig
 EOF
 
 git config --global core.editor vim
+
+
+#set no reply email address
+
+git config --global user.email "1911935+crimesp@users.noreply.github.com"
