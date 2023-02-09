@@ -7,3 +7,11 @@ sudo apt install gnome-shell-extensions -y
 
 #temp monitor
 sudo apt install psensor -y
+
+
+#get gnome extensions browser plugin
+https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep/related
+
+install g-tile
+
+

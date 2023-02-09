@@ -1,5 +1,8 @@
-to save: dconf dump /org/gnome/shell/extensions/gtile/ > /git/workstation-config/ubuntu/apps-to-install/gtile/config.txt
-to load: dconf load /org/gnome/shell/extensions/gtile/ < /git/workstation-config/ubuntu/apps-to-install/gtile/config.txt
+to save:
+dconf dump /org/gnome/shell/extensions/gtile/ > ~/git/workstation-config/ubuntu/apps-to-install/gtile/config.txt
+
+to load:
+dconf load /org/gnome/shell/extensions/gtile/ < ~/git/workstation-config/ubuntu/apps-to-install/gtile/config.txt
 
 this config is my setup for idea intellij/android studio on a ultra wide monitor
 
