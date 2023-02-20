@@ -28,7 +28,11 @@ done
 
 alias .docker.logs='docker logs'
 
-.docker.run () {
+##HARDCODED FOR ARCH AMD64 / linux
+
+alias .docker.run='docker run --platform linux/amd64'
+
+.docker.run.named () {
 
     if [ -z "$1" ]
     then
@@ -45,22 +49,61 @@ alias .docker.logs='docker logs'
      fi
 
 
-  docker run --name $NAME $IMAGE
+  .docker.run --name $NAME $IMAGE
 }
+
+.docker.run.named.it () {
+
+    if [ -z "$1" ]
+    then
+        echo "USAGE: .docker.run IMAGENAME CONTAINERNAME"
+    return 1
+    fi
+
+ IMAGE=$1
+ NAME=$2
+
+     if [ -z "$NAME" ]
+     then
+           NAME=$(echo $1 | sed 's/[^a-zA-Z0-9]//g')
+     fi
+
+
+  .docker.run -it --name $NAME $IMAGE
+}
+
 .docker.run.ant.build () {
-  docker run  --mount type=bind,source="$(pwd)",target=/build/  paulushc/apacheant ant -buildfile /build/
+  docker run --platform linux/amd64  --mount type=bind,source="$(pwd)",target=/build/  paulushc/apacheant ant -buildfile /build/
 }
 
 
 
 .docker.exec.bin.bash () {
+   if [ -z "$1" ]
+      then
+          echo "Supply image name as first argument"
+      return 1
+    fi
+
    docker exec -it $1 /bin/bash
 }
 
 .docker.exec.bash () {
+   if [ -z "$1" ]
+      then
+          echo "Supply container name as first argument"
+      return 1
+    fi
+
    docker exec -it $1 /bash
 }
 
 .docker.exec.bin.sh () {
-   docker exec -it $1 /bin.sh
+   if [ -z "$1" ]
+      then
+          echo "Supply container name as first argument"
+      return 1
+    fi
+
+   docker exec -it $1 /bin/sh
 }

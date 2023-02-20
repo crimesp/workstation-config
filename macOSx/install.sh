@@ -46,3 +46,13 @@ brew install openvpn
 ln -s /opt/homebrew/opt/openvpn/sbin/openvpn /opt/homebrew/bin
 
 --data-ciphers AES-192-CBC
+
+
+
+#update ~.inputrc to read the following to enable showing possible matches, rather than selecting first match
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set menu-complete-display-prefix on
+#TAB: menu-complete
+set colored-completion-prefix on
+set colored-stats on
