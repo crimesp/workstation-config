@@ -2,8 +2,8 @@
 alias .net.iptables.nat="sudo iptables -t nat -L -n"
 
 
-alias .net.stat.local='sudo netstat -plnt'
-alias .net.routing='netstat -rn'
+alias .net.stat.local='sudo ss -plnt'
+alias .net.routing='ss -rn'
 alias .net.iprule.show=' ip rule show'
 
 #endpoint monitor. Run `.listen 8081` and then test with `curl localhost:8081/test` to see packets sent

@@ -1,14 +1,17 @@
+#install dart sdk
+https://dart.dev/get-dart
+
 #dont use brew as sudo
 #brew install fvm
 brew tap leoafarias/fvm
 brew install fvm
 
 fvm install stable
-fvm global stable
+  fvm global stable
 
+echo 'export PATH="$PATH:/home/paul/fvm/default/bin"' >> ~/.profile
 
 #add flutter bash completiond
-
 fvm flutter bash-completion > "$BASH_INCLUDES/cli-etc/flutter-bash-completion.sh"
 
 

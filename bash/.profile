@@ -4,6 +4,7 @@
 
 #share sshagent through the same pipe
 #rm ~/.ssh/ssh-agent.$HOSTNAME.sock
+rm -rf ~/.ssh/ssh-agent.$HOSTNAME.sock
 export SSH_AUTH_SOCK=~/.ssh/ssh-agent.$HOSTNAME.sock
 ssh-add -l 2>/dev/null >/dev/null
 if [ $? -ge 2 ]; then

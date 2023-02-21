@@ -223,7 +223,7 @@ function .kustomize.em.app.for.env() {
   kustomize build --load-restrictor LoadRestrictionsNone k8s/$env/common-overlay/em  | yq eval "select(.kind == \"HelmRelease\" and .metadata.name == \"${appname}\")" -
   kustomize build --load-restrictor LoadRestrictionsNone k8s/$env/cluster-00-overlay/em  | yq eval "select(.kind == \"HelmRelease\" and .metadata.name == \"${appname}\")" -
   kustomize build --load-restrictor LoadRestrictionsNone k8s/$env/cluster-01-overlay/em  | yq eval "select(.kind == \"HelmRelease\" and .metadata.name == \"${appname}\")" -
-
+}
 
 alias .kustomize.em.app.for.env..your-api.aat='.kustomize.em.app.for.env your-api aat'
 alias .kustomize.em.app.for.env..your-api.demo='.kustomize.em.app.for.env your-api demo'
@@ -237,3 +237,4 @@ alias .kustomize.em.app.for.env..your-batchrunner.demo='.kustomize.em.app.for.en
 alias .kustomize.em.app.for.env..your-batchrunner.perftest='.kustomize.em.app.for.env your-batchrunner perftest'
 alias .kustomize.em.app.for.env..your-batchrunner.prod='.kustomize.em.app.for.env your-batchrunner prod'
 alias .kustomize.em.app.for.env..your-batchrunner.all='rc;.kustomize.em.app.for.env..your-batchrunner.aat && .kustomize.em.app.for.env..your-batchrunner.demo && .kustomize.em.app.for.env..your-batchrunner.perftest && .kustomize.em.app.for.env..your-batchrunner.prod'
+
