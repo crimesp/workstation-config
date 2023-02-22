@@ -1,0 +1,20 @@
+#install chocolately package manager
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+
+#install fvm
+choco install fvm
+
+
+#install appropriate version of flutter
+fvm install 3.3.10
+
+#set as global
+flutter global 3.3.10
+
+#allow dir as safe config
+git config --global --add safe.directory C:/Users/Paul/fvm/versions/3.3.10
+
+
+#follow the rest of the instructions for windows
+https://docs.flutter.dev/get-started/install/windows#:~:text=Next%20step-,System%20requirements,being%20available%20in%20your%20environment.
