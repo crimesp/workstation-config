@@ -78,6 +78,8 @@ alias .f.launch='.f.run.linux -a '
 alias .f.launch.web='.f.run.chrome --web-launch-url '
 
 
+alias .f.xcode.props='fvm flutter clean && rm ios/Podfile.lock pubspec.lock && rm -rf ios/Pods ios/Runner.xcworkspace && open ios/Runner.xcworkspace'
+
 
 
 #VGV flavored builds:
@@ -157,6 +159,7 @@ alias .f.pub.generate.intl='fvm flutter pub run intl_utils:generate'
 
 alias .f.pub.add='fvm flutter pub add'
 
+alias .f.pub.generate.splashscreen='fvm flutter pub run flutter_native_splash:create --path flutter_native_splash.yaml'
 
 alias .f.help='fvm flutter --help --verbose'
 
