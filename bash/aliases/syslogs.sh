@@ -1,0 +1,8 @@
+alias .logs.all='journalctl'
+alias .logs.all.system='journalctl'
+alias .logs.all.user='journalctl'
+alias .logs.follow='journalctl --follow'
+alias .logs.follow.system='journalctl --follow --system'
+alias .logs.follow.user='journalctl --follow --user'
+alias .logs.20.system='journalctl -n20 --no-pager --system'
+alias .logs.20.user='journalctl -n20 --no-pager --user'

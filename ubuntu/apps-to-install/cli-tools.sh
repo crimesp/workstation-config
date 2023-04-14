@@ -2,11 +2,14 @@
 sudo mv /etc/apt/preferences.d/nosnap.pref ~/Documents/nosnap.backup
 sudo apt update
 
-sudo apt install snapd
+sudo apt install snapd -y
 
-sudo snap install intellij-idea-community --channel=2021.3/stable --classic
+sudo snap install intellij-idea-ultimate --channel=2021.3/stable --classic
 
+#symlink to latest idea
+sudo ln -s /snap/intellij-idea-ultimate/current/bin/idea.sh /usr/local/bin/idea
 
+sudo apt install maven -y
 
 #vi, only better!!
 #sudo apt install vim -y
@@ -34,9 +37,6 @@ sudo apt install mlocate -y
 sudo apt install npm
 sudo npm install --global git-open -y
 
-#symlink to latest idea
-sudo ln -s /snap/intellij-idea-ultimate/current/bin/idea.sh /usr/local/bin/idea -y
-
 #office 365 without distracting browsers
 #sudo snap install office365webdesktop --beta -y
 #
@@ -44,8 +44,21 @@ sudo ln -s /snap/intellij-idea-ultimate/current/bin/idea.sh /usr/local/bin/idea 
 #sudo apt install pavucontrol -y
 
 
-#for xmind 8
-sudo apt-get install canberra-gtk-module -y
+#for xmind 8 (E: Package 'libwebkitgtk-1.0-0' has no installation candidate)
+#assuming you already have java 8 - chage the set up instructions from
+#apt-get install openjdk-8-jre libgtk2.0-0 libwebkitgtk-1.0-0 lame libc6 libglib2.0-0
+#to
+apt-get install libgtk2.0-0  lame libc6 libglib2.0-0 libwebkit2gtk-4.0-37
+
+#to launch xmind, add this script in the same directory as it:
+#>>>>
+#!/bin/bash
+(cd /opt/xmind/XMind_amd64 && ./XMind)
+#<<<<
+#to add to mint menu
+#https://softhints.com/linux-mint-how-to-add-desktop-shortcut/
+
+#sudo apt-get install canberra-gtk-module -y
 
 
 #clamav

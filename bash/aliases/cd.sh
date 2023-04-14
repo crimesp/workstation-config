@@ -15,3 +15,5 @@ alias .cd.wbt.project="cd $WBT_DIR"
 alias .cd.wbt="cd $WBT_DIR/wbt-vgv/work_break_timer"
 
 alias .cd.wbt.candidates='cd ~/git/candidates/timers/will-use'
+
+alias .cd.cloudsservices='cd ~/git/accomplish/cloudservices/cloudservices'
