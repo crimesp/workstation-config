@@ -6,8 +6,7 @@
 export BASH_INCLUDES=~/git/workstation-config/bash
 source $BASH_INCLUDES/.profile
 
-#for other projects, add them like this:
+#for other projects, create a similar pattern in the relevant repository and include them in profile the same ala:
 export ACCOM_GIT_HOME=~/git/cloudservices
-export ACCOM_WORKSTATION_CONFIG=$ACCOM_GIT_HOME/workstation-config/
-export ACCOM_BASH=$ACCOM_WORKSTATION_CONFIG/bash
-source $ACCOM_BASH/.aliases_and_functions.sh
+export ACCOM_BASH_INCLUDES=$ACCOM_GIT_HOME/workstation-config/bash
+source $ACCOM_BASH_INCLUDES/.profile

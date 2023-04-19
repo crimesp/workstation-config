@@ -1,3 +1,14 @@
+#!/usr/bin/env bash
+export UNAME=`uname -s`
+export myOS="linux"
+echo "OS: $UNAME"
+
+if [ "${UNAME}" = "Darwin" ]; then
+    echo "on macos!"
+    export myOS="macos"
+fi
+
+
 ### DART
 
 alias .d.pub.get='fvm dart pub get'
@@ -52,7 +63,8 @@ alias .f.clean='fvm flutter clean && rm -rf .dart.tool && rm -rf build && rm -rf
 
 
 #create linux config for projects not yet configured for linux
-alias .f.create='.f.create.linux'
+alias .f.create=".f.create.${myOS}"
+alias .f.create.android='.f.create.with.safe.name android'
 alias .f.create.linux='.f.create.with.safe.name linux'
 alias .f.create.web='.f.create.with.safe.name web'
 alias .f.create.macos='.f.create.with.safe.name macos'
@@ -142,7 +154,7 @@ alias .f.coverage='genhtml coverage/lcov.info -o coverage/ && open coverage/inde
 #create linux configs for all the apps in the specified directory
 alias .f.create.subdirs='find . -name pubspec.yaml -execdir bash -c "pwd && fvm flutter create --platforms linux . &" \;'
 
-#doesnt make sense with fvm
+#doesnt make sense when using fvm
 #alias .f.upgrade='flutter upgrade'
 
 
@@ -167,15 +179,21 @@ alias .f.doctor='fvm flutter doctor'
 
 
 #build package
-alias .f.build='fvm flutter build'
+alias .f.build=".f.build.${myOS}"
 alias .f.build.linux='fvm flutter build linux'
+alias .f.build.macos='fvm flutter build macos'
+alias .f.build.web='fvm flutter build web'
+alias .f.build.apk='fvm flutter build apk'
+alias .f.build.ios='fvm flutter build ios'
 
 #use build_runner (for autogen code)
-alias .f.build.runner.build='fvm flutter packages pub run build_runner build'
-alias .f.build.runner.build.delete-conflicting-outputs='fvm flutter packages pub run build_runner build --delete-conflicting-outputs'
+alias .f.runner.build='fvm flutter packages pub run build_runner build --delete-conflicting-outputs'
+alias .f.runner.watch='fvm flutter packages pub run build_runner watch --delete-conflicting-outputs'
+alias .f.runner.watch='.f.runner.build && .f.runner.watch'
+
+alias .f.localization.generate.watch='watch fvm flutter gen-l10n'
 
 
-alias .f.build.runner.watch='fvm flutter packages pub run build_runner watch'
 
 
 
@@ -186,7 +204,6 @@ alias .f.project.sdk="yq '.environment.sdk' < pubspec.yaml"
 alias .f.pub.update-packages='fvm flutter update-packages'
 
 
-alias .f.l18n.watch='watch fvm flutter gen-l10n'
 
 
 alias .f.format.and.fix.all='dart format * --fix --line-length 160'

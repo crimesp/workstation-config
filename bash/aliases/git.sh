@@ -4,6 +4,7 @@
 
 alias .git.reset.head='git reset HEAD .'
 
+alias .git.restore.staged='git restore --staged'
 
 alias .git.commit.undo.last.commit='git reset --soft HEAD~1'
 
