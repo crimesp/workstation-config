@@ -11,7 +11,7 @@ alias .cd.multi='cd ~/idea/multiproject'
 
 alias .cd.git='cd ~/git'
 
-export WBT_DIR="~/git/flutter/wbt-vgv"
+export WBT_DIR="~/git/wbt-vgv"
 
 alias .cd.wbt.project="cd $WBT_DIR"
 alias .cd.wbt="cd $WBT_DIR/work_break_timer"

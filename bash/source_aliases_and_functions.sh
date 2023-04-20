@@ -13,6 +13,9 @@ done
 #done
 
 #print aliases
-.aliases.contexts.list
+echo "********************************"
+echo "Aliases Available (Top Level:"
+.alias.contexts.list
+echo "********************************"
 
 

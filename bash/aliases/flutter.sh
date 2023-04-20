@@ -8,6 +8,7 @@ if [ "${UNAME}" = "Darwin" ]; then
     export myOS="macos"
 fi
 
+echo "myOS = $myOS"
 
 ### DART
 
@@ -108,7 +109,7 @@ alias .f.run.production='.f.run --flavor production --target lib/main_production
 
 
 #Build in debug mode
-alias .f.run='.f.run.macos'
+alias .f.run=".f.run.$myOS"
 alias .f.run.nonull='.f.run --no-sound-null-safety'
 
 alias .f.run.linux='fvm flutter --version && fvm flutter run -d linux'
