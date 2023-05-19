@@ -22,5 +22,4 @@ dart pub global activate riverpod_cli
 dart pub global activate very_good_cli
 
 
-
-
+dart pub global activate flutterfire_cli

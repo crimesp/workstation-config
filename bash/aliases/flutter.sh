@@ -213,6 +213,9 @@ alias .f.format.and.fix.all='dart format * --fix --line-length 160'
 
 
 
+alias .f.firebase.login='firebase login'
+alias .f.firebase.projects='firebase projects:list'
+alias .f.firebase.init='firebase init'
 
 
 

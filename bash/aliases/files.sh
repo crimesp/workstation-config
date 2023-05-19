@@ -5,6 +5,18 @@ function .files.count () {
 
 alias .files.grep='grep -R'
 
+alias .files.open='._open'
+
+function ._open() {
+  open "$@" >/dev/null 2>&1 &
+}
+
+
+alias .files.run='._run'
+
+function ._run() {
+  "$@" >/dev/null 2>&1 &
+}
 
 
 function .files.grep.and.exec() {

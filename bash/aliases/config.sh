@@ -1,0 +1,1 @@
+alias .config.i3='vi .config/i3/config && i3-msg reload'
