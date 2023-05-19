@@ -11,12 +11,12 @@ alias .cd.multi='cd ~/idea/multiproject'
 
 alias .cd.git='cd ~/git'
 
-export WBT_DIR="~/git/wbt-vgv"
+export WBT_DIR="~/git/flutter/wbt-vgv"
 
 alias .cd.wbt.project="cd $WBT_DIR"
 alias .cd.wbt="cd $WBT_DIR/work_break_timer"
 
 alias .cd.wbt.candidates='cd ~/git/candidates/timers/will-use'
-alias .cd.talon.mouse-warp='cd ~/git/talo\n-mouse-ewarp'
+alias .cd.talon.mouse-warp='cd ~/git/talon-mouse-ewarp'
 
 alias .cd.cloudsservices='cd ~/git/accomplish/cloudservices/cloudservices'
