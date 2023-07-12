@@ -76,7 +76,7 @@ function .f.create.with.safe.name() {
 
   SAFENAME="${BASENAME//-/_}"
   echo "Creating $1 project $SAFENAME"
-  fvm flutter create --platforms $1 --project-name $SAFENAME .
+  fvm flutter create --template=app --platforms $1 --project-name $SAFENAME .
 }
 
 
@@ -190,7 +190,7 @@ alias .f.build.ios='fvm flutter build ios'
 #use build_runner (for autogen code)
 alias .f.runner.build='fvm flutter packages pub run build_runner build --delete-conflicting-outputs'
 alias .f.runner.watch='fvm flutter packages pub run build_runner watch --delete-conflicting-outputs'
-alias .f.runner.watch='.f.runner.build && .f.runner.watch'
+
 
 alias .f.localization.generate.watch='watch fvm flutter gen-l10n'
 
