@@ -1,4 +1,8 @@
-#install chocolately package manager
+run powershell as admin then enter the following commands
+
+
+
+#install chocolately package manager -
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 
@@ -7,14 +11,41 @@ choco install fvm
 
 
 #install appropriate version of flutter
-fvm install 3.3.10
+fvm install 3.10.6
 
 #set as global
-flutter global 3.3.10
+flutter global 3.10.6
 
 #allow dir as safe config
 git config --global --add safe.directory C:/Users/Paul/fvm/versions/3.3.10
 
 
-#follow the rest of the instructions for windows
+#follow the rest of the instructions for windows - usually setting up android studio
 https://docs.flutter.dev/get-started/install/windows#:~:text=Next%20step-,System%20requirements,being%20available%20in%20your%20environment.
+
+
+point studio sdks to the default location of fvm (which should usually be equvilient to stable)
+
+
+You also need:
+
+[X] Visual Studio - develop for Windows
+    X Visual Studio not installed; this is necessary for Windows development.
+      Download at https://visualstudio.microsoft.com/downloads/.
+      Please install the "Desktop development with C++" workload, including all of its default components + ""C++/CLI support for v143.."
+
+[!] Android toolchain - develop for Android devices (Android SDK version 34.0.0)
+    X cmdline-tools component is missing
+      Run `path/to/sdkmanager --install "cmdline-tools;latest"`
+      See https://developer.android.com/studio/command-line for more details.
+
+     Open your Android Studio, and then → File → Settings → Appearance & Behavior → System Settings → Android SDK → SDK Tools → download ..
+
+    X Android license status unknown.
+      Run `flutter doctor --android-licenses` to accept the SDK licenses.
+      See https://flutter.dev/docs/get-started/install/windows#android-setup for more details.
+
+
+then finally, you need nuget
+
+winget install Microsoft.NuGet
