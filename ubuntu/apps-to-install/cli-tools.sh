@@ -48,7 +48,7 @@ sudo npm install --global git-open -y
 #assuming you already have java 8 - chage the set up instructions from
 #apt-get install openjdk-8-jre libgtk2.0-0 libwebkitgtk-1.0-0 lame libc6 libglib2.0-0
 #to
-apt-get install libgtk2.0-0  lame libc6 libglib2.0-0 libwebkit2gtk-4.0-37
+apt-get install libgtk2.0-0  lame libc6 libglib2.0-0 libwebkit2gtk-4.0-37 -y
 
 #to launch xmind, add this script in the same directory as it:
 #>>>>
