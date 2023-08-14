@@ -1,6 +1,13 @@
 #note profile only loads when logging in, so changes here
 #will not be reflected without a new session
 
+#run this command from this directory to append
+#cat .profile >> ~/.profile
+
+
+
+
+
 
 #share sshagent through the same pipe
 rm ~/.ssh/ssh-agent.$HOSTNAME.sock
