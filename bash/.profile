@@ -3,13 +3,13 @@
 
 
 #share sshagent through the same pipe
-#rm ~/.ssh/ssh-agent.$HOSTNAME.sock
-#rm -rf ~/.ssh/ssh-agent.$HOSTNAME.sock
-#export SSH_AUTH_SOCK=~/.ssh/ssh-agent.$HOSTNAME.sock
-#ssh-add -l 2>/dev/null >/dev/null
-#if [ $? -ge 2 ]; then
-#  ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
-#fi
+rm ~/.ssh/ssh-agent.$HOSTNAME.sock
+rm -rf ~/.ssh/ssh-agent.$HOSTNAME.sock
+export SSH_AUTH_SOCK=~/.ssh/ssh-agent.$HOSTNAME.sock
+ssh-add -l 2>/dev/null >/dev/null
+if [ $? -ge 2 ]; then
+ ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
+fi
 
 
 #override prompt
@@ -31,3 +31,7 @@ source $BASH_INCLUDES/source_aliases_and_functions.sh
 
 #append paths etc for installed software
 source $BASH_INCLUDES/paths.sh
+
+#load environment and application secrets
+source ~/.app_environment_settings
+
