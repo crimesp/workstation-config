@@ -1,13 +1,6 @@
 #note profile only loads when logging in, so changes here
 #will not be reflected without a new session
 
-#run this command from this directory to append
-#cat .profile >> ~/.profile
-
-
-
-
-
 
 #share sshagent through the same pipe
 rm ~/.ssh/ssh-agent.$HOSTNAME.sock
@@ -19,13 +12,9 @@ if [ $? -ge 2 ]; then
 fi
 
 
-#override prompt
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u:\[\033[01;34m\]\W\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u:\W\$ '
-fi
-#unset color_prompt force_color_prompt
+#Force custom colours & prompt for "user:workingdir" (assumes using ubuntu, and not other distros etc)
+
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u:\[\033[01;34m\]\W\[\033[00m\]\$ '
 
 
 
