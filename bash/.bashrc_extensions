@@ -22,6 +22,20 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u:\[\033[01;34m\]\W\[\033
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
 
+export UNAME=`uname -s`
+export myOS="linux"
+echo "OS: $UNAME"
+
+if [ "${UNAME}" = "Darwin" ]; then
+    echo "on macos!"
+    export myOS="macos"
+fi
+
+echo "myOS = $myOS"
+
+
+
+
 #include custom aliases and functions
 source $BASH_INCLUDES/source_aliases_and_functions.sh
 

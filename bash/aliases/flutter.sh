@@ -1,14 +1,5 @@
 #!/usr/bin/env bash
-export UNAME=`uname -s`
-export myOS="linux"
-echo "OS: $UNAME"
 
-if [ "${UNAME}" = "Darwin" ]; then
-    echo "on macos!"
-    export myOS="macos"
-fi
-
-echo "myOS = $myOS"
 
 ### DART
 
