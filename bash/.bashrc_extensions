@@ -2,14 +2,19 @@
 #will not be reflected without a new session
 
 
-#share sshagent through the same pipe
-rm ~/.ssh/ssh-agent.$HOSTNAME.sock
-rm -rf ~/.ssh/ssh-agent.$HOSTNAME.sock
-export SSH_AUTH_SOCK=~/.ssh/ssh-agent.$HOSTNAME.sock
-ssh-add -l 2>/dev/null >/dev/null
-if [ $? -ge 2 ]; then
- ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
-fi
+##share sshagent through the same pipe
+#rm ~/.ssh/ssh-agent.$HOSTNAME.sock
+#rm -rf ~/.ssh/ssh-agent.$HOSTNAME.sock
+#export SSH_AUTH_SOCK=~/.ssh/ssh-agent.$HOSTNAME.sock
+#ssh-add -l 2>/dev/null >/dev/null
+#if [ $? -ge 2 ]; then
+# ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
+#fi
+
+
+#use keychain to permanently store password in keychain - warning intruders can use your ssh sock with this
+/usr/bin/keychain $HOME/.ssh/id_ecdsa
+source $HOME/.keychain/$HOSTNAME-sh
 
 
 #Force custom colours & prompt for "user:workingdir" (assumes using ubuntu, and not other distros etc)

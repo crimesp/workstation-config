@@ -5,7 +5,12 @@ sudo mv /etc/apt/preferences.d/nosnap.pref ~/Documents/nosnap.backup
 
 sudo apt update
 
-sudo apt  install curl
+#for storing ssh passwords in keychain
+sudo apt-get install keychain -y
+
+sudo apt  install curl -y
+
+sudo apt  install vim -y
 
 sudo apt install snapd -y
 
