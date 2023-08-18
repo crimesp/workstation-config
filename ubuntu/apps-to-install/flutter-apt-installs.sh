@@ -1,3 +1,7 @@
+#android studio snap
+sudo snap install android-studio --classic
+
+
 #for coverage reports during tests
 sudo apt install lcov -y
 
