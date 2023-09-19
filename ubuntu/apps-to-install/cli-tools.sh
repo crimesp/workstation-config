@@ -54,11 +54,23 @@ sudo npm install --global git-open -y
 #sudo apt install pavucontrol -y
 
 
+#for installing gnome extensions via browser
+ sudo apt-get install chrome-gnome-shell
+
+#add to desktop helper
+open https://extensions.gnome.org/extension/3240/add-to-desktop/
+
 #for xmind 8 (E: Package 'libwebkitgtk-1.0-0' has no installation candidate)
 #assuming you already have java 8 - chage the set up instructions from
 #apt-get install openjdk-8-jre libgtk2.0-0 libwebkitgtk-1.0-0 lame libc6 libglib2.0-0
 #to
-apt-get install libgtk2.0-0  lame libc6 libglib2.0-0 libwebkit2gtk-4.0-37 -y
+sudo apt-get install libgtk2.0-0  lame libc6 libglib2.0-0 libwebkit2gtk-4.0-37 -y
+
+#INSTALL
+sudo apt install libcanberra-gtk-module libcanberra-gtk3-module -y
+
+
+
 
 #to launch xmind, add this script in the same directory as it:
 #>>>>
@@ -67,6 +79,8 @@ apt-get install libgtk2.0-0  lame libc6 libglib2.0-0 libwebkit2gtk-4.0-37 -y
 #<<<<
 #to add to mint menu
 #https://softhints.com/linux-mint-how-to-add-desktop-shortcut/
+
+sudo cp desktop-launchers/*.desktop /usr/share/applications/
 
 #sudo apt-get install canberra-gtk-module -y
 

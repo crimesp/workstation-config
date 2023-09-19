@@ -299,3 +299,56 @@ function .git.branch.rename.current() {
 }
 
 
+function .git.search.for.file.across.branches() {
+    if [ -z "$1" ]
+    then
+        echo "Supply a file name to search for"
+    return 1
+    fi
+
+    local FILENAME="$@"
+    echo "Searching for file using full history: $FILENAME"
+    git log --all --full-history -- **/$FILENAME
+
+  echo "Searching for file using lstree: $FILENAME"
+
+
+for branch in `git for-each-ref --format="%(refname)" refs/heads`; do
+  echo $branch :; git ls-tree -r --name-only $branch | grep '<foo>'
+done
+
+}
+
+function .git.checkout.all.branches() {
+    for branch in $(git branch -a | grep remotes | grep -v HEAD | grep -v master); do
+        git branch --track ${branch#remotes/origin/} $branch
+    done
+}
+
+
+function .git.find.branches.containing.file.and.diff.between.them.and.this.branch()
+{
+  if [ $# -ne 1 ]; then
+    echo "Usage: $0 <relative file_path>"
+    exit 1
+  fi
+
+  file_path="$1"
+
+  # Get the current branch name
+  current_branch=$(git symbolic-ref --short HEAD)
+
+  # Get a list of branches containing the specified file
+  branches_with_file=$(git for-each-ref --format="%(refname:short)" refs/heads/ | while read branch; do
+    if git rev-list $branch -- "$file_path" | grep -q .; then
+      echo "$branch"
+    fi
+  done)
+
+  # Iterate through branches and perform a git diff
+  for branch in $branches_with_file; do
+    echo "Diff between $branch and $current_branch for file $file_path:"
+    git diff $current_branch..$branch -- "$file_path"
+    echo "-----------------------------------------"
+  done
+}
