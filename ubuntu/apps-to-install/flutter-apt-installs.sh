@@ -1,6 +1,11 @@
 #android studio snap
 sudo snap install android-studio --classic
 
+#sql lite runtimes, and test harness (dev)
+sudo apt-get -y install libsqlite3-0 libsqlite3-dev
+
+sudo apt-get install sqlitebrowser -y
+
 
 #for coverage reports during tests
 sudo apt install lcov -y
