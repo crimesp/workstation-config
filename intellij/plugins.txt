@@ -8,3 +8,7 @@ https://plugins.jetbrains.com/plugin/7973-sonarlint
 #general
 https://plugins.jetbrains.com/plugin/10080-rainbow-brackets/
 https://plugins.jetbrains.com/plugin/9792-key-promoter-x/
+
+
+#flutter
+https://plugins.jetbrains.com/plugin/14641-flutter-riverpod-snippets
