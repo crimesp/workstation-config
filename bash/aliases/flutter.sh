@@ -21,14 +21,14 @@ alias .d.fix.apply='fvm dart fix --apply'
 
 ###DCM
 
-.alias ..dcm.with.license='fvm  flutter pub run dart_code_metrics:metrics  --ci-key=66b507956294016d --email=innocent.crimes@gmail.com'
+alias ..dcm.with.license='fvm  flutter pub run dart_code_metrics:metrics  --ci-key=66b507956294016d --email=innocent.crimes@gmail.com'
 
-.alias .d.dcm.add.to.pubspec='fvm       flutter pub add --dev dart_code_metrics'
-.alias .d.dcm.add.defaults.to.pubspec='fvm flutter pub add --dev dart_code_metrics_presets'
-.alias .d.dcm.unusedcode='fvm  flutter pub run dart_code_metrics:metrics check-unused-files lib'
+alias .d.dcm.add.to.pubspec='fvm       flutter pub add --dev dart_code_metrics'
+alias .d.dcm.add.defaults.to.pubspec='fvm flutter pub add --dev dart_code_metrics_presets'
+alias .d.dcm.unusedcode='fvm  flutter pub run dart_code_metrics:metrics check-unused-files lib'
 
-.alias .dcm.analze='dcm analyze --ci-key=66b507956294016d --email=innocent.crimes@gmail.com lib'
-.alias .dcm.unused.code='fvm  flutter pub run dart_code_metrics:metrics check-unused-files lib'
+alias .dcm.analze='dcm analyze --ci-key=66b507956294016d --email=innocent.crimes@gmail.com lib'
+alias .dcm.unused.code='fvm  flutter pub run dart_code_metrics:metrics check-unused-files lib'
 
 
 ### FLUTTER
