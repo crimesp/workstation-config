@@ -188,6 +188,7 @@ alias .f.build.apk='fvm flutter build apk'
 alias .f.build.ios='fvm flutter build ios'
 
 #use build_runner (for autogen code)
+alias .f.runner.clean='fvm flutter packages pub run build_runner clean'
 alias .f.runner.build='fvm flutter packages pub run build_runner build --delete-conflicting-outputs'
 alias .f.runner.watch='fvm flutter packages pub run build_runner watch --delete-conflicting-outputs'
 
