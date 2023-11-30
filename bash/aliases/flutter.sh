@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 
 
+
+##ruby (for building on mac)
+
+alias .r.pod.update='cd ios && pod repo update'
+alias .r.pod.install='sudo gem install cocoapods'
+
+
+
+
 ### DART
 
 alias .d.pub.get='fvm dart pub get'
