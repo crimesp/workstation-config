@@ -1,9 +1,9 @@
-alias .terraform.bash='docker run -ti --rm -e TERM=xterm-256color -e BASH_INCLUDES=$BASH_INCLUDES -v $BASH_INCLUDES:$BASH_INCLUDES   -v $HOME/.aws:/root/.aws -v ${HOME}/.ssh:/root/.ssh -v `pwd`:/apps alpine/terragrunt:latest bash -c "cat $BASH_INCLUDES/source_aliases_and_functions.sh >> ~/.bashrc; bash"'
+alias .terraform.bash='docker run -ti --rm -e TERM=xterm-256color -e BASH_INCLUDES=$BASH_INCLUDES -v $BASH_INCLUDES:$BASH_INCLUDES   -v $HOME/.aws:/root/.aws -v ${HOME}/.ssh:/root/.ssh -v `pwd`:/apps alpine/terragrunt:latest bash -c "cat $BASH_INCLUDES/source_aliases_and_functions.sh >> $USER_HOME/.bashrc; bash"'
 
 function ..terragrunt() {
   #runs apline image with terragrunt, terraform - and ssh and aws dirs mapped
   echo "$*" > .command
-  docker run -ti --rm -e TERM=xterm-256color -e BASH_INCLUDES=$BASH_INCLUDES -v $BASH_INCLUDES:$BASH_INCLUDES -v $HOME/.aws:/root/.aws -v ${HOME}/.ssh:/root/.ssh -v $(pwd):/apps alpine/terragrunt:latest bash -c 'cat $BASH_INCLUDES/source_aliases_and_functions.sh >> ~/.bashrc; echo runnning .command;cat .command; sh .command'
+  docker run -ti --rm -e TERM=xterm-256color -e BASH_INCLUDES=$BASH_INCLUDES -v $BASH_INCLUDES:$BASH_INCLUDES -v $HOME/.aws:/root/.aws -v ${HOME}/.ssh:/root/.ssh -v $(pwd):/apps alpine/terragrunt:latest bash -c 'cat $BASH_INCLUDES/source_aliases_and_functions.sh >> $USER_HOME/.bashrc; echo runnning .command;cat .command; sh .command'
   rm .command
 }
 

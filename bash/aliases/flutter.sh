@@ -68,7 +68,7 @@ alias .f.emulators='fvm flutter emulators'
 
 
 #hard clean of dart, useful when switching between flutter/dart versions
-alias .f.clean='fvm flutter clean && rm -rf .dart.tool && rm -rf build && rm -rf ~/.pub-cache && .f.pub.get'
+alias .f.clean='fvm flutter clean && rm -rf .dart.tool && rm -rf build && rm -rf $USER_HOME/.pub-cache && .f.pub.get'
 
 
 

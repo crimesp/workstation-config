@@ -1,1 +1,1 @@
-alias .i3.config='vi ~/.config/i3/config'
+alias .i3.config='vi $USER_HOME/.config/i3/config'

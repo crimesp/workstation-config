@@ -1,9 +1,9 @@
 alias .bastion.proxy='ssh -D 1800 -f -C -q -N bastion-dev'
 alias .bastion.proxy.prod='ssh -D 1801 -f -C -q -N bastion-prod'
 
-alias .bastion.proxy.cleanup='rm -rf ~/.ssh/controlpath*'
+alias .bastion.proxy.cleanup='rm -rf $USER_HOME/.ssh/controlpath*'
 
-alias .ssh.add.bastion.keys='ssh-add ~/.ssh/id_rsa16k;'
+alias .ssh.add.bastion.keys='ssh-add $USER_HOME/.ssh/id_rsa16k;'
 
 ########################################################
 # ssh functions
