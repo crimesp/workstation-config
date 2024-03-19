@@ -245,34 +245,34 @@ alias .v.releases='fvm releases'
 alias .v.list='fvm list'
 
 #.v.use.xxxx  - pin project to specific version of flutter
-alias .v.use.0.6.0='fvm use v0.6.0'
-
-alias .v.use.2.2.2='fvm use 2.2.2'
-
-alias .v.use.2.8.1='fvm use 2.8.1'
-
-alias .v.use.2.10.5='fvm use 2.10.5'
-
-alias .v.use.3.3.2='fvm use 3.3.2'
-
-alias .v.use.3.3.7='fvm use 3.3.7'
-
-alias .v.use.3.3.8='fvm use 3.3.8'
-
-alias .v.use.3.3.9='fvm use 3.3.9'
-
-alias .v.use.3.3.10='fvm use 3.3.10'
+#alias .v.use.0.6.0='fvm use v0.6.0'
+#
+#alias .v.use.2.2.2='fvm use 2.2.2'
+#
+#alias .v.use.2.8.1='fvm use 2.8.1'
+#
+#alias .v.use.2.10.5='fvm use 2.10.5'
+#
+#alias .v.use.3.3.2='fvm use 3.3.2'
+#
+#alias .v.use.3.3.7='fvm use 3.3.7'
+#
+#alias .v.use.3.3.8='fvm use 3.3.8'
+#
+#alias .v.use.3.3.9='fvm use 3.3.9'
+#
+#alias .v.use.3.3.10='fvm use 3.3.10'
 
 alias .v.use='fvm use'
-
+alias .v.global='fvm global'
 
 alias .v.use.stable='fvm use stable'
-
-alias .v.use.1.11.0='fvm use v1.11.0'
-
-alias .v.use.2.13.0-0.4.pre='fvm use 2.13.0-0.4.pre'
-
-alias .v.use.2.12.0-4.2.pre='fvm use 2.12.0-4.2.pre'
+#
+#alias .v.use.1.11.0='fvm use v1.11.0'
+#
+#alias .v.use.2.13.0-0.4.pre='fvm use 2.13.0-0.4.pre'
+#
+#alias .v.use.2.12.0-4.2.pre='fvm use 2.12.0-4.2.pre'
 
 
 
