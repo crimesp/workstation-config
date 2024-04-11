@@ -1,3 +1,13 @@
+#android studio snap
+sudo snap install android-studio --classic
+snap alias android-studio studio
+
+#sql lite runtimes, and test harness (dev)
+sudo apt-get -y install libsqlite3-0 libsqlite3-dev
+
+sudo apt-get install sqlitebrowser -y
+
+
 #for coverage reports during tests
 sudo apt install lcov -y
 
@@ -15,7 +25,7 @@ sudo apt install ninja-build  -y
 sudo apt-get install clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev  -y
 
 
-#deps for audioplayers
+#deps for audioplayers (clients may need this too!)
 sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev  -y
 
 

@@ -6,8 +6,9 @@ https://dart.dev/get-dart
 brew tap leoafarias/fvm
 brew install fvm
 
-fvm install stable
-  fvm global stable
+#dont need stable
+#fvm install stable
+#  fvm global stable
 
 echo 'export PATH="$PATH:/home/paul/fvm/default/bin"' >> ~/.profile
 
@@ -16,10 +17,13 @@ fvm flutter bash-completion > "$BASH_INCLUDES/cli-etc/flutter-bash-completion.sh
 
 
 
+#maybe
+#dart pub global activate riverpod_cli
+
+
 #dart based cli helpers
-dart pub global activate mason_cli
-dart pub global activate riverpod_cli
-dart pub global activate very_good_cli
+#dart pub global activate mason_cli
+#dart pub global activate very_good_cli
 
 
 dart pub global activate flutterfire_cli

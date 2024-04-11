@@ -2,6 +2,6 @@
 # Quick edits of key bash files (using vi)
 ###########################
 
-alias .vi.ssh="vi ~/.ssh/config"
+alias .vi.ssh="vi $USER_HOME/.ssh/config"
 
-alias .vi.bashrc='vi ~/.bashrc;source ~/.bashrc'
+alias .vi.bashrc='vi $USER_HOME/.bashrc;source $USER_HOME/.bashrc'

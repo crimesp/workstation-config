@@ -1,12 +1,12 @@
 # note: some users have experienced caching issues with their AAD token:
 # psql: error: FATAL:  Azure AD access token not valid for role DTS JIT Access send-letter DB Reader SC (does not contain group ID c9e865ee-bc88-40d9-a5c1-23831f0ce255)
-# the fix is to clear the cache and login again: rm -rf ~/.azure && az login
+# the fix is to clear the cache and login again: rm -rf $USER_HOME/.azure && az login
 
 
 .postgres.azlogin() {
-  rm -rf ~/.azure
+  rm -rf $USER_HOME/.azure
   az login
-  az ssh config --ip \*.platform.client.dotcom --file ~/.ssh/config
+  az ssh config --ip \*.platform.client.dotcom --file $USER_HOME/.ssh/config
 }
 
 ################################################################

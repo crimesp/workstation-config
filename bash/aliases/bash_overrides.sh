@@ -8,3 +8,8 @@ alias rc="reset;clear"
 alias df="df -h"
 alias .du.top='du -skh * | sort -n'
 alias ps="ps -auxf"
+
+alias psg="ps -auxf | grep"
+
+
+alias env='env | sort'

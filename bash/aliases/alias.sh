@@ -1,4 +1,4 @@
-alias .alias.source='source ~/.bash_aliases'
+alias .alias.source='source $USER_HOME/.bash_aliases'
 alias .alias.contexts.list='echo "Alias Contexts:";alias | egrep -o "^alias \.([a-z]*)\." | sort -u | egrep -o "\.([a-z]*)\."'
 alias .alias.edit.new='vi $BASH_INCLUDES/aliases/_new_aliases.sh; .alias.source'
 alias .alias.add='_alias.add'

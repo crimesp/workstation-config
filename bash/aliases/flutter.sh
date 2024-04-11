@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-export UNAME=`uname -s`
-export myOS="linux"
-echo "OS: $UNAME"
 
-if [ "${UNAME}" = "Darwin" ]; then
-    echo "on macos!"
-    export myOS="macos"
-fi
 
-echo "myOS = $myOS"
+
+##ruby (for building on mac)
+
+alias .r.pod.update='cd ios && pod repo update'
+alias .r.pod.install='sudo gem install cocoapods'
+
+
+
 
 ### DART
 
@@ -28,7 +28,16 @@ alias .d.fix.dryrun='fvm dart fix --dry-run'
 alias .d.fix.apply='fvm dart fix --apply'
 
 
+###DCM
 
+alias ..dcm.with.license='fvm  flutter pub run dart_code_metrics:metrics  --ci-key=66b507956294016d --email=innocent.crimes@gmail.com'
+
+alias .d.dcm.add.to.pubspec='fvm       flutter pub add --dev dart_code_metrics'
+alias .d.dcm.add.defaults.to.pubspec='fvm flutter pub add --dev dart_code_metrics_presets'
+alias .d.dcm.unusedcode='fvm  flutter pub run dart_code_metrics:metrics check-unused-files lib'
+
+alias .dcm.analze='dcm analyze --ci-key=66b507956294016d --email=innocent.crimes@gmail.com lib'
+alias .dcm.unused.code='fvm  flutter pub run dart_code_metrics:metrics check-unused-files lib'
 
 
 ### FLUTTER
@@ -59,7 +68,7 @@ alias .f.emulators='fvm flutter emulators'
 
 
 #hard clean of dart, useful when switching between flutter/dart versions
-alias .f.clean='fvm flutter clean && rm -rf .dart.tool && rm -rf build && rm -rf ~/.pub-cache && .f.pub.get'
+alias .f.clean='fvm flutter clean && rm -rf .dart.tool && rm -rf build && rm -rf $USER_HOME/.pub-cache && .f.pub.get'
 
 
 
@@ -188,6 +197,7 @@ alias .f.build.apk='fvm flutter build apk'
 alias .f.build.ios='fvm flutter build ios'
 
 #use build_runner (for autogen code)
+alias .f.runner.clean='fvm flutter packages pub run build_runner clean'
 alias .f.runner.build='fvm flutter packages pub run build_runner build --delete-conflicting-outputs'
 alias .f.runner.watch='fvm flutter packages pub run build_runner watch --delete-conflicting-outputs'
 
@@ -235,34 +245,34 @@ alias .v.releases='fvm releases'
 alias .v.list='fvm list'
 
 #.v.use.xxxx  - pin project to specific version of flutter
-alias .v.use.0.6.0='fvm use v0.6.0'
-
-alias .v.use.2.2.2='fvm use 2.2.2'
-
-alias .v.use.2.8.1='fvm use 2.8.1'
-
-alias .v.use.2.10.5='fvm use 2.10.5'
-
-alias .v.use.3.3.2='fvm use 3.3.2'
-
-alias .v.use.3.3.7='fvm use 3.3.7'
-
-alias .v.use.3.3.8='fvm use 3.3.8'
-
-alias .v.use.3.3.9='fvm use 3.3.9'
-
-alias .v.use.3.3.10='fvm use 3.3.10'
+#alias .v.use.0.6.0='fvm use v0.6.0'
+#
+#alias .v.use.2.2.2='fvm use 2.2.2'
+#
+#alias .v.use.2.8.1='fvm use 2.8.1'
+#
+#alias .v.use.2.10.5='fvm use 2.10.5'
+#
+#alias .v.use.3.3.2='fvm use 3.3.2'
+#
+#alias .v.use.3.3.7='fvm use 3.3.7'
+#
+#alias .v.use.3.3.8='fvm use 3.3.8'
+#
+#alias .v.use.3.3.9='fvm use 3.3.9'
+#
+#alias .v.use.3.3.10='fvm use 3.3.10'
 
 alias .v.use='fvm use'
-
+alias .v.global='fvm global'
 
 alias .v.use.stable='fvm use stable'
-
-alias .v.use.1.11.0='fvm use v1.11.0'
-
-alias .v.use.2.13.0-0.4.pre='fvm use 2.13.0-0.4.pre'
-
-alias .v.use.2.12.0-4.2.pre='fvm use 2.12.0-4.2.pre'
+#
+#alias .v.use.1.11.0='fvm use v1.11.0'
+#
+#alias .v.use.2.13.0-0.4.pre='fvm use 2.13.0-0.4.pre'
+#
+#alias .v.use.2.12.0-4.2.pre='fvm use 2.12.0-4.2.pre'
 
 
 

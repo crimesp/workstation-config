@@ -1,7 +1,15 @@
 install snippets from
-
 https://riverpod.dev/docs/getting_started/
 
 https://plugins.jetbrains.com/plugin/14641-flutter-riverpod-snippets
+https://plugins.jetbrains.com/plugin/18980-dart-barrel-file-generator
 
+https://plugins.jetbrains.com/plugin/13971-flutterassetautocompletion
 
+https://plugins.jetbrains.com/plugin/21898-marcelo-s-flutter-dart-essentials
+https://plugins.jetbrains.com/plugin/20720-dart-class-tools
+https://plugins.jetbrains.com/plugin/19381-flutter-test-file-creator
+
+#realtime property inspector (pro lets you edit too) - https://detective.dev/#install
+#only seems to work in idea and not studio at the mo!
+flutter pub global activate -sgit https://github.com/Norbert515/detective.git

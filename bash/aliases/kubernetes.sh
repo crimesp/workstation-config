@@ -161,10 +161,10 @@ function ...kubectl.log.all.contexts.aat() {
 alias .kubectl.log.all.contexts.aat.tofiles='...kubectl.log.all.contexts.aat.tofiles'
 function ...kubectl.log.all.contexts.aat.tofiles() {
   .kubectl.context.aat.00
-  kubectl logs -l 'app.kubernetes.io/name in (your-api-java,your-batchrunner-job)' --tail=-1 > ~/tmp/aat.00.log.txt
+  kubectl logs -l 'app.kubernetes.io/name in (your-api-java,your-batchrunner-job)' --tail=-1 > $USER_HOME/tmp/aat.00.log.txt
   .kubectl.context.aat.01
-  kubectl logs -l 'app.kubernetes.io/name in (your-api-java,your-batchrunner-job)' --tail=-1 > ~/tmp/aat.01.log.txt
-  cat ~/tmp/aat.00.log.txt ~/tmp/aat.01.log.txt | sort > ~/tmp/aat.log.txt
+  kubectl logs -l 'app.kubernetes.io/name in (your-api-java,your-batchrunner-job)' --tail=-1 > $USER_HOME/tmp/aat.01.log.txt
+  cat $USER_HOME/tmp/aat.00.log.txt $USER_HOME/tmp/aat.01.log.txt | sort > $USER_HOME/tmp/aat.log.txt
   echo "logging all"
 }
 
@@ -182,10 +182,10 @@ function ...kubectl.log.all.contexts.perftest() {
 alias .kubectl.log.all.contexts.perftest.tofiles='...kubectl.log.all.contexts.perftest.tofiles'
 function ...kubectl.log.all.contexts.perftest.tofiles() {
   .kubectl.context.perftest.00
-  kubectl logs -l 'app.kubernetes.io/name in (your-api-java,your-batchrunner-job)' --tail=-1 > ~/tmp/perftest.00.log.txt
+  kubectl logs -l 'app.kubernetes.io/name in (your-api-java,your-batchrunner-job)' --tail=-1 > $USER_HOME/tmp/perftest.00.log.txt
   .kubectl.context.perftest.01
-  kubectl logs -l 'app.kubernetes.io/name in (your-api-java,your-batchrunner-job)' --tail=-1 > ~/tmp/perftest.01.log.txt
-  cat ~/tmp/perftest.00.log.txt ~/tmp/perftest.01.log.txt | sort > ~/tmp/perftest.log.txt
+  kubectl logs -l 'app.kubernetes.io/name in (your-api-java,your-batchrunner-job)' --tail=-1 > $USER_HOME/tmp/perftest.01.log.txt
+  cat $USER_HOME/tmp/perftest.00.log.txt $USER_HOME/tmp/perftest.01.log.txt | sort > $USER_HOME/tmp/perftest.log.txt
   echo "logging all"
 }
 

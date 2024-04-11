@@ -29,8 +29,8 @@ fi
 # OR    pip install awscli --upgrade --user
 #
 
-# backup your ~/.aws folder (if you have one)
-# then copy contents of aws_template_files to ~/.aws
+# backup your $USER_HOME/.aws folder (if you have one)
+# then copy contents of aws_template_files to $USER_HOME/.aws
 #
 
 

@@ -6,7 +6,7 @@ function ..aws() {
   -e AWS_PROFILE=$AWS_PROFILE \
   -e AWS_SESSION_NAME=$AWS_SESSION_NAME \
   amazon/aws-cli \
-  -c 'cat $BASH_INCLUDES/source_aliases_and_functions.sh >> ~/.bashrc; cd /apps/;echo runnning .command;cat .command; sh .command'
+  -c 'cat $BASH_INCLUDES/source_aliases_and_functions.sh >> $USER_HOME/.bashrc; cd /apps/;echo runnning .command;cat .command; sh .command'
   rm .command
 }
 
@@ -18,7 +18,7 @@ function ..aws.run() {
   -e AWS_PROFILE=$AWS_PROFILE \
   -e AWS_SESSION_NAME=$AWS_SESSION_NAME \
   amazon/aws-cli \
-  -c 'cat $BASH_INCLUDES/source_aliases_and_functions.sh >> ~/.bashrc; cd /apps/;echo runnning .command;cat .command; sh .command'
+  -c 'cat $BASH_INCLUDES/source_aliases_and_functions.sh >> $USER_HOME/.bashrc; cd /apps/;echo runnning .command;cat .command; sh .command'
   rm .command
 }
 
