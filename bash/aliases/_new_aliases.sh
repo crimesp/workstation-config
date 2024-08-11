@@ -7,7 +7,7 @@ alias .grub.edit='sudo cp /etc/default/grub /etc/default/grub.bak && sudo vim /e
 
 alias .ffmpeg='ffmpeg -i simvegas-circuitoverload.wav -acodec mp3 simonvegas-circuitoverload.mp3'
 #ffmpeg -i input_video.mp4 -vn -acodec copy output_audio.m4a   #extract audio from video no re-encoding
-alias .i3.bindings='grep -e '^[^#]*bind' ~/.config/i3/config'
+#alias .i3.bindings='grep -e '^[^#]*bind' ~/.config/i3/config'
 alias .x.window.class.show='xprop WM_CLASS'
 alias .x.window.class.show='xprop WM_CLASS'
 alias .x.window.class.show='xprop WM_CLASSttiitt'
