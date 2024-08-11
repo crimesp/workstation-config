@@ -68,8 +68,8 @@ alias .f.emulators='fvm flutter emulators'
 
 
 #hard clean of dart, useful when switching between flutter/dart versions
-alias .f.clean='fvm flutter clean && rm -rf .dart.tool && rm -rf build && rm -rf $USER_HOME/.pub-cache && .f.pub.get'
-
+alias .f.clean='fvm flutter clean && rm -rf .dart.tool && rm -rf build && rm -rf ~/.pub-cache && .f.pub.get'
+#alias .f.clean='fvm flutter clean && rm -rf .dart.tool && rm -rf build && rm -rf $USER_HOME/.pub-cache && .f.pub.get'
 
 
 #create linux config for projects not yet configured for linux
@@ -104,9 +104,42 @@ alias .f.xcode.props='fvm flutter clean && rm ios/Podfile.lock pubspec.lock && r
 
 
 
+
+
+
 #VGV flavored builds:
-alias .f.build.apk.dev.debug='fvm flutter build apk --target-platform android-arm --flavor development --debug  --target lib/main_development.dart'
-alias .f.build.apk.dev.release='fvm flutter build apk --target-platform android-arm --flavor development --release  --target lib/main_development.dart'
+#alias .f.build.apk.dev.debug='fvm flutter build apk --target-platform android-arm --flavor flavour_development --debug  --target lib/main_development.dart'
+#alias .f.build.apk.dev.release='fvm flutter build apk --target-platform android-arm --flavor flavour_development --release  --target lib/main_development.dart'
+#alias .f.build.apk.prod.release='fvm flutter build apk --target-platform android-arm --flavor flavour_production --release  --target lib/main_production.dart'
+alias .f.build.apk.dev.debug='fvm flutter build apk --target-platform android-arm --debug  --target lib/main_development.dart'
+alias .f.build.apk.prod.release='fvm flutter build apk --target-platform android-arm --release  --target lib/main_production.dart'
+
+
+#adb  android debugger - (Need to build the apk first) -  you can attach to the device
+# in profile and debug mode
+
+alias adb='~/Android/Sdk/platform-tools/adb'
+
+alias .adb.devices='adb devices -l'
+
+alias .adb.release.s21='adb -s RF8N90L632Y install build/app/outputs/apk/release/app-release.apk'
+
+alias .adb.release.kindle='adb -s G0W0MA078384F6ND install build/app/outputs/apk/release/app-release.apk'
+#alias .adb.profile.kindle='adb -s G0W0MA078384F6ND install build/app/outputs/apk/profile/app-profile.apk'
+alias .adb.debug.kindle='adb -s G0W0MA078384F6ND install build/app/outputs/apk/debug/app-debug.apk'
+
+
+alias .adb.uninstall.kindle='adb -s G0W0MA078384F6ND uninstall com.workbreaktimer'
+alias .adb.uninstall.kindle.keep_data='.adb.uninstall.kindle -k'
+
+alias .adb.uninstall.s21='adb -s RF8N90L632Y uninstall com.workbreaktimer'
+alias .adb.uninstall.s21.keep_data='.adb.uninstall.s21 -k'
+
+
+
+
+
+
 
 
 #VGV flavored runs:
@@ -114,6 +147,10 @@ alias .f.build.apk.dev.release='fvm flutter build apk --target-platform android-
 alias .f.run.development='.f.run --flavor development --target lib/main_development.dart'
 alias .f.run.staging='.f.run --flavor staging --target lib/main_staging.dart'
 alias .f.run.production='.f.run --flavor production --target lib/main_production.dart'
+
+
+
+
 
 
 
@@ -190,11 +227,11 @@ alias .f.doctor='fvm flutter doctor'
 
 #build package
 alias .f.build=".f.build.${myOS}"
-alias .f.build.linux='fvm flutter build linux'
-alias .f.build.macos='fvm flutter build macos'
-alias .f.build.web='fvm flutter build web'
-alias .f.build.apk='fvm flutter build apk'
-alias .f.build.ios='fvm flutter build ios'
+alias .f.build.linux='fvm flutter build linux --release'
+alias .f.build.macos='fvm flutter build macos --release'
+alias .f.build.web='fvm flutter build web --release'
+alias .f.build.apk='fvm flutter build apk --release'
+alias .f.build.ios='fvm flutter build ios --release'
 
 #use build_runner (for autogen code)
 alias .f.runner.clean='fvm flutter packages pub run build_runner clean'
