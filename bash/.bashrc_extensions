@@ -31,7 +31,8 @@ fi
 
 echo "myOS = $myOS"
 
-
+#Not sure why I'm setting to use a home like this possibly this is I can  easily  override if I am using as root
+export USER_HOME=$HOME
 
 
 #include custom aliases and functions
