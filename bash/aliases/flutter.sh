@@ -75,9 +75,12 @@ alias .f.clean='fvm flutter clean && rm -rf .dart.tool && rm -rf build && rm -rf
 #create linux config for projects not yet configured for linux
 alias .f.create=".f.create.${myOS}"
 alias .f.create.android='.f.create.with.safe.name android'
+alias .f.create.ios='.f.create.with.safe.name ios'
 alias .f.create.linux='.f.create.with.safe.name linux'
 alias .f.create.web='.f.create.with.safe.name web'
 alias .f.create.macos='.f.create.with.safe.name macos'
+
+
 
 function .f.create.with.safe.name() {
   CURRENT=`pwd`
@@ -85,6 +88,7 @@ function .f.create.with.safe.name() {
 
   SAFENAME="${BASENAME//-/_}"
   echo "Creating $1 project $SAFENAME"
+  echo "fvm flutter create --template=app --platforms $1 --project-name $SAFENAME ."
   fvm flutter create --template=app --platforms $1 --project-name $SAFENAME .
 }
 
