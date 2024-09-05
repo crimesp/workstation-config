@@ -48,6 +48,8 @@ ln -s /opt/homebrew/opt/openvpn/sbin/openvpn /opt/homebrew/bin
 --data-ciphers AES-192-CBC
 
 
+brew install git-open
+
 
 #update ~.inputrc to read the following to enable showing possible matches, rather than selecting first match
 set completion-ignore-case on
