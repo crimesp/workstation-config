@@ -1,0 +1,3 @@
+set line wrap to 120
+
+preferences->Editor->Code Style->Dart->Line length

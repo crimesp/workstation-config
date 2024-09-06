@@ -1,11 +1,16 @@
 #android studio snap
-sudo snap install android-studio --classic
-snap alias android-studio studio
+#Not sure if snap is an issue for android studio
+#sudo snap install android-studio --classic
+#snap alias android-studio studio
 
 #sql lite runtimes, and test harness (dev)
 sudo apt-get -y install libsqlite3-0 libsqlite3-dev
 
 sudo apt-get install sqlitebrowser -y
+
+sudo apt-get install gimp -y
+
+sudo apt-get install inkscape -y
 
 
 #for coverage reports during tests
