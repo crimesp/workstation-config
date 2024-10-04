@@ -16,7 +16,7 @@ alias .net.listhardware='lshw -C network'
 alias .net.network.list='lshw -C network'
 alias .network.reinstall='uname -a &&  apt reinstall linux-modules-extra-'
 
-
+alias .cd.libraries_used='cd ~/git/flutter/libraries_used'
 #git remote -v
 #git remote add fork git@github.com:DashingDevelopers/talon-gaze-ocr.git
 #git push -u fork linux_tweaks

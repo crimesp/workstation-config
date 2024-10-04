@@ -30,13 +30,13 @@ alias .d.fix.apply='fvm dart fix --apply'
 
 ###DCM
 
-alias ..dcm.with.license='fvm  flutter pub run dart_code_metrics:metrics  --ci-key=66b507956294016d --email=innocent.crimes@gmail.com'
+alias ..dcm.with.license='fvm  flutter pub run dart_code_metrics:metrics  --ci-key=xxxxxxx --email=innocent.crimes@gmail.com'
 
 alias .d.dcm.add.to.pubspec='fvm       flutter pub add --dev dart_code_metrics'
 alias .d.dcm.add.defaults.to.pubspec='fvm flutter pub add --dev dart_code_metrics_presets'
 alias .d.dcm.unusedcode='fvm  flutter pub run dart_code_metrics:metrics check-unused-files lib'
 
-alias .dcm.analze='dcm analyze --ci-key=66b507956294016d --email=innocent.crimes@gmail.com lib'
+alias .dcm.analze='dcm analyze --ci-key=xxxx --email=innocent.crimes@gmail.com lib'
 alias .dcm.unused.code='fvm  flutter pub run dart_code_metrics:metrics check-unused-files lib'
 
 
@@ -130,8 +130,10 @@ alias adb='~/Android/Sdk/platform-tools/adb'
 alias .adb.devices='adb devices -l'
 
 alias .adb.release.s21='adb -s RF8N90L632Y install build/app/outputs/flutter-apk/app-release.apk'
+alias .adb.profile.s21='adb -s RF8N90L632Y install build/app/outputs/flutter-apk/app-profile.apk'
 
 alias .adb.release.kindle='adb -s G0W0MA078384F6ND install build/app/outputs/flutter-apk/app-release.apk'
+alias .adb.profile.kindle='adb -s G0W0MA078384F6ND install build/app/outputs/flutter-apk/app-rprofile.apk'
 #alias .adb.profile.kindle='adb -s G0W0MA078384F6ND install build/app/outputs/flutter-apk/app-profile.apk'
 alias .adb.debug.kindle='adb -s G0W0MA078384F6ND install build/app/outputs/flutter-apk/app-debug.apk'
 
