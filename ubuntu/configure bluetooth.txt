@@ -1,0 +1,12 @@
+sudo vi /etc/default/grub
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash btusb.enable_autosuspend=n"
+
+
+
+
+grep . /sys/bus/usb/devices/*/power/wakeup
+echo enabled | sudo tee -a /sys/bus/usb/devices/*/power/wakeup
+
+
+all else fails cold boot the system / possibly booting to windows and back again will work

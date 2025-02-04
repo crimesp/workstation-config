@@ -27,5 +27,7 @@ alias .cd.libraries_used='cd ~/git/flutter/libraries_used'
 
 #ffmpeg -i charlie\ and\ the\ chimp\ -\ sunnies\ promo.mp4 -b:a 320K -vn music.mp3
 # ffmpeg -i music.mp3 -ss 00:00:07 -c:v copy -c:a copy musictrimmed.mp3
-
+alias .workbreaktimer='/home/paul/git/flutter/wbt-vgv/work_break_timer/build/linux/x64/debug/bundle/work_break_timer'
 alias .talon.log='tail -f ~/.talon/talon.log'
+alias .git.tag='git tag -a '
+alias .git.tag.push='git push origin --tags'

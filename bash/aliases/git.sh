@@ -2,6 +2,44 @@
 #GIT
 #########
 
+#git@github.com:UdaraWanasinghe/flutter-carousel-slider.git
+#https://github.com/UdaraWanasinghe/flutter-carousel-slider
+#
+#git remote add upstream https://github.com/original-owner/original-repo.git
+#
+#
+##if i have forked
+#git remote add upstream git@github.com:UdaraWanasinghe/flutter-carousel-slider.git
+#
+#
+#if i need to fork
+#git remote add myfork git@github.com:DashingDevelopers/flutter-carousel-slider.git
+#git push --set-upstream myfork for-upstream
+#
+#
+
+
+
+
+
+
+
+function .git.update-remote-to-dashy-dev() {
+
+    if [ -z "$1" ]
+    then
+        echo "Supply a project name"
+        echo 'result will be git remote set-url origin git@github.com:DashingDevelopers/$1.git'
+    return 1
+    fi
+
+
+git remote set-url origin git@github.com:DashingDevelopers/$1.git
+
+
+
+}
+
 alias .git.reset.head='git reset HEAD .'
 
 alias .git.restore.staged='git restore --staged'
