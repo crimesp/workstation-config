@@ -159,7 +159,7 @@ alias .f.run.production='.f.run --flavor production --target lib/main_production
 
 
 
-
+alias .f.devices='fvm flutter devices'
 
 #Build in debug mode
 alias .f.run=".f.run.$myOS"
@@ -168,6 +168,10 @@ alias .f.run.nonull='.f.run --no-sound-null-safety'
 alias .f.run.linux='fvm flutter --version && fvm flutter run -d linux'
 alias .f.run.macos='fvm flutter --version && fvm flutter run -d macos'
 alias .f.run.android.samsung.a21s='fvm flutter --version && fvm flutter run -d RF8N90L632Y'
+alias .f.run.ios.iphone.6s='fvm flutter --version && fvm flutter run -d 00008030-001005EA0E83802E'
+
+
+
 alias .f.run.chrome='fvm flutter --version && fvm flutter run -d chrome'
 alias .f.run.chrome.5000='.f.run.chrome --web-port 5000'
 alias .f.run.chrome.5000.release='.f.run.chrome.5000 --release'
