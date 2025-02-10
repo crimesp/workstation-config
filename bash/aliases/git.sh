@@ -24,7 +24,7 @@
 
 
 
-function .git.update-remote-to-dashy-dev() {
+function .git.remote.update-remote-to-dashy-dev() {
 
     if [ -z "$1" ]
     then
