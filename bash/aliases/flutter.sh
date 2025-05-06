@@ -134,6 +134,9 @@ alias .adb.profile.kindle='adb -s G0W0MA078384F6ND install build/app/outputs/flu
 alias .adb.debug.kindle='adb -s G0W0MA078384F6ND install build/app/outputs/flutter-apk/app-debug.apk'
 
 
+
+alias .adb.uninstall.dev='adb -s uninstall com.workbreaktimer.dev'
+
 alias .adb.uninstall.kindle='adb -s G0W0MA078384F6ND uninstall com.workbreaktimer'
 alias .adb.uninstall.kindle.keep_data='.adb.uninstall.kindle -k'
 
