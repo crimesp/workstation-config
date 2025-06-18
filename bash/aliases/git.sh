@@ -264,7 +264,7 @@ function .git.subdirs.merge.from.master() {
 
 }
 
-
+alias .git.branches.list.by-last-commit="git for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:relative)%09%(refname:short)"
 
 alias .git.commit='.git.commit'
 function .git.commit() {
