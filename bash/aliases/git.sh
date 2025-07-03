@@ -21,7 +21,8 @@
 
 
 
-
+alias .git.cherry.changes-from.master='git cherry -v master'
+alias .git.cherry.changes-from.develop='git cherry -v develop'
 
 
 function .git.remote.update-remote-to-dashy-dev() {
