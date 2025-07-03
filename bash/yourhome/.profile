@@ -2,6 +2,8 @@
 #then run the following
 #cp .profile  ~/.profile
 
+by using these vars, it means other users can source this profile and get all the aliases
+
 export USER_HOME=/home/paul
 
 export WORKSTATION_CONFIG=$USER_HOME/git/workstation-config

@@ -23,6 +23,7 @@ alias .cd.talon.community='cd ~/.talon/user/talon-community-linux-dev'
 
 
 alias .cd.cloudservices='cd ~/git/accomplish/cloudservices/cloudservices'
+alias .cd.docker='cd ~/git/accomplish/cloudservices/cloudservices/docker'
 alias .cd.csprod='cd ~/git/accomplish/environments/cloudservices-env-prod'
 alias .cd.cstest='cd ~/git/accomplish/environments/cloudservices-env-test'
 
