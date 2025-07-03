@@ -5,6 +5,33 @@ alias .grub.edit='sudo cp /etc/default/grub /etc/default/grub.bak && sudo vim /e
 
 #alias .system.show-login-session='loginctl show-session $(awk \'/tty/ {print $1}\' <(loginctl)) -p Type | awk -F= \'{print $2}\''
 
+
+#aac not working on maccos
+#function .ffmpeg.mp3-to-caf.aac.64() {
+#  #AAC (preferred): Better sound quality at lower bitrates, iOS optimized.
+#    if [ -z "$1" ]
+#    then
+#        echo "Supply a file name with no exetension"
+#    return 1
+#    fi
+#
+#    ffmpeg -i $1.mp3 -c:a aac -b:a 64k -ar 22050 -ac 1 $1.aac.caf
+#
+#}
+
+
+function .ffmpeg.mp3-to-caf.adpcm.64() {
+  #IMA ADPCM: Lower quality, but no need for runtime decoding on iOS (faster playback with low CPU usage).
+    if [ -z "$1" ]
+    then
+        echo "Supply a file name with no exetension"
+    return 1
+    fi
+
+ffmpeg -i $1.mp3 -c:a adpcm_ima_qt -ar 22050 -ac 1 $1.adpcm.caf
+
+}
+
 alias .ffmpeg='ffmpeg -i simvegas-circuitoverload.wav -acodec mp3 simonvegas-circuitoverload.mp3'
 #ffmpeg -i input_video.mp4 -vn -acodec copy output_audio.m4a   #extract audio from video no re-encoding
 #alias .i3.bindings='grep -e '^[^#]*bind' ~/.config/i3/config'
