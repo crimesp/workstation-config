@@ -15,6 +15,9 @@ export PATH="$PATH:$USER_HOME/fvm/default/bin"
 export PATH="$PATH:/usr/lib/dart/bin"
 export PATH="$PATH:$USER_HOME/android-studio/bin"
 
+export PATH="$PATH:/home/paul/.local/bin"
+export PATH="$PATH:/usr/local/bin"
+
 #share sshagent through the same pipe
 #rm $USER_HOME/.ssh/ssh-agent.$HOSTNAME.sock
 rm -rf $USER_HOME/.ssh/ssh-agent.$HOSTNAME.sock
