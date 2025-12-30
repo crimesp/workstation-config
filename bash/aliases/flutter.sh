@@ -123,16 +123,18 @@ alias .adb.clear_locks='rm ~/.android/avd/*.avd/*.lock'
 
 alias .adb.devices='adb devices -l'
 
-alias .adb.release.s21='adb -s RF8N90L632Y install build/app/outputs/flutter-apk/app-release.apk'
-alias .adb.profile.s21='adb -s RF8N90L632Y install build/app/outputs/flutter-apk/app-profile.apk'
+alias .adb.release.s21='adb -s RF8N90L632Y install build/app/outputs/flutter-apk/app-development-release.apk'
+alias .adb.profile.s21='adb -s RF8N90L632Y install build/app/outputs/flutter-apk/app-development-profile.apk'
+alias .adb.profile='adb install build/app/outputs/flutter-apk/app-development-profile.apk'
 
 alias .adb.permissions.s21='adb -s RF8N90L632Y shell pm list permissions | sort'
 
-alias .adb.release.kindle='adb -s G0W0MA078384F6ND install build/app/outputs/flutter-apk/app-release.apk'
-alias .adb.profile.kindle='adb -s G0W0MA078384F6ND install build/app/outputs/flutter-apk/app-profile.apk'
-#alias .adb.profile.kindle='adb -s G0W0MA078384F6ND install build/app/outputs/flutter-apk/app-profile.apk'
-alias .adb.debug.kindle='adb -s G0W0MA078384F6ND install build/app/outputs/flutter-apk/app-debug.apk'
+alias .adb.release.kindle='adb -s G0W0MA078384F6ND install build/app/outputs/flutter-apk/app-development-release.apk'
+alias .adb.profile.kindle='adb -s G0W0MA078384F6ND install build/app/outputs/flutter-apk/app-development-profile.apk'
+#alias .adb.profile.kindle='adb -s G0W0MA078384F6ND install build/app/outputs/flutter-apk/app-development-profile.apk'
+alias .adb.debug.kindle='adb -s G0W0MA078384F6ND install build/app/outputs/flutter-apk/app-development-debug.apk'
 
+alias .adb.uninstall='adb uninstall com.workbreaktimer'
 
 
 alias .adb.uninstall.dev='adb -s uninstall com.workbreaktimer.dev'

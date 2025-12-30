@@ -58,3 +58,17 @@ set menu-complete-display-prefix on
 #TAB: menu-complete
 set colored-completion-prefix on
 set colored-stats on
+
+echo "alias adb='/Users/paulcrimes/Library/Android/sdk/platform-tools/adb'" >> ~/.bash_aliases
+
+#install latest bash and set as default shell
+brew update && brew install bash
+cat /etc/shells
+echo "/opt/homebrew/bin/bash" | sudo tee -a /etc/shells
+chsh -s /opt/homebrew/bin/bash
+history
+brew install bash-completionv2
+brew install bash-completion@2
+#echo 'if [ -f "$(brew --prefix)/etc/bash_completion" ]; then . "$(brew --prefix)/etc/bash_completion"; fi' >> ~/.bash_profile
+
+echo '[[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh" ' >> ~/.bash_profile
