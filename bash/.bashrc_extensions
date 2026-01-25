@@ -27,6 +27,7 @@ echo "OS: $UNAME"
 if [ "${UNAME}" = "Darwin" ]; then
     echo "on macos!"
     export myOS="macos"
+    #    export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
 fi
 
 echo "myOS = $myOS"
