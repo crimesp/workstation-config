@@ -58,3 +58,4 @@ alias .workbreaktimer='/home/paul/git/flutter/wbt-vgv/work_break_timer/build/lin
 alias .talon.log='tail -f ~/.talon/talon.log'
 alias .git.tag='git tag -a '
 alias .git.tag.push='git push origin --tags'
+alias .mvn.deptree='mvn dependency:tree'

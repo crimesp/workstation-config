@@ -1,4 +1,9 @@
-#change your default shell to bash - https://www.howtogeek.com/444596/how-to-change-the-default-shell-to-bash-in-macos-catalina/
+#change your default shell to bash: - https://www.howtogeek.com/444596/how-to-change-the-default-shell-to-bash-in-macos-catalina/
+brew install bash
+sudo bash -c 'echo /opt/homebrew/bin/bash >> /etc/shells'
+chsh -s /opt/homebrew/bin/bash
+
+
 
 #create bash profile (for login shells) to alias bashrc
 nano ~/.bash_profile

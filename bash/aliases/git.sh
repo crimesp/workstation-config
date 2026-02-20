@@ -20,8 +20,8 @@
 
 
 
-
 alias .git.cherry.changes-from.master='git cherry -v master'
+alias .git.cherry.changes-from.main='git cherry -v main'
 alias .git.cherry.changes-from.develop='git cherry -v develop'
 
 
@@ -59,6 +59,9 @@ alias .git.stage.show.uncommited.files='git diff --staged --name-only'
 #compare current branch to master
 alias .git.compare.compare.current.branch.to.master='git diff --stat --cached origin/master'
 
+#compare current branch to main
+alias .git.compare.compare.current.branch.to.main='git diff --stat --cached origin/main'
+
 
 #show summary of commits
 alias .git.commit.show.commits.summary='git cherry -v'
@@ -73,8 +76,8 @@ alias .gitk='gitk --all'
 #NOTE I'M NOT 100% sure if these commands truly work as expected!!!
 
 #####
-# pull the local master branch with latest changes when on another branch
-# will fail with "fatal: Refusing to fetch into current branch refs/heads/master of non-bare repository" if you are on master branch
+# pull the local main branch with latest changes when on another branch
+# will fail with "fatal: Refusing to fetch into current branch refs/heads/main of non-bare repository" if you are on main branch
 
 alias .git.master.pull='git fetch origin master:master'
 #####
@@ -91,6 +94,24 @@ alias .git.merge.from.master='.git.master.pull; git merge master'
 # will fail with "fatal: Refusing to fetch into current branch refs/heads/master of non-bare repository" if you are on master branch
 
 alias .git.rebase.from.master='.git.master.pull; git rebase master'
+######
+
+
+alias .git.main.pull='git fetch origin main:main'
+#####
+
+#####
+# pull the latest main branch and merge onto the current branch
+# will fail with "fatal: Refusing to fetch into current branch refs/heads/main of non-bare repository" if you are on main branch
+
+alias .git.merge.from.main='.git.main.pull; git merge main'
+#####
+
+#####
+# rebase the current branch against the latest main branch
+# will fail with "fatal: Refusing to fetch into current branch refs/heads/main of non-bare repository" if you are on main branch
+
+alias .git.rebase.from.main='.git.main.pull; git rebase main'
 ######
 
 
@@ -111,11 +132,15 @@ alias .git.subdirs.branch='for d in ./*/ ; do (cd "$d" && echo '';pwd;git branch
 alias .git.subdirs.branchall='for d in ./*/ ; do (cd "$d" && echo '';pwd;git branch -a); done'
 alias .git.subdirs.pull='for d in ./*/ ; do (cd "$d" && echo '';pwd;git pull); done'
 alias .git.subdirs.fetch='for d in ./*/ ; do (cd "$d" && echo '';pwd;git fetch); done'
+alias .git.subdirs.main.checkoutandpull='for d in ./*/ ; do (cd "$d" && echo '';pwd;git checkout main; git pull); done'
+
+alias .git.main.checkout='git checkout main'
+
 alias .git.subdirs.master.checkoutandpull='for d in ./*/ ; do (cd "$d" && echo '';pwd;git checkout master; git pull); done'
 
 alias .git.master.checkout='git checkout master'
 
-alias .git.branch.delete='git checkout master; git branch -d '
+alias .git.branch.delete='git branch -d '
 alias .git.branch.deletehard='git branch -D '
 #but untracked files present
 alias .git.report.generate="rc;.git.foreachbranch.pull.and.show.status > .git_report.log; cat .git_report.log"
@@ -171,7 +196,7 @@ do (
     git st
 );done
 
-git checkout master
+git checkout main
 
 
 }
@@ -197,48 +222,48 @@ function .git.subdirs.checkout.branch() {
 
 }
 
-function .git.subdirs.diff.master.count() {
-echo "Master Diffs for Branch / Feature Dirs"
+function .git.subdirs.diff.main.count() {
+echo "main Diffs for Branch / Feature Dirs"
 for d in ./*/ ;
     do (
         #echo "dir is $filebasename"
         cd "$d" ;
     	printf "$d :"
-        git diff master | grep "diff --git" -c
+        git diff main | grep "diff --git" -c
      	); done
 
 
 echo "****"
 
-printf "\n\n\nMaster Diffs for Reference dirs"
+printf "\n\n\nmain Diffs for Reference dirs"
     cd symlinks
     for d in ./*/ ;
     do (
         cd "$d" ;
         printf "$d :"
-        git diff master | grep "diff --git" -c | grep ":[d]"
+        git diff main | grep "diff --git" -c | grep ":[d]"
      ); done
     cd ../
 
 }
 
 
-function .git.subdirs.diff.master.summary() {
+function .git.subdirs.diff.main.summary() {
     for d in ./*/ ;
     do (
         cd "$d" ;
         echo "**** Diff of $d :"
-        git diff master | grep "diff --git"
+        git diff main | grep "diff --git"
      ); done
 
 }
 
-function .git.subdirs.diff.master.full() {
+function .git.subdirs.diff.main.full() {
     for d in ./*/ ;
     do (
         cd "$d" ;
         echo "**** Diff of $d :"
-        git diff master
+        git diff main
      ); done
 
 }
@@ -247,20 +272,20 @@ function .git.subdirs.diff.master.full() {
 
 
 
-function .git.subdirs.master.pull() {
+function .git.subdirs.main.pull() {
     for d in ./*/ ;
     do (
         cd "$d" ;
-        .git.master.pull
+        .git.main.pull
      ); done
 
 }
 
-function .git.subdirs.merge.from.master() {
+function .git.subdirs.merge.from.main() {
     for d in ./*/ ;
     do (
         cd "$d" ;
-        .git.merge.from.master
+        .git.merge.from.main
      ); done
 
 }
@@ -290,6 +315,10 @@ function .git.push.with.commit.message() {
     git push
 }
 
+alias .fix='.git.push.with.commit.message fix: '
+alias .feat='.git.push.with.commit.message feat: '
+alias .chore='.git.push.with.commit.message chore: '
+
 
 function .git.index.remove() {
    if [ -z "$1" ]
@@ -314,6 +343,34 @@ function .git.checkout.new.branch() {
     git checkout -b "$BRANCH_CLEAN"
 }
 
+function .git.checkout.new.branch.feat() {
+    if [ -z "$1" ]
+    then
+        echo "Supply a branch name (spaces are ok)"
+    return 1
+    fi
+
+    local BRANCH="$@"
+    local BRANCH_CLEAN="feat/${BRANCH// /-}"
+    echo "Checking out new branch: $BRANCH_CLEAN"
+    git checkout -b "$BRANCH_CLEAN"
+}
+
+alias .branch.feat='.git.checkout.new.branch.feat'
+alias .branch.fix='.git.checkout.new.branch.fix'
+
+function .git.checkout.new.branch.fix() {
+    if [ -z "$1" ]
+    then
+        echo "Supply a branch name (spaces are ok)"
+    return 1
+    fi
+
+    local BRANCH="$@"
+    local BRANCH_CLEAN="fix/${BRANCH// /-}"
+    echo "Checking out new branch: $BRANCH_CLEAN"
+    git checkout -b "$BRANCH_CLEAN"
+}
 
 
 function .git.branch.rename.current() {
@@ -359,7 +416,7 @@ done
 }
 
 function .git.checkout.all.branches() {
-    for branch in $(git branch -a | grep remotes | grep -v HEAD | grep -v master); do
+    for branch in $(git branch -a | grep remotes | grep -v HEAD | grep -v main); do
         git branch --track ${branch#remotes/origin/} $branch
     done
 }

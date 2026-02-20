@@ -12,10 +12,10 @@ done
 #   source "$f" -H
 #done
 
-#print aliases
-echo "********************************"
-echo "Aliases Available (Top Level:"
-.alias.contexts.list
-echo "********************************"
+##print aliases
+#echo "********************************"
+#echo "Aliases Available (Top Level:"
+#.alias.contexts.list
+#echo "********************************"
 
 
