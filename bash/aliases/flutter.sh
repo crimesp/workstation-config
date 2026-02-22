@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-
+alias dart='fvm dart'
 
 ##ruby (for building on mac)
 

@@ -41,10 +41,9 @@ sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 
 
 
-#long hold comand for all shortcuts
-https://www.mediaatelier.com/CheatSheet/
-
-
+brew install openssl
+brew install python
+ pip install dmgbuild
 
 #open vpn cli
 brew install openvpn
