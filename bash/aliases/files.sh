@@ -171,3 +171,38 @@ function .files.find.and.grep.and.copy.to.comparison.dir() {
 
 }
 
+alias .files.dart.big.lib='.files.find.by.pattern.and.linecount lib "*.dart" 300 "*.gr.dart"'
+
+function .files._print_if_lines_gt() {
+  file="$1"
+  min_lines="$2"
+  lines=$(wc -l < "$file")
+  if [ "$lines" -gt "$min_lines" ]; then
+    echo "$lines $file"
+  fi
+}
+
+function .files.find.by.pattern.and.linecount() {
+  if [ -z "$1" ]; then
+    echo "Supply a directory path"
+    return 1
+  fi
+  if [ -z "$2" ]; then
+    echo "Supply and include pattern"
+    return 1
+  fi
+  if [ -z "$3" ]; then
+    echo "Supply a minimum line count"
+    return 1
+  fi
+
+    #4 exclude pattern (optional)
+
+  export -f .files._print_if_lines_gt
+
+  if [ -n "$4" ]; then
+    find "$1" -name "$2" -not -name "$4" -exec bash -c '.files._print_if_lines_gt "$0" "$1"' {} "$3" \; | sort -nr
+  else
+    find "$1" -name "$2" -exec bash -c '.files._print_if_lines_gt "$0" "$1"' {} "$3" \; | sort -nr
+  fi
+}
