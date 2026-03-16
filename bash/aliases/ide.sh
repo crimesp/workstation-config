@@ -7,8 +7,8 @@ else
   alias .studio='nohup studio . > /dev/null 2>&1 &'
 fi
 
-alias .idea='nohup idea . > /dev/null 2>&1'
+alias .idea-legacy='nohup idea-legacy . > /dev/null 2>&1'
 
-alias .idea.sh='nohup idea.sh . > /dev/null 2>&1 &'
+#alias .idea.sh='nohup idea.sh . > /dev/null 2>&1 &'
 
-alias .idea-latest='nohup /home/paul/opt/idea/latest/bin/idea > /dev/null 2>&1 &'
+alias .idea='nohup /home/paul/opt/idea/latest/bin/idea > /dev/null 2>&1 &'

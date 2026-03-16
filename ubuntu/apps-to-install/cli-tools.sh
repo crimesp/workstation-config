@@ -88,6 +88,9 @@ sudo cp desktop-launchers/*.desktop /usr/share/applications/
 #clamav
 sudo apt install clamav -y
 
+sudo apt install flatpak flatpak-builder
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
 
 #download rootkit hunter - install this as early as possible to create properties of valid system files
 #1st run:
@@ -100,4 +103,3 @@ sudo apt install clamav -y
 #
 #sudo apt install chkrootkit
 #
-
