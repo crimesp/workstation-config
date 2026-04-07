@@ -6,10 +6,26 @@
 # Usage: .k.set.pod my-pod-name
 alias .k.set.pod='export KPOD'
 alias .k.set.srv='export KSRV'
+alias .k.set.ns='export KNS'
 alias .k.set.lport='export KLPORT'
 alias .k.set.sport='export KSPORT'
-alias .k.unset='unset KPOD KSRV KLPORT KSPORT'
-alias .k.env='echo "KPOD=${KPOD}  KSRV=${KSRV}  KLPORT=${KLPORT}  KSPORT=${KSPORT}"'
+alias .k.unset='unset KPOD KSRV KNS KLPORT KSPORT'
+alias .k.env='echo "KPOD=${KPOD}  KSRV=${KSRV}  KNS=${KNS}  KLPORT=${KLPORT}  KSPORT=${KSPORT}"'
+
+# --- namespace helpers ---
+# .k.ns.set [namespace]  — sets $KNS AND switches the current context's default namespace
+_k_ns_set() {
+  local ns; ns=$(_k_resolve "$1" KNS "namespace") || return 1
+  export KNS="$ns"
+  kubectl config set-context --current --namespace="$ns"
+}
+alias .k.ns.set='_k_ns_set'
+
+# .k.ns.get  — show the current context's default namespace
+alias .k.ns.get='kubectl config view --minify --output "jsonpath={.contexts[0].context.namespace}"'
+
+# .k.ns.list — list all namespaces in the cluster
+alias .k.ns.list='kubectl get namespaces'
 
 # --- common resolver ---
 # Usage: _k_resolve <value-from-arg> <env-var-name> <description>
@@ -81,6 +97,7 @@ alias .k.pod.delete='_k_pod_delete'
 alias .k.pods.get='kubectl get pods'
 alias .k.pods.get.ns='kubectl get pods -n'
 alias .k.pod.yaml='kubectl get pods'
+alias .k.pods.get.kns='kubectl get pods -n "${KNS}"'
 
 # --- kubectl services functions ---
 _k_svc_yaml() {
@@ -104,9 +121,11 @@ alias .k.svc.portforward='_k_svc_portforward'
 alias .k.services.get='kubectl get services'
 alias .k.svc.get='kubectl get svc'
 alias .k.svc.get.ns='kubectl get svc -n'
+alias .k.svc.get.kns='kubectl get svc -n "${KNS}"'
 
 # --- kubectl ingress aliases ---
 alias .k.ingress.get='kubectl get ingress'
+alias .k.ingress.get.kns='kubectl get ingress -n "${KNS}"'
 
 # --- kubectl networkpolicies functions ---
 _k_netpol_yaml() {
