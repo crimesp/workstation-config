@@ -105,7 +105,7 @@ alias .git.main.pull='git fetch origin main:main'
 # will fail with "fatal: Refusing to fetch into current branch refs/heads/main of non-bare repository" if you are on main branch
 
 alias .git.merge.from.main='.git.main.pull; git merge main'
-#####
+
 
 #####
 # rebase the current branch against the latest main branch
@@ -318,7 +318,7 @@ function .git.push.with.commit.message() {
 alias .fix='.git.push.with.commit.message fix: '
 alias .feat='.git.push.with.commit.message feat: '
 alias .chore='.git.push.with.commit.message chore: '
-
+alias .chore.merge.from.main='.chore merge from main'
 
 function .git.index.remove() {
    if [ -z "$1" ]
