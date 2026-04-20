@@ -18,7 +18,7 @@
 #
 #
 
-
+alias .git.branch.sqaush.force='git reset --soft $(git merge-base HEAD main);git commit -m "chore: force squash commits";git push --force-with-lease';
 
 alias .git.cherry.changes-from.master='git cherry -v master'
 alias .git.cherry.changes-from.main='git cherry -v main'

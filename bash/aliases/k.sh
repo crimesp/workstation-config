@@ -2,6 +2,31 @@
 # kubectl helper aliases & functions
 # =============================================================================
 
+
+#get events
+alias .k.events.calculations.test='kubectl get events -n tenant-asas-calculations-test --sort-by=.lastTimestamp | tail -n 30'
+alias .k.events.calculations.dev='kubectl get events -n tenant-asas-calculations-dev --sort-by=.lastTimestamp | tail -n 30'
+
+
+
+
+#show windows nodes in the cluster
+alias .k.nodes.calculations.test.win='kubectl get nodes -n tenant-asas-calculations-test --show-labels | grep win'
+alias .k.nodes.calculations.dev.win='kubectl get nodes -n tenant-asas-calculations-dev --show-labels | grep win'
+
+#show cpu usage
+alias .k.nodes.usage.cpu.win='kubectl get nodes -l kubernetes.io/os=windows -o custom-columns=NODE:.metadata.name,CAPACITY_CPU:.status.capacity.cpu,ALLOCATABLE_CPU:.status.allocatable.cpu'
+
+
+
+#show top nodes
+alias .k.nodes.top='kubectl top nodes'
+alias .k.nodes.top.win='kubectl top nodes -l kubernetes.io/os=windows'
+
+
+alias .k.node.describe.resources-and-events="kubectl describe node <node-name> | sed -n '/Allocated resources:/,/Events:/p"
+
+
 # --- ENV var setters ---
 # Usage: .k.set.pod my-pod-name
 alias .k.set.pod='export KPOD'
@@ -54,6 +79,20 @@ _k_pod_get_yaml() {
   kubectl get pods "$pod" -oyaml
 }
 alias .k.pod.get.yaml='_k_pod_get_yaml'
+
+_k_pod_inspect() {
+  # usage: .k.pod.inspect [pod-name]  (falls back to $KPOD)
+  local pod; pod=$(_k_resolve "$1" KPOD "pod name") || return 1
+  kubectl get pod "$pod" -n tenant-asas-calculations-test -o jsonpath='{.metadata.annotations}{"\n"}{.metadata.labels}{"\n"}{range .spec.initContainers[*]}init:{.name}{" "}{end}{range .spec.containers[*]}ctr:{.name}{" "}{end}{"\n"}'
+}
+alias .k.pod.inspect='_k_pod_inspect'
+
+_k_pod_describe() {
+  # usage: .k.pod.describe [pod-name]  (falls back to $KPOD)
+  local pod; pod=$(_k_resolve "$1" KPOD "pod name") || return 1
+  kubectl describe pod "$pod" -n tenant-asas-calculations-test
+}
+alias .k.pod.describe='_k_pod_describe'
 
 _k_pod_logs() {
   # usage: .k.pod.logs [pod-name]  (falls back to $KPOD)
