@@ -86,14 +86,14 @@ alias .git.master.pull='git fetch origin master:master'
 # pull the latest master branch and merge onto the current branch
 # will fail with "fatal: Refusing to fetch into current branch refs/heads/master of non-bare repository" if you are on master branch
 
-alias .git.merge.from.master='.git.master.pull; git merge master'
+alias .git.merge.from.master='.git.master.pull; git merge master -m"chore: merge from master branch"'
 #####
 
 #####
 # rebase the current branch against the latest master branch
 # will fail with "fatal: Refusing to fetch into current branch refs/heads/master of non-bare repository" if you are on master branch
 
-alias .git.rebase.from.master='.git.master.pull; git rebase master'
+alias .git.rebase.from.master='.git.master.pull; git rebase master -m"chore: rebase from master branch"'
 ######
 
 
@@ -104,14 +104,14 @@ alias .git.main.pull='git fetch origin main:main'
 # pull the latest main branch and merge onto the current branch
 # will fail with "fatal: Refusing to fetch into current branch refs/heads/main of non-bare repository" if you are on main branch
 
-alias .git.merge.from.main='.git.main.pull; git merge main'
+alias .git.merge.from.main='.git.main.pull; git merge main -m"chore: merge from main branch"'
 
 
 #####
 # rebase the current branch against the latest main branch
 # will fail with "fatal: Refusing to fetch into current branch refs/heads/main of non-bare repository" if you are on main branch
 
-alias .git.rebase.from.main='.git.main.pull; git rebase main'
+alias .git.rebase.from.main='.git.main.pull; git rebase main -m"chore: rebase from main branch"'
 ######
 
 
