@@ -1,51 +1,48 @@
 #########
 #GIT
 #########
+alias .git.main.checkout='git checkout main'
+alias .git.master.checkout='git checkout master'
 
-#git@github.com:UdaraWanasinghe/flutter-carousel-slider.git
-#https://github.com/UdaraWanasinghe/flutter-carousel-slider
-#
-#git remote add upstream https://github.com/original-owner/original-repo.git
-#
-#
-##if i have forked
-#git remote add upstream git@github.com:UdaraWanasinghe/flutter-carousel-slider.git
-#
-#
-#if i need to fork
-#git remote add myfork git@github.com:DashingDevelopers/flutter-carousel-slider.git
-#git push --set-upstream myfork for-upstream
-#
-#
+alias .git.branch.delete='git branch -d '
+alias .git.branch.deletehard='git branch -D '
 
-alias .git.branch.sqaush.force='git reset --soft $(git merge-base HEAD main);git commit -m "chore: force squash commits";git push --force-with-lease';
+alias .git.update.from.main='.git.main.pull && .git.merge.from.main'
 
-alias .git.cherry.changes-from.master='git cherry -v master'
-alias .git.cherry.changes-from.main='git cherry -v main'
-alias .git.cherry.changes-from.develop='git cherry -v develop'
+alias .fix='.git.push.with.commit.message fix: '
+alias .feat='.git.push.with.commit.message feat: '
+alias .chore='.git.push.with.commit.message chore: '
+alias .chore.merge.from.main='.chore merge from main'
 
+alias .git.main.pull='git fetch origin main:main'
+alias .git.master.pull='git fetch origin master:master'
 
-function .git.remote.update-remote-to-dashy-dev() {
+alias .git.merge.from.main='.git.main.pull; git merge main -m"chore: merge from main branch"'
+alias .git.merge.from.master='.git.master.pull; git merge master -m"chore: merge from master branch"'
 
-    if [ -z "$1" ]
-    then
-        echo "Supply a project name"
-        echo 'result will be git remote set-url origin git@github.com:DashingDevelopers/$1.git'
-    return 1
-    fi
-
-
-git remote set-url origin git@github.com:DashingDevelopers/$1.git
+alias .git.rebase.from.main='.git.main.pull; git rebase main -m"chore: rebase from main branch"'
+alias .git.rebase.from.master='.git.master.pull; git rebase master -m"chore: rebase from master branch"'
 
 
 
-}
+
+
 
 alias .git.reset.head='git reset HEAD .'
 
 alias .git.restore.staged='git restore --staged'
 
 alias .git.commit.undo.last.commit='git reset --soft HEAD~1'
+
+
+alias .git.branch.squash.force='git reset --soft $(git merge-base HEAD main);git commit -m "chore: force squash commits";git push --force-with-lease';
+
+alias .git.cherry.changes-from.master='git cherry -v master'
+alias .git.cherry.changes-from.main='git cherry -v main'
+alias .git.cherry.changes-from.develop='git cherry -v develop'
+
+
+
 
 #show files in staging
 alias .git.stage..show.staging.files.detail='git diff'
@@ -72,48 +69,6 @@ alias .git.branches.show.unpushed='git log --branches --not --remotes=origin --n
 alias .gitk='gitk --all'
 
 
-######################
-#NOTE I'M NOT 100% sure if these commands truly work as expected!!!
-
-#####
-# pull the local main branch with latest changes when on another branch
-# will fail with "fatal: Refusing to fetch into current branch refs/heads/main of non-bare repository" if you are on main branch
-
-alias .git.master.pull='git fetch origin master:master'
-#####
-
-#####
-# pull the latest master branch and merge onto the current branch
-# will fail with "fatal: Refusing to fetch into current branch refs/heads/master of non-bare repository" if you are on master branch
-
-alias .git.merge.from.master='.git.master.pull; git merge master -m"chore: merge from master branch"'
-#####
-
-#####
-# rebase the current branch against the latest master branch
-# will fail with "fatal: Refusing to fetch into current branch refs/heads/master of non-bare repository" if you are on master branch
-
-alias .git.rebase.from.master='.git.master.pull; git rebase master -m"chore: rebase from master branch"'
-######
-
-
-alias .git.main.pull='git fetch origin main:main'
-#####
-
-#####
-# pull the latest main branch and merge onto the current branch
-# will fail with "fatal: Refusing to fetch into current branch refs/heads/main of non-bare repository" if you are on main branch
-
-alias .git.merge.from.main='.git.main.pull; git merge main -m"chore: merge from main branch"'
-
-
-#####
-# rebase the current branch against the latest main branch
-# will fail with "fatal: Refusing to fetch into current branch refs/heads/main of non-bare repository" if you are on main branch
-
-alias .git.rebase.from.main='.git.main.pull; git rebase main -m"chore: rebase from main branch"'
-######
-
 
 #useful for tidying up branches that are no longer required
 alias .git.prune.with.delete.helper=".git.prune;git branch -v | grep gone; echo git branch -d BRANCH NAME "
@@ -126,31 +81,7 @@ alias .git.prune='git remote prune origin'
 ########################################################
 
 
-#git operations for all git projects in subdirectories
-alias .git.subdirs.status='for d in ./*/ ; do (cd "$d" && echo '';pwd;git status); done'
-alias .git.subdirs.branch='for d in ./*/ ; do (cd "$d" && echo '';pwd;git branch); done'
-alias .git.subdirs.branchall='for d in ./*/ ; do (cd "$d" && echo '';pwd;git branch -a); done'
-alias .git.subdirs.pull='for d in ./*/ ; do (cd "$d" && echo '';pwd;git pull); done'
-alias .git.subdirs.fetch='for d in ./*/ ; do (cd "$d" && echo '';pwd;git fetch); done'
-alias .git.subdirs.main.checkoutandpull='for d in ./*/ ; do (cd "$d" && echo '';pwd;git checkout main; git pull); done'
 
-alias .git.main.checkout='git checkout main'
-
-alias .git.subdirs.master.checkoutandpull='for d in ./*/ ; do (cd "$d" && echo '';pwd;git checkout master; git pull); done'
-
-alias .git.master.checkout='git checkout master'
-
-alias .git.branch.delete='git branch -d '
-alias .git.branch.deletehard='git branch -D '
-#but untracked files present
-alias .git.report.generate="rc;.git.foreachbranch.pull.and.show.status > .git_report.log; cat .git_report.log"
-alias .git.report.grep.but="grep 'but' .git_report.log | uniq"
-alias .git.report.grep.no.origins="grep 'but the upstream is gone' .git_report.log | uniq"
-
-alias .git.grep.yourbranch=$'sed "s/Your branch is based on \'origin\//.git.branch.delete /g"'
-alias .git.grep.theupstreamgone=$'sed "s/\', but the upstream is gone.//g"'
-
-alias .git.execute.branch.delete='.git.report.grep.no.origins | .git.grep.yourbranch | .git.grep.theupstreamgone'
 
 
 
@@ -187,111 +118,6 @@ git push -f
     fi
 }
 
-function .git.foreachbranch.pull.and.show.status() {
-
-for branchtocheck in $(git branch);
-do (
-    git checkout $branchtocheck
-    git pull
-    git st
-);done
-
-git checkout main
-
-
-}
-
-function .git.subdirs.create.new.branch() {
-    BRANCH_NAME=$1
-    for d in ./*/ ;
-    do (
-        cd "$d" ;
-        git branch "$BRANCH_NAME"
-     ); done
-
-}
-
-
-function .git.subdirs.checkout.branch() {
-    BRANCH_NAME=$1
-    for d in ./*/ ;
-    do (
-        cd "$d" ;
-        git checkout "$BRANCH_NAME"
-     ); done
-
-}
-
-function .git.subdirs.diff.main.count() {
-echo "main Diffs for Branch / Feature Dirs"
-for d in ./*/ ;
-    do (
-        #echo "dir is $filebasename"
-        cd "$d" ;
-    	printf "$d :"
-        git diff main | grep "diff --git" -c
-     	); done
-
-
-echo "****"
-
-printf "\n\n\nmain Diffs for Reference dirs"
-    cd symlinks
-    for d in ./*/ ;
-    do (
-        cd "$d" ;
-        printf "$d :"
-        git diff main | grep "diff --git" -c | grep ":[d]"
-     ); done
-    cd ../
-
-}
-
-
-function .git.subdirs.diff.main.summary() {
-    for d in ./*/ ;
-    do (
-        cd "$d" ;
-        echo "**** Diff of $d :"
-        git diff main | grep "diff --git"
-     ); done
-
-}
-
-function .git.subdirs.diff.main.full() {
-    for d in ./*/ ;
-    do (
-        cd "$d" ;
-        echo "**** Diff of $d :"
-        git diff main
-     ); done
-
-}
-
-
-
-
-
-function .git.subdirs.main.pull() {
-    for d in ./*/ ;
-    do (
-        cd "$d" ;
-        .git.main.pull
-     ); done
-
-}
-
-function .git.subdirs.merge.from.main() {
-    for d in ./*/ ;
-    do (
-        cd "$d" ;
-        .git.merge.from.main
-     ); done
-
-}
-
-alias .git.branches.list.by-last-commit="git for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:relative)%09%(refname:short)"
-
 alias .git.commit='.git.commit'
 function .git.commit() {
     if [ -z "$1" ]
@@ -315,10 +141,7 @@ function .git.push.with.commit.message() {
     git push
 }
 
-alias .fix='.git.push.with.commit.message fix: '
-alias .feat='.git.push.with.commit.message feat: '
-alias .chore='.git.push.with.commit.message chore: '
-alias .chore.merge.from.main='.chore merge from main'
+
 
 function .git.index.remove() {
    if [ -z "$1" ]
@@ -394,57 +217,3 @@ function .git.branch.rename.current() {
 
 }
 
-
-function .git.search.for.file.across.branches() {
-    if [ -z "$1" ]
-    then
-        echo "Supply a file name to search for"
-    return 1
-    fi
-
-    local FILENAME="$@"
-    echo "Searching for file using full history: $FILENAME"
-    git log --all --full-history -- **/$FILENAME
-
-  echo "Searching for file using lstree: $FILENAME"
-
-
-for branch in `git for-each-ref --format="%(refname)" refs/heads`; do
-  echo $branch :; git ls-tree -r --name-only $branch | grep '<foo>'
-done
-
-}
-
-function .git.checkout.all.branches() {
-    for branch in $(git branch -a | grep remotes | grep -v HEAD | grep -v main); do
-        git branch --track ${branch#remotes/origin/} $branch
-    done
-}
-
-
-function .git.find.branches.containing.file.and.diff.between.them.and.this.branch()
-{
-  if [ $# -ne 1 ]; then
-    echo "Usage: $0 <relative file_path>"
-    exit 1
-  fi
-
-  file_path="$1"
-
-  # Get the current branch name
-  current_branch=$(git symbolic-ref --short HEAD)
-
-  # Get a list of branches containing the specified file
-  branches_with_file=$(git for-each-ref --format="%(refname:short)" refs/heads/ | while read branch; do
-    if git rev-list $branch -- "$file_path" | grep -q .; then
-      echo "$branch"
-    fi
-  done)
-
-  # Iterate through branches and perform a git diff
-  for branch in $branches_with_file; do
-    echo "Diff between $branch and $current_branch for file $file_path:"
-    git diff $current_branch..$branch -- "$file_path"
-    echo "-----------------------------------------"
-  done
-}
