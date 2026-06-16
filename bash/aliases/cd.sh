@@ -32,4 +32,12 @@ alias .cd.cstest='cd ~/git/accomplish/environments/cloudservices-env-test'
 
 
 
-alias .cd.returns='cd ~/git/jupiter/returns-service/'
+alias .cd.returns-service='cd ~/git/jupiter/returns-service/'
+alias .cd.returns-service.scripts='cd ~/git/jupiter/returns-service/scripts'
+alias .cd.returns-service.maintenance='cd ~/git/jupiter/returns-service/scripts/maintenance/'
+alias .cd.returns-service.endpoint-smoke-tests='cd ~/git/jupiter/returns-service/scripts/endpoint-smoke-tests/'
+alias .cd.returns-service.feature-tests='cd ~/git/jupiter/returns-service/scripts/feature-tests/'
+alias .cd.govrules-adapter-service='cd ~/git/jupiter/govrules-adapter-service/'
+alias .cd.govrules-adapter-service.scripts='cd ~/git/jupiter/govrules-adapter-service/scripts'
+alias .cd.govrules-adapter-service.smoke-tests='cd ~/git/jupiter/govrules-adapter-service/smoke-tests'
+alias .cd.govrules-adapter-service.maintenance='cd ~/git/jupiter/govrules-adapter-service/maintenance'
