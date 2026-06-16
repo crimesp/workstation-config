@@ -3,7 +3,14 @@
 # =============================================================================
 
 #scale
-alias .k.scale.deployment.govrules-tls='kubectl scale deployment govrules-tls --replicas='
+alias .k.scale.deployment.govrules-tls='k_scale_deployment govrules-tls'
+k_scale_deployment() {
+  if [[ -z "$1" || -z "$2" ]]; then
+    echo "ERROR: deployment name and replica count must be provided." >&2
+    return 1
+  fi
+  kubectl scale deployment "$1" --replicas="$2"
+}
 
 #get events
 alias .k.get.events='kubectl get events --sort-by=.lastTimestamp | tail -n 30'
@@ -40,7 +47,14 @@ _k_ns_set() {
   export KNS="$ns"
   kubectl config set-context --current --namespace="$ns"
 }
+
 alias .k.set.ns='_k_ns_set'
+alias .k.set.ns.tenant-asas-calculations-dev='.k.set.ns tenant-asas-calculations-dev'
+alias .k.set.ns.tenant-asas-calculations-test='.k.set.ns tenant-asas-calculations-test'
+alias .k.set.ns.tenant-asas-returns-dev='.k.set.ns tenant-asas-returns-dev'
+alias .k.set.ns.tenant-asas-returns-test='.k.set.ns tenant-asas-returns-test'
+
+
 
 # .k.get.ns  — show the current context's default namespace
 alias .k.get.ns='kubectl config view --minify --output "jsonpath={.contexts[0].context.namespace}"'
