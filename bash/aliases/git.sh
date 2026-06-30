@@ -14,6 +14,7 @@ alias .feat='.git.push.with.commit.message feat: '
 alias .chore='.git.push.with.commit.message chore: '
 alias .chore.merge.from.main='.chore merge from main'
 
+
 alias .git.main.pull='git fetch origin main:main'
 alias .git.master.pull='git fetch origin master:master'
 
@@ -29,13 +30,12 @@ alias .git.rebase.from.master='.git.master.pull; git rebase master -m"chore: reb
 
 
 alias .git.reset.head='git reset HEAD .'
-
 alias .git.restore.staged='git restore --staged'
-
 alias .git.commit.undo.last.commit='git reset --soft HEAD~1'
+alias .git.commit.reset-all='git reset --soft $(git merge-base HEAD main)'
 
 
-alias .git.branch.squash.force='git reset --soft $(git merge-base HEAD main);git commit -m "chore: force squash commits";git push --force-with-lease';
+alias .git.branch.squash.push.force-with-lease='git.commit.reset-all;git commit -m "chore: force squash commits";git push --force-with-lease';
 
 alias .git.cherry.changes-from.master='git cherry -v master'
 alias .git.cherry.changes-from.main='git cherry -v main'

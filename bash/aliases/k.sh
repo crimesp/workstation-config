@@ -2,7 +2,13 @@
 # kubectl helper aliases & functions
 # =============================================================================
 
+source <(kubectl completion bash) # set up autocomplete in bash into the current shell, bash-completion package should be installed first.
+alias k=kubectl
+complete -o default -F __start_kubectl k
+
+
 #scale
+alias .k.scale.deployment='k_scale_deployment'
 alias .k.scale.deployment.govrules-tls='k_scale_deployment govrules-tls'
 k_scale_deployment() {
   if [[ -z "$1" || -z "$2" ]]; then
