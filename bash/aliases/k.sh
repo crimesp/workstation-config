@@ -6,6 +6,19 @@ source <(kubectl completion bash) # set up autocomplete in bash into the current
 alias k=kubectl
 complete -o default -F __start_kubectl k
 
+alias .k.report.deployment-status='_k_report_deployment_status'
+function _k_report_deployment_status() {
+printf "%-45s %-50s %-20s %-15s\n" "NAMESPACE" "APP" "VERSION" "STATUS"
+printf "%-45s %-50s %-20s %-15s\n" "---------" "---" "-------" "------"
+for ns in tenant-asas-returns-dev tenant-asas-calculations-dev tenant-asas-returns-test tenant-asas-calculations-test tenant-asas-returns-sit tenant-asas-calculations-sit; do
+  kubectl get pods -n $ns \
+    -l 'app in (individual-returns-service, govrules-tls, calculation-govrules-adapter-service, validation-govrules-adapter-service)' \
+    -o jsonpath='{range .items[*]}{.metadata.namespace}{"\t"}{.metadata.labels.app}{"\t"}{.metadata.labels.version}{"\t"}{.status.phase}{"\n"}{end}' 2>/dev/null
+done | awk '{printf "%-45s %-50s %-20s %-15s\n", $1, $2, $3, $4}'
+}
+
+
+
 
 #scale
 alias .k.scale.deployment='k_scale_deployment'
@@ -149,8 +162,8 @@ _k_pod_delete() {
 alias .k.delete.pod='_k_pod_delete'
 
 # --- kubectl pods aliases (no argument needed) ---
-alias .k.get.pods='kubectl get pods'
-alias .k.get.pods.ns='kubectl get pods -n'
+alias .k.get.pods='kubectl get pods -L version'
+alias .k.get.pods.ns='kubectl get pods -L version -n'
 alias .k.pod.yaml='kubectl get pods'
 alias .k.get.pods.kns='kubectl get pods -n "${KNS}"'
 
