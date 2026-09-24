@@ -1,29 +1,33 @@
 #########
 #GIT
 #########
+alias .git.main.checkout='git checkout main'
+alias .git.master.checkout='git checkout master'
 
-#git@github.com:UdaraWanasinghe/flutter-carousel-slider.git
-#https://github.com/UdaraWanasinghe/flutter-carousel-slider
-#
-#git remote add upstream https://github.com/original-owner/original-repo.git
-#
-#
-##if i have forked
-#git remote add upstream git@github.com:UdaraWanasinghe/flutter-carousel-slider.git
-#
-#
-#if i need to fork
-#git remote add myfork git@github.com:DashingDevelopers/flutter-carousel-slider.git
-#git push --set-upstream myfork for-upstream
-#
-#
+alias .git.branch.delete='git branch -d '
+alias .git.branch.deletehard='git branch -D '
 
 alias .git.rebase-off='git config pull.rebase false && git config --global pull.rebase false'
+
+alias .git.update.from.main='.git.main.pull && .git.merge.from.main'
+
+alias .fix='.git.push.with.commit.message fix: '
+alias .feat='.git.push.with.commit.message feat: '
+alias .chore='.git.push.with.commit.message chore: '
+alias .chore.merge.from.main='.chore merge from main'
 
 alias .git.cherry.changes-from.master='git cherry -v master'
 alias .git.cherry.changes-from.main='git cherry -v main'
 alias .git.cherry.changes-from.develop='git cherry -v develop'
 
+alias .git.main.pull='git fetch origin main:main'
+alias .git.master.pull='git fetch origin master:master'
+
+alias .git.merge.from.main='.git.main.pull; git merge main -m"chore: merge from main branch"'
+alias .git.merge.from.master='.git.master.pull; git merge master -m"chore: merge from master branch"'
+
+alias .git.rebase.from.main='.git.main.pull; git rebase main -m"chore: rebase from main branch"'
+alias .git.rebase.from.master='.git.master.pull; git rebase master -m"chore: rebase from master branch"'
 
 function .git.remote.update-remote-to-dashy-dev() {
 
@@ -37,15 +41,23 @@ function .git.remote.update-remote-to-dashy-dev() {
 
 git remote set-url origin git@github.com:DashingDevelopers/$1.git
 
-
-
 }
 
+
 alias .git.reset.head='git reset HEAD .'
-
 alias .git.restore.staged='git restore --staged'
-
 alias .git.commit.undo.last.commit='git reset --soft HEAD~1'
+alias .git.commit.reset-all='git reset --soft $(git merge-base HEAD main)'
+
+
+alias .git.branch.squash.push.force-with-lease='git.commit.reset-all;git commit -m "chore: force squash commits";git push --force-with-lease';
+
+alias .git.cherry.changes-from.master='git cherry -v master'
+alias .git.cherry.changes-from.main='git cherry -v main'
+alias .git.cherry.changes-from.develop='git cherry -v develop'
+
+
+
 
 #show files in staging
 alias .git.stage..show.staging.files.detail='git diff'

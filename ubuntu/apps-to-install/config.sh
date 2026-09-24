@@ -19,3 +19,5 @@ gsettings set org.gnome.desktop.background picture-options 'none'
 #optional color setting
 gsettings set org.gnome.desktop.background primary-color 'rgb(66, 81, 100)'
 
+git config --global merge.ff true
+git config --global merge.ff true
