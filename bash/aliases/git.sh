@@ -18,7 +18,7 @@
 #
 #
 
-
+alias .git.rebase-off='git config pull.rebase false && git config --global pull.rebase false'
 
 alias .git.cherry.changes-from.master='git cherry -v master'
 alias .git.cherry.changes-from.main='git cherry -v main'
