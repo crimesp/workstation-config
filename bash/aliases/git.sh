@@ -181,6 +181,7 @@ function .git.checkout.new.branch.feat() {
 
 alias .branch.feat='.git.checkout.new.branch.feat'
 alias .branch.fix='.git.checkout.new.branch.fix'
+alias .branch.chore='.git.checkout.new.branch.chore'
 
 function .git.checkout.new.branch.fix() {
     if [ -z "$1" ]
@@ -191,6 +192,19 @@ function .git.checkout.new.branch.fix() {
 
     local BRANCH="$@"
     local BRANCH_CLEAN="fix/${BRANCH// /-}"
+    echo "Checking out new branch: $BRANCH_CLEAN"
+    git checkout -b "$BRANCH_CLEAN"
+}
+
+function .git.checkout.new.branch.chore() {
+    if [ -z "$1" ]
+    then
+        echo "Supply a branch name (spaces are ok)"
+    return 1
+    fi
+
+    local BRANCH="$@"
+    local BRANCH_CLEAN="chore/${BRANCH// /-}"
     echo "Checking out new branch: $BRANCH_CLEAN"
     git checkout -b "$BRANCH_CLEAN"
 }
