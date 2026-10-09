@@ -31,8 +31,12 @@ alias .k.port-forward.govrules='.k.portforward.svc svc/govrules-tls 8443 443'
 alias .k.port-forward.govrules.dev='kubectl port-forward svc/govrules-tls 8443:443 -n tenant-asas-calculations-dev'
 alias .k.port-forward.govrules.test='kubectl port-forward svc/govrules-tls 8443:443 -n tenant-asas-calculations-test'
 
+alias .l.ssh-tunnel.govrules='echo "port forward to 8443 - press Ctrl+C to exit"; ssh -N -L 8443:localhost:8443 d4d'
 
 #scale
+
+
+
 alias .k.scale.deployment='k_scale_deployment'
 alias .k.scale.deployment.govrules-tls='k_scale_deployment govrules-tls'
 k_scale_deployment() {
@@ -223,4 +227,3 @@ alias .k.netpol.yaml='_k_netpol_yaml'
 
 # --- kubectl networkpolicies aliases (no argument needed) ---
 alias .k.get.netpol='kubectl get networkpolicies'
-
