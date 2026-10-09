@@ -19,7 +19,7 @@ done | awk '{printf "%-45s %-50s %-20s %-15s\n", $1, $2, $3, $4}'
 
 alias .k.port-forward.returns='.k.portforward.svc individual-returns-service 50051 50051'
 alias .k.port-forward.returns.dev='kubectl port-forward svc/individual-returns-service 50051:50051 -n tenant-asas-returns-dev'
-alias .k.port-forward.returns.dev='kubectl port-forward svc/individual-returns-service 50051:50051 -n tenant-asas-returns-test'
+alias .k.port-forward.returns.test='kubectl port-forward svc/individual-returns-service 50051:50051 -n tenant-asas-returns-test'
 
 
 
