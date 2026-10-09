@@ -124,6 +124,7 @@ alias .adb.clear_locks='rm ~/.android/avd/*.avd/*.lock'
 alias .adb.devices='adb devices -l'
 
 alias .adb.release.s21='adb -s RF8N90L632Y install build/app/outputs/flutter-apk/app-development-release.apk'
+alias .adb.production.s21='adb -s RF8N90L632Y install build/app-production-release.aab'
 alias .adb.profile.s21='adb -s RF8N90L632Y install build/app/outputs/flutter-apk/app-development-profile.apk'
 alias .adb.profile='adb install build/app/outputs/flutter-apk/app-development-profile.apk'
 
