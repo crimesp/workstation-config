@@ -23,6 +23,15 @@ alias .k.port-forward.returns.test='kubectl port-forward svc/individual-returns-
 
 
 
+alias .k.port-forward.adapter='.k.portforward.svc validation-govrules-adapter-service 50051 50051'
+alias .k.port-forward.adapter.dev='kubectl port-forward svc/validation-govrules-adapter-service 50051:50051 -n tenant-asas-calculations-dev'
+alias .k.port-forward.adapter.test='kubectl port-forward svc/validation-govrules-adapter-service 50051:50051 -n tenant-asas-calculations-test'
+
+alias .k.port-forward.govrules='.k.portforward.svc svc/govrules-tls 8443 443'
+alias .k.port-forward.govrules.dev='kubectl port-forward svc/govrules-tls 8443:443 -n tenant-asas-calculations-dev'
+alias .k.port-forward.govrules.test='kubectl port-forward svc/govrules-tls 8443:443 -n tenant-asas-calculations-test'
+
+
 #scale
 alias .k.scale.deployment='k_scale_deployment'
 alias .k.scale.deployment.govrules-tls='k_scale_deployment govrules-tls'
@@ -38,6 +47,9 @@ k_scale_deployment() {
 alias .k.get.events='kubectl get events --sort-by=.lastTimestamp | tail -n 30'
 alias .k.get.events.calculations.test='kubectl get events -n tenant-asas-calculations-test --sort-by=.lastTimestamp | tail -n 30'
 alias .k.get.events.calculations.dev='kubectl get events -n tenant-asas-calculations-dev --sort-by=.lastTimestamp | tail -n 30'
+
+
+
 
 
 

@@ -1,6 +1,8 @@
 #########
 #GIT
 #########
+alias .git.push.noverify='git push --no-verify'
+
 alias .git.main.checkout='git checkout main'
 alias .git.master.checkout='git checkout master'
 
