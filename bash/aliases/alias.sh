@@ -3,7 +3,7 @@ alias .alias.contexts.list='echo "Alias Contexts:";alias | egrep -o "^alias \.([
 alias .alias.edit.new='vi $BASH_INCLUDES/aliases/_new_aliases.sh; .alias.source'
 alias .alias.add='_alias.add'
 
-alias .alias.repo-update='.cd.workstation-config; git pull;.alias.source'
+alias .alias.repo-update='.cd.workstation; git pull;.alias.source'
 
 function _alias.add () {
 
