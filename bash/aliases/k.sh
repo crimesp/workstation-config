@@ -12,10 +12,18 @@ printf "%-45s %-50s %-20s %-15s\n" "NAMESPACE" "APP" "VERSION" "STATUS"
 printf "%-45s %-50s %-20s %-15s\n" "---------" "---" "-------" "------"
 for ns in tenant-asas-returns-dev tenant-asas-calculations-dev tenant-asas-returns-test tenant-asas-calculations-test tenant-asas-returns-sit tenant-asas-calculations-sit; do
   kubectl get pods -n $ns \
-    -l 'app in (individual-returns-service, govrules-tls, calculation-govrules-adapter-service, validation-govrules-adapter-service)' \
+    -l 'app in (individual-returns-service, govrules-tls, calculation-govrules-adapter-service, validation-govrules-adapter-service, govrules-tls)' \
     -o jsonpath='{range .items[*]}{.metadata.namespace}{"\t"}{.metadata.labels.app}{"\t"}{.metadata.labels.version}{"\t"}{.status.phase}{"\n"}{end}' 2>/dev/null
 done | awk '{printf "%-45s %-50s %-20s %-15s\n", $1, $2, $3, $4}'
 }
+
+alias .k.rollout.restart.govrules-tls='k rollout restart deployment govrules-tls'
+alias .k.rollout.restart.govrules-tls.dev='.k.rollout.restart.govrules-tls -n tenant-asas-calculations-dev'
+alias .k.rollout.restart.govrules-tls.test='.k.rollout.restart.govrules-tls -n tenant-asas-calculations-test'
+
+alias .k.rollout.delete-pods.govrules-tls='k delete pods -l app=govrules-tls'
+alias .k.rollout.delete-pods.govrules-tls.dev='.k.rollout.delete-pods.govrules-tls -n tenant-asas-calculations-dev'
+alias .k.rollout.delete-pods.govrules-tls.test='.k.rollout.delete-pods.govrules-tls -n tenant-asas-calculations-test'
 
 alias .k.port-forward.returns='.k.portforward.svc individual-returns-service 50051 50051'
 alias .k.port-forward.returns.dev='kubectl port-forward svc/individual-returns-service 50051:50051 -n tenant-asas-returns-dev'
@@ -31,7 +39,8 @@ alias .k.port-forward.govrules='.k.portforward.svc svc/govrules-tls 8443 443'
 alias .k.port-forward.govrules.dev='kubectl port-forward svc/govrules-tls 8443:443 -n tenant-asas-calculations-dev'
 alias .k.port-forward.govrules.test='kubectl port-forward svc/govrules-tls 8443:443 -n tenant-asas-calculations-test'
 
-alias .l.ssh-tunnel.govrules='echo "port forward to 8443 - press Ctrl+C to exit"; ssh -N -L 8443:localhost:8443 d4d'
+alias .l.ssh-tunnel.govrules='echo "port forward to 8443 - press Ctrl+C to exit"; ssh -L 8443:localhost:8443 d4d'
+alias .l.ssh-tunnel.govrules.8083='echo "port forward to 8083 - press Ctrl+C to exit"; ssh -L 8083:localhost:8080 d4d'
 
 #scale
 
