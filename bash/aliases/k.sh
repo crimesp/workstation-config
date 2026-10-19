@@ -8,13 +8,28 @@ complete -o default -F __start_kubectl k
 
 alias .k.report.deployment-status='_k_report_deployment_status'
 function _k_report_deployment_status() {
-printf "%-45s %-50s %-20s %-15s\n" "NAMESPACE" "APP" "VERSION" "STATUS"
-printf "%-45s %-50s %-20s %-15s\n" "---------" "---" "-------" "------"
-for ns in tenant-asas-returns-dev tenant-asas-calculations-dev tenant-asas-returns-test tenant-asas-calculations-test tenant-asas-returns-sit tenant-asas-calculations-sit; do
-  kubectl get pods -n $ns \
-    -l 'app.kubernetes.io/name in (individual-returns-service, govrules-tls, calculation-govrules-adapter-service, validation-govrules-adapter-service, govrules-tls)' \
-    -o jsonpath='{range .items[*]}{.metadata.namespace}{"\t"}{.metadata.labels.app}{"\t"}{.metadata.labels.version}{"\t"}{.status.phase}{"\n"}{end}' 2>/dev/null
-done | awk '{printf "%-45s %-50s %-20s %-15s\n", $1, $2, $3, $4}'
+  printf "%-45s %-50s %-20s %-15s\n" "NAMESPACE" "APP" "VERSION" "STATUS"
+  printf "%-45s %-50s %-20s %-15s\n" "---------" "---" "-------" "------"
+  for ns in tenant-asas-returns-dev tenant-asas-calculations-dev tenant-asas-returns-test tenant-asas-calculations-test tenant-asas-returns-sit tenant-asas-calculations-sit; do
+    kubectl get pods -n $ns \
+      -l 'app.kubernetes.io/name in (individual-returns-service, govrules-tls, calculation-govrules-adapter-service, validation-govrules-adapter-service, govrules-tls)' \
+      -o jsonpath='{range .items[*]}{.metadata.namespace}{"\t"}{.metadata.labels.app}{"\t"}{.metadata.labels.version}{"\t"}{.status.phase}{"\n"}{end}' 2>/dev/null
+  done | awk '{printf "%-45s %-50s %-20s %-15s\n", $1, $2, $3, $4}'
+}
+
+alias .k.report.govrules-version='_k_report_govrules_version'
+function _k_report_govrules_version() {
+  printf "%-45s %-50s %-20s %-15s\n" "NAMESPACE" "POD" "VERSION" "STATUS"
+  printf "%-45s %-50s %-20s %-15s\n" "---------" "---" "-------" "------"
+  for ns in tenant-asas-calculations-dev tenant-asas-calculations-test tenant-asas-calculations-sit; do
+    kubectl get pods -n "$ns" \
+      -l 'app.kubernetes.io/name=govrules-tls' \
+      -o jsonpath='{range .items[*]}{.metadata.namespace}{"\t"}{.metadata.name}{"\t"}{.spec.containers[0].image}{"\t"}{.status.phase}{"\n"}{end}' 2>/dev/null
+  done | awk -F'\t' '{
+    n = split($3, parts, ":");
+    version = (n > 1) ? parts[n] : "unknown";
+    printf "%-45s %-50s %-20s %-15s\n", $1, $2, version, $4
+  }'
 }
 
 alias .k.rollout.restart.govrules-tls='k rollout restart deployment govrules-tls'
