@@ -12,8 +12,8 @@ printf "%-45s %-50s %-20s %-15s\n" "NAMESPACE" "APP" "VERSION" "STATUS"
 printf "%-45s %-50s %-20s %-15s\n" "---------" "---" "-------" "------"
 for ns in tenant-asas-returns-dev tenant-asas-calculations-dev tenant-asas-returns-test tenant-asas-calculations-test tenant-asas-returns-sit tenant-asas-calculations-sit; do
   kubectl get pods -n $ns \
-    -l 'kubernetes.io/name in (individual-returns-service, govrules-tls, calculation-govrules-adapter-service, validation-govrules-adapter-service, govrules-tls)' \
-    -o jsonpath='{range .items[*]}{.metadata.namespace}{"\t"}{.metadata.labels.kubernetes.io/name}{"\t"}{.metadata.labels.version}{"\t"}{.status.phase}{"\n"}{end}' 2>/dev/null
+    -l 'app.kubernetes.io/name in (individual-returns-service, govrules-tls, calculation-govrules-adapter-service, validation-govrules-adapter-service, govrules-tls)' \
+    -o jsonpath='{range .items[*]}{.metadata.namespace}{"\t"}{.metadata.labels.app.kubernetes.io/name}{"\t"}{.metadata.labels.version}{"\t"}{.status.phase}{"\n"}{end}' 2>/dev/null
 done | awk '{printf "%-45s %-50s %-20s %-15s\n", $1, $2, $3, $4}'
 }
 
