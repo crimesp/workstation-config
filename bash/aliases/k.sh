@@ -17,6 +17,17 @@ function _k_report_deployment_status() {
   done | awk '{printf "%-45s %-50s %-20s %-15s\n", $1, $2, $3, $4}'
 }
 
+alias .k.report.deployment-status.ui='_k_report_deployment_status_ui'
+function _k_report_deployment_status_ui() {
+  printf "%-45s %-50s %-20s %-15s\n" "NAMESPACE" "APP" "VERSION" "STATUS"
+  printf "%-45s %-50s %-20s %-15s\n" "---------" "---" "-------" "------"
+  for ns in tenant-asas-returns-dev tenant-asas-returns-test tenant-asas-returns-sit ; do
+    kubectl get pods -n $ns \
+      -l 'app.kubernetes.io/name in (asas-individual-returns-ui-web-app, asas-returns-list-ui-web-app)' \
+      -o jsonpath='{range .items[*]}{.metadata.namespace}{"\t"}{.metadata.labels.app}{"\t"}{.metadata.labels.version}{"\t"}{.status.phase}{"\n"}{end}' 2>/dev/null
+  done | awk '{printf "%-45s %-50s %-20s %-15s\n", $1, $2, $3, $4}'
+}
+
 alias .k.report.govrules-version='_k_report_govrules_version'
 function _k_report_govrules_version() {
   printf "%-45s %-50s %-20s %-15s\n" "NAMESPACE" "POD" "VERSION" "STATUS"
